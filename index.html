@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Data Science Colloquium - How Ultrarunning Works</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section  data-background="./images/home.png" >
+					<h2>Data Science Colloquium</h2>
+					<p> How Ultrarunning Works </p>
+					<small>Paul Buffa - May, 2016</small>
+				</section>
+
+				<section data-background="./images/home.png">
+					 <p>"Any idiot can run a marathon.  It takes a special kind of idiot to run an ultramarathon."</p>
+					 <small>- Alan Cabelly</small>
+				</section>
+
+				<section>
+					<h2>About Me</h2>
+					<p class="fragment"> 5 years running marathons & ultramarathons </p>
+					<p class="fragment"> (20?) marathons, (10?) 50ks, 3 50 milers, 3/5 1 100 miler (aka 100K) </p>
+					<p class="fragment"> Trained with Scott Weber</p>
+				</section>
+
+				<section>
+					<h2>How did it start?</h2>
+					<p class="fragment"> Ragnar </p>
+					<p class="fragment"> Colorado </p>
+					<p class="fragment"> Finding my limits</p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<p> What is Ultrarunning?<br />
+						How to Run an Ultramarathon
+					</p>
+				</section>
+
+				<section data-background="./images/night.png">
+					<h1>What is an Ultramarathon?</h>
+				</section>
+
+				<section data-background="./images/night.png">
+					 <p>An ultramarathon is any organized footrace extending beyond the standard marathon running distance of 42 kilometers, 195 meters (26 miles, 385 yards). Ultra races typically begin at 50 kilometers and can extend to enormous distances. There is no limit.</p>
+				</section>
+
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/u3Hgl-ugv_g" frameborder="0" allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<image src="./images/by-distance.png"></image>
+					<br />
+					<small>ultrarunning.com 2013</small>
+					<!-- https://www.ultrarunning.com/featured/2013-ultrarunning-participation-by-the-numbers/ -->
+				</section>
+
+				<section data-background="./images/popularity.png">
+					<h1>Growing in Popularity</h1>
+					 <p class="fragment"> begrudgingly...</p>
+				</section>
+
+				<section>
+					<image src="./images/growing.png" height=500></image>
+					<p > More Races Every Year</p>
+					<small> ultrarunning.com 2014</small>
+					<!-- https://www.ultrarunning.com/data/10-year-growth-of-ultrarunning-events-and-races/ -->
+				</section>
+
+				<section>
+					<image src="./images/bothgrowing.png" height=500></image>
+					<p > Similar Growth for Marathons</p>
+				</section>
+
+				<section>
+					<image src="./images/born_to_run.jpg" height=500></image>
+					<p> The "Born to Run" Boom</p>
+				</section>
+				<section>
+					<image src="./images/leadville.png" height=500></image>
+					<p> Leadville 100 Trail Run Contestents </p>
+					<small> realendurance.com </small>
+					<!-- http://realendurance.com/event.php?a=LT100 -->
+				</section>
+				<section data-background="./images/training.jpg">
+					<h1>How to Train</h1>
+				</section>
+
+				<section style="text-align: left;">
+					<h2 >How to Train</h2>
+					 <p class="fragment"> Learn how to not hit the wall</p>
+					 <p class="fragment"> Be comfortable on your feet for hours</p>
+					 <p class="fragment"> Plan meticulously</p>
+					 <p class="fragment"> Love the climb*</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>Miles</h2>	
+					<p class="fragment"> Run a lot of them </p>
+					<p class="fragment"> You can go really slow </p>
+					<p class="fragment"> Walk + Run strategy </p>
+				</section>
+
+				<section data-background-iframe="http://localhost:8008/distcumulative.html">
+				</section>
+
+				<section data-background-iframe="http://localhost:8008/running_iii.html">
+				</section>
+
+				<section style="text-align: left;">
+					<h2>Heart Rate</h2>
+					 <p class="fragment"><small> Aerobic vs Anerobic Levels</small></p>
+					 <p class="fragment"><small> Phil Maffetone</small></p>
+					 <p class="fragment"><small> Watches / Monitors </small></p>
+				</section>
+
+				<section data-background-iframe="http://localhost:8008/hrboxplotbydate.html">
+				</section>
+
+				<section data-background-iframe="http://localhost:8008/running_iv.html">
+				</section>
+
+				<section data-background-iframe="http://localhost:8008/hrbydistance.html">
+				</section>
+
+				<section style="text-align: left;">
+					<h2>Fueling</h2>
+					 <p class="fragment"><small> Eat 300 Calories an Hour</small></p>
+					 <p class="fragment"><small> Drink to Thirst vs Schedule</small></p>
+					 <p class="fragment"><small> Eat whatever you want</small> </p>
+					 <p class="fragment" position='absolute' bottom='500px' right='300px'><image src="./images/food.jpg" height='200'></image></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>Gear</h2>
+					 <p class="fragment"><small> Backpacks</small></p>
+					 <p class="fragment"><small> Running Poles</small></p>
+					 <p class="fragment"><small> High of 80, low of 20</small></p>
+					 <p class="fragment"><small> Headlamps</small></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>Terrain</h2>
+					 <p class="fragment"><small> Trail Running</small></p>
+					 <p class="fragment"><small> Elevation</small></p>
+				</section>
+
+				<section data-background-iframe="http://localhost:8008/elbydistancelong.html">
+				</section>
+
+				<section data-background="./images/night.png">
+					<h1 style="text-align: left;">Resources for Getting Started</h1>
+					 <p class="fragment"><small> run100s.com</small></p>
+					 <p class="fragment"><small> realendurance.com</small></p>
+				</section>
+
+<!-- 				<section data-background="./images/night.png">
+					 <p>Perhaps the genius of ultrarunning is its supreme lack of utility. It makes no sense in a world of space ships and supercomputers to run vast distances on foot. There is no money in it and no fame, frequently not even the approval of peers. But as poets, apostles and philosophers have insisted from the dawn of time, there is more to life than logic and common sense.</p>
+					 <small>- David Blaikie</small>
+				</section> -->
+
+				<section data-background="./images/night.png">
+					<h1 style="text-align: left;">Q&A</h1>
+				</section>
+
+<!-- 				<section>
+					<h2>Are you Crazy?</h2>
+					<iframe width="420" height="315" src="https://www.youtube.com/embed/d6IdkjSowlA" frameborder="0" allowfullscreen></iframe>
+					<br />
+					 <p class="fragment"><small> No, I'm not</small></p>
+					 <p> Badwater - </p>
+				</section> -->
+
+			</div>
+
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

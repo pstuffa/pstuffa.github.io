@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px sans-serif;
+  background-color: #fff;
+}
+
+h2 {
+  font 18px sans-serif;
+  font-color: #bfbfbf;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  fill:none;
+  stroke:#000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis line {
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.dots {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1;
+}
+
+.ranges {
+  stroke: red;
+  stroke-width: 4;
+  stroke-opacity: .5;
+}
+
+.area {
+  fill: red;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.js"></script>
+<br />
+
+<button id='yo'>Cumulative</button>
+<button id='yea'>Reset</button>
+<br />
+<br />
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 900 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format("%Y-%m-%d").parse;
+
+var timeScale = d3.time.scale()
+    .range([0,width]);
+
+var hrScale = d3.scale.linear()
+    .domain([0, 220])
+    .range([height,0]);
+
+var distanceScale = d3.scale.linear()
+    .range([height, 0]);
+
+var distanceCumScale = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(timeScale)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .innerTickSize(-width)
+    .scale(distanceScale)
+    .orient("left");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("rect")
+  .attr("width", width)
+  .attr("height", height)
+  .style("fill", "#bfbfbf")
+  .style("fill-opacity", .2);
+
+d3.csv("cleanMerged.csv", function(error, data) {
+
+  // only want to look at data with HR
+  hrData = data.filter(function(d) { return d['heart_rate(bpm)'] > 0; })
+  .filter(function(d) { return d['heart_rate(bpm)'] > 0; })
+
+  hrData.forEach(function(d) {
+    d['key'] = d['timestamp(s)'].split(" ")[0];
+  })
+
+  nestedHrData = d3.nest()
+    .key(function(d) { return d['key']; })
+    .sortKeys(d3.ascending)
+    .rollup(function(values) { return {
+      avgHR: d3.mean(values, function(d) { return +d['heart_rate(bpm)']; }),
+      minHR: d3.min(values, function(d) { return +d['heart_rate(bpm)']; }),
+      maxHR: d3.max(values, function(d) { return +d['heart_rate(bpm)']; }),
+      totalDist: d3.max(values, function(d) { return +d['distance(m)']; })/1609.34
+     }
+    })
+    .entries(hrData)
+    .filter(function(d) { return d.key.length == 10})
+    .filter(function(d) { return d.values.totalDist < 53})
+
+    // Get cumulative win/loss
+    var counter = 0; 
+    nestedHrData.forEach(function(d) {
+          d.values.cumulative = counter + d.values.totalDist;
+          counter = d.values.cumulative;
+      })
+
+  distanceScale.domain(d3.extent(nestedHrData, function(d) { return d.values.totalDist; }));
+  distanceCumScale.domain(d3.extent(nestedHrData, function(d) { return d.values.cumulative; }));
+  timeScale.domain([parseDate('2015-01-15'), parseDate('2015-08-22')]);
+
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform","translate(0," + height + ")")
+    .call(xAxis)
+
+  svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+  var area = d3.svg.area()
+      .interpolate("step")
+      .x(function(d) { return timeScale(parseDate(d.key)); }).y0(height)
+      .y1(function(d) { return distanceScale(d.values.totalDist); });
+
+  svg.append("path")
+      .datum(nestedHrData)
+      .attr("class", "area")
+      .attr("d", area)
+      .style("fill","steelblue")
+   .style("fill-opacity", .5)
+   .style("stroke-opacity", 1);
+
+  
+  d3.selectAll("#yo").on("click", function() {
+
+    yAxis.scale(distanceCumScale)
+
+    d3.select(".y")
+      .transition()
+      .call(yAxis)
+
+   area.y0(height)
+      .y1(function(d) { return distanceCumScale(d.values.cumulative); });
+
+    d3.selectAll(".area")
+      .transition()
+      .duration(2000)
+      .style("fill","green")
+      .attr("d", area)
+      .transition()
+      .duration(3000)
+      .style("fill-opacity",.6)
+  });
+  d3.selectAll("#yea").on("click", function() {
+
+    yAxis.scale(distanceScale)
+
+    d3.select(".y")
+      .transition()
+      .call(yAxis)
+
+   area.y0(height)
+      .y1(function(d) { return distanceScale(d.values.totalDist); });
+
+    d3.selectAll(".area")
+      .transition()
+      .duration(2000)
+      .style("fill","steelblue")
+      .attr("d", area)
+      .transition()
+      .duration(3000)
+      .style("fill-opacity",.6)
+  });
+
+
+});
+
+</script>

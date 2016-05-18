@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px sans-serif;
+  background-color: #fff;
+}
+
+h2 {
+  font 18px sans-serif;
+  font-color: #bfbfbf;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  fill:none;
+  stroke:#000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis line {
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.runs {
+  stroke:#000;
+  fill: none;
+  stroke-opacity: .25;
+  stroke-width: 2;
+}
+
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.js"></script>
+<br />
+<h2> Elevation Profile by Distance Ran - Jan 2015 to August 2015 </h2>
+<!-- <button id='buttonOne'>Top</button>
+<button id='buttonTwo'>Mid</button>
+<button id='buttonThree'>Low</button>
+<button id='buttonFour'>Reset</button> -->
+<br />
+<br />
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 80},
+    width = 900 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var elScale = d3.scale.linear()
+    .domain([0,15000])
+    .range([height,0]);
+
+var distanceScale = d3.scale.linear()
+    .domain([0.0,53])
+    .range([0,width]);
+
+var elAxis = d3.svg.axis()
+    .innerTickSize(-width)
+    .scale(elScale)
+    .orient("left");
+
+var distanceAxis = d3.svg.axis()
+    .scale(distanceScale)
+    .orient("bottom");
+
+var line = d3.svg.line()
+    .interpolate("linear")
+    .y(function(d) { return elScale(+d['altitude(m)']); })
+    .x(function(d) { return distanceScale(d['distance(m)']); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("rect")
+  .attr("width", width)
+  .attr("height", height)
+  .style("fill", "#bfbfbf")
+  .style("fill-opacity", .1);
+
+
+d3.csv("cleanMerged.csv", function(error, data) {
+
+  // only want to look at data with HR
+  hrData = data.filter(function(d) { return d['heart_rate(bpm)'] > 0; })
+               .filter(function(d) { return d['distance(m)'] > 0; })
+
+
+  hrData.forEach(function(d) {
+    d['key'] = d['timestamp(s)'].split(" ")[0];
+    d['heart_rate(bpm)'] = +d['heart_rate(bpm)'];
+    d['distance(m)'] = +d['distance(m)']/1609.34;
+    d['altitude(m)'] = +d['altitude(m)']*3.28084;
+  })
+
+  nestedHrData = d3.nest()
+    .key(function(d) { return d['key']; })
+    .entries(hrData)
+    .filter(function(d) { return d.key.length == 10})
+
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform","translate(0," + height + ")")
+    .call(distanceAxis)
+
+  svg.append("g")
+    .attr("class", "y axis")
+    .call(elAxis);
+
+  svg.selectAll(".runs")
+      .data(nestedHrData)
+    .enter().append("path")
+      .attr("class","runs")
+      .attr("d", function(d) { return line(d.values); })
+      .style("stroke","#000")
+      .on("mouseenter", function() { d3.select(this).style("stroke","red").style("stroke-opacity",1)})
+      .on("mouseleave", function() { d3.select(this).style("stroke","#000").style("stroke-opacity",.25)});
+
+  svg.append("text")
+    .attr("class","locations")
+    .text("Pikes Peak")
+    .attr("y", elScale(14000))
+    .attr("x", distanceScale(30));
+
+  svg.append("text")
+    .attr("class","locations")
+    .text("Leadville")
+    .attr("y", elScale(12000))
+    .attr("x", distanceScale(30));
+
+  svg.append("text")
+    .attr("class","locations")
+    .text("Boulder")
+    .attr("y", elScale(6000))
+    .attr("x", distanceScale(30));
+
+  svg.append("text")
+    .attr("class","locations")
+    .text("Bear Mountain")
+    .attr("y", elScale(1200))
+    .attr("x", distanceScale(30));
+
+  svg.append("text")
+    .attr("class","locations")
+    .text("New York City")
+    .attr("y", elScale(100))
+    .attr("x", distanceScale(30));
+
+
+d3.selectAll("#buttonOne").on("click",function() { 
+
+elScale.domain([9000,15000]);
+distanceScale.domain([0.0,30]);
+
+  d3.select(".x")
+    .call(distanceAxis)
+
+  d3.select(".y")
+    .call(elAxis)
+
+  d3.selectAll(".runs")
+    .attr("d", function(d) { return line(d.values); })
+})
+
+d3.selectAll("#buttonTwo").on("click",function() { 
+
+elScale.domain([5000,8000]);
+distanceScale.domain([0.0,25]);
+
+  d3.select(".x")
+    .call(distanceAxis)
+
+  d3.select(".y")
+    .call(elAxis)
+
+  d3.selectAll(".runs")
+    .attr("d", function(d) { return line(d.values); })
+})
+
+});
+
+
+
+</script>

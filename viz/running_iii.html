@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<!-- Paul Buffa 2015
+  -->
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+  margin: 0;
+  background-color: #fff;
+}
+
+button {
+  font: 12px sans-serif;
+  text-align: center;
+
+}
+div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font: 12px sans-serif;
+}
+
+.axis line, 
+.axis path { 
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.square {
+  stroke: #000;
+  stroke-opacity: .2;
+  stroke-width: 1;
+}
+
+.x {
+  font-size: 0px;
+}
+
+.background {
+  fill: #000;
+  fill-opacity: .02;
+  stroke-opacity: .1;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+</style>
+<body>
+  <div> &nbsp; Sort By:
+   <button id="sort_five">Distance Asc.</button>
+   <button id="sort_six">Distance Desc.</button>
+   <button id="sort_four">Elevation Gain per Mile Asc.</button>
+   <button id="sort_three">Elevation Gain per Mile Desc.</button>
+   <button id="sort_two">Date Asc.</button>
+   <button id="sort_one">Date Desc.</button>
+  </div>
+<br />
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 30, bottom: 40, left: 10},
+    width = 400 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
+
+var y = d3.scale.linear()
+    .range([height, 0])
+    .domain([0,53]);
+
+var x = d3.scale.ordinal()
+    .rangeBands([0,width]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(0);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var opacityScale = d3.scale.linear()
+    .domain([0,300])
+    .range([0.20, .70]);
+
+var colorScale = d3.scale.linear()
+    .domain([0,300])
+    .range(["green","blue"]);
+
+// Loading in running data 
+d3.tsv("data.tsv", function(error, data) {
+
+// Making some modifications to the dataset
+var parseDate = d3.time.format("%M/%d/%Y").parse;
+var formatDate = d3.time.format("%M/%d");
+
+data.forEach(function(d) {
+    d['Distance'] = +d['Distance'];
+    d['Calories'] = +d['Calories'];
+    d['Elevation Gain'] = +d['Elevation Gain'];
+    d['Date'] = formatDate(parseDate(d['Date']));
+    d['Elevation per Mile'] = d['Elevation Gain'] / d['Distance'];
+  });
+
+// Setting the priority order for the chart series 
+var priority_order = ['Tuesday', 'Wednesday', 'Thursday', 'Saturday', 'Sunday', 'Monday'];
+
+// Assigning key and main sort 
+var topics = d3.nest()
+    .key(function(d) { return d['Day of Week']; })
+    .sortKeys(d3.ascending)
+    .sortKeys(function(a,b) { return priority_order.indexOf(a) - priority_order.indexOf(b); })
+    .entries(data);
+
+// SVG variable 
+var svg = d3.select("body").selectAll("svg")
+    .data(topics)
+  .enter().append("svg")
+    .attr("id", function(d) { return d.key; })
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("class", function(d) { return "chart " + d.key; })
+    .append("g")
+    .attr("transform", "translate(" + (margin.left + 20) + "," + margin.top + ")")
+    .each(multiple);
+
+// Legend 
+var legend = d3.select("body")
+    .append("svg")
+      .attr("width", 1000)
+      .attr("height", 30);
+
+// Adding Gradient 
+var gradient = legend.append("svg:defs")
+    .append("svg:linearGradient")
+      .attr("id", "gradient")
+      .attr("x1", "0%")
+      .attr("y1", "0%")
+      .attr("x2", "100%")
+      .attr("y2", "0%");
+         
+gradient.append("svg:stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "green")
+    .attr("stop-opacity", .3);
+
+gradient.append("svg:stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "blue")
+    .attr("stop-opacity", .7);
+
+legend.append("svg:rect")
+    .attr("x", 790)
+    .attr("width", 100)
+    .attr("height", 10)
+    .style("fill", "url(#gradient)");
+
+// Appending Legend text 
+legend.append("text")
+    .attr("x", 785)
+    .attr("y", 5)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text("Elevation Gain per Mile (ft)");
+
+legend.append("text")
+    .attr("x", 795)
+    .attr("y", 15)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text("0");
+
+legend.append("text")
+    .attr("x", 890)
+    .attr("y", 15)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text("300");
+
+svg.append("text")
+    .attr("x", 0)
+    .attr("y", -8)
+    .style("text-anchor", "top")
+    .style("font", "14px sans-serif")
+    .style("font-weight", "bold")
+    .text(function(d) { return d.key; });
+
+
+// Begin function for each loop on line 125
+function multiple(topic) {
+
+  var svg = d3.select(this);
+
+  svg.append("rect")
+    .attr("class","background")
+    .attr("width", width)
+    .attr("height", height);
+
+  x.domain(topic.values
+    .sort(function(a, b) {   return d3.ascending(a['Date Value'],b['Date Value']);  })
+    .map(function(d) { return d['Date']; }));
+    
+// add in the dots 
+  svg.selectAll(".square")
+      .data(topic.values)
+    .enter().append("rect")
+      .attr("width", 10)
+      .attr("height", function(d,i) { return height - y(d['Distance']); })
+      .attr("rx", 2) 
+      .attr("ry", 2)
+      .style("fill", function(d) { return colorScale(d['Elevation per Mile']); })
+      .attr("class",function(d) { return "square " + d['Month'];})
+      .attr("id",function(d) { return d['Type']; })
+      .style("fill-opacity", function(d) { return opacityScale(d['Elevation per Mile']); })
+      .attr("y", function(d,i) { return y(d['Distance']); })
+      .attr("x", function(d, i) { return x(d['Date']); });
+
+// Axis Labels
+  svg.selectAll("text")
+      .data(topic.values)
+    .enter().append("text")
+      .attr("class", function(d) { return "title " + d['Month'] + "text"; })
+      .attr("y", height + 6)
+      .attr("text-anchor", "top")
+      .style("writing-mode","tb-rl")
+      .attr("x", function(d, i) { return x(d['Date']) + 5; })
+      .text(function(d) { return d['Date']});
+
+// appending the axes 
+    svg.append("g")
+       .attr("class", "x axis")
+       .style("stroke-dasharray", function(d) { 
+          if(d.key == 'Overall') {  return "0, 0" }
+                            else {  return "1, 1" } })
+       .attr("transform", "translate(0," + height + ")")
+       .call(xAxis);
+      
+    svg.append("g")
+       .attr("class", "y axis")
+       .style("stroke-dasharray", function(d) { 
+          if(d.key == 'Overall') { return "0, 0"  }
+                            else { return "1, 1" } })
+       .call(yAxis);
+
+
+// Interactive Events - Sorts
+
+// Sort by Date Descending 
+function changeSortOne() {
+
+  // turning off pointer events
+  d3.selectAll(".square")
+    .style("pointer-events","None");
+
+  d3.selectAll(".title")
+    .style("pointer-events","None");
+
+  d3.select("body").selectAll("svg")
+    .select("g")
+    .each(change);
+
+  function change(topic) {
+
+    var svg = d3.select(this);
+
+    x.domain(topic.values.sort(function(a, b) {  return d3.descending(a['Date Value'],b['Date Value']); })
+     .map(function(d) { return d['Date']; }));
+
+    svg.selectAll(".square")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']); });
+
+    svg.selectAll(".title")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']) + 5; });    
+
+    // turning pointer events back on
+    d3.selectAll(".square")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+    d3.selectAll(".title")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+      }
+  } // Ends Sort One
+
+d3.selectAll("#sort_one").on("click", changeSortOne);
+
+
+ // Sort by Date Ascending
+function changeSortTwo() {
+
+  // turning off pointer events
+  d3.selectAll(".square")
+    .style("pointer-events","None");
+
+  d3.selectAll(".title")
+    .style("pointer-events","None");
+
+  d3.select("body").selectAll("svg")
+    .select("g")
+    .each(change);
+
+  function change(topic) {
+
+    var svg = d3.select(this);
+
+    x.domain(topic.values.sort(function(a, b) {  return d3.ascending(a['Date Value'],b['Date Value']); })
+     .map(function(d) { return d['Date']; }));
+
+    svg.selectAll(".square")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']); });
+
+    svg.selectAll(".title")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']) + 5; });    
+
+    // turning pointer events back on
+    d3.selectAll(".square")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+    d3.selectAll(".title")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+      }
+  } // Ends Sort Two
+
+d3.selectAll("#sort_two").on("click", changeSortTwo);
+
+
+// Sort by Last Name
+function changeSortThree() {
+
+  // turning off pointer events
+  d3.selectAll(".square")
+    .style("pointer-events","None");
+
+  d3.selectAll(".title")
+    .style("pointer-events","None");
+
+  d3.select("body").selectAll("svg")
+    .select("g")
+    .each(change);
+
+  function change(topic) {
+
+    var svg = d3.select(this);
+
+    x.domain(topic.values.sort(function(a, b) {  return d3.descending(a['Elevation per Mile'],b['Elevation per Mile']); })
+     .map(function(d) { return d['Date']; }));
+
+    svg.selectAll(".square")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']); });
+
+    svg.selectAll(".title")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']) + 5; });    
+
+    // turning pointer events back on
+    d3.selectAll(".square")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+    d3.selectAll(".title")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+      }
+  } // Ends Sort Three
+
+d3.selectAll("#sort_three").on("click", changeSortThree);
+
+
+// Sort by Elevation per Mile
+function changeSortFour() {
+
+  // turning off pointer events
+  d3.selectAll(".square")
+    .style("pointer-events","None");
+
+  d3.selectAll(".title")
+    .style("pointer-events","None");
+
+  d3.select("body").selectAll("svg")
+    .select("g")
+    .each(change);
+
+  function change(topic) {
+
+    var svg = d3.select(this);
+
+    x.domain(topic.values.sort(function(a, b) {  return d3.ascending(a['Elevation per Mile'],b['Elevation per Mile']); })
+     .map(function(d) { return d['Date']; }));
+
+    svg.selectAll(".square")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']); });
+
+    svg.selectAll(".title")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']) + 5; });    
+
+    // turning pointer events back on
+    d3.selectAll(".square")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+    d3.selectAll(".title")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+      }
+  } // Ends Sort Four
+
+d3.selectAll("#sort_four").on("click", changeSortFour);
+
+
+// Sort by Distance Ascending 
+function changeSortFive() {
+
+  // turning off pointer events
+  d3.selectAll(".square")
+    .style("pointer-events","None");
+
+  d3.selectAll(".title")
+    .style("pointer-events","None");
+
+  d3.select("body").selectAll("svg")
+    .select("g")
+    .each(change);
+
+  function change(topic) {
+
+    var svg = d3.select(this);
+
+    x.domain(topic.values.sort(function(a, b) {  return d3.ascending(a['Distance'],b['Distance']); })
+     .map(function(d) { return d['Date']; }));
+
+    svg.selectAll(".square")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']); });
+
+    svg.selectAll(".title")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']) + 5; });    
+
+    // turning pointer events back on
+    d3.selectAll(".square")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+    d3.selectAll(".title")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+      }
+  } // Ends Sort Five
+
+d3.selectAll("#sort_five").on("click", changeSortFive);
+
+
+// Sort by Distane Descending 
+function changeSortSix() {
+
+  // turning off pointer events
+  d3.selectAll(".square")
+    .style("pointer-events","None");
+
+  d3.selectAll(".title")
+    .style("pointer-events","None");
+
+  d3.select("body").selectAll("svg")
+    .select("g")
+    .each(change);
+
+  function change(topic) {
+
+    var svg = d3.select(this);
+
+    x.domain(topic.values.sort(function(a, b) {  return d3.descending(a['Distance'],b['Distance']); })
+     .map(function(d) { return d['Date']; }));
+
+    svg.selectAll(".square")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']); });
+
+    svg.selectAll(".title")
+      .transition()
+      .duration(2000)
+      .ease("bounce")
+      .delay(function(d,i) { return i * 50; })
+      .attr("x", function(d) { return x(d['Date']) + 5; });    
+
+    // turning pointer events back on
+    d3.selectAll(".square")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+    d3.selectAll(".title")
+      .transition()
+      .delay(4000)
+      .style("pointer-events","all");
+
+      }
+  }
+
+d3.selectAll("#sort_six").on("click", changeSortSix);
+
+
+} // Ends Multiple Loop
+
+// Interactive Events - Hovers
+function hover(d, i) {
+
+    d3.selectAll(".square")
+      .transition()
+      .duration(500)
+      .style("fill-opacity", .1)
+      .style("stroke-opacity", .2)
+      .attr("y", function(d,i) { return height - 5; })
+      .attr("height", 5);
+
+    d3.selectAll("." + d['Month']) 
+      .transition()
+      .ease("elastic")
+      .duration(1500)
+      .attr("height", function(d,i) { return height - y(d['Distance']); })
+      .style("fill-opacity", function(d) { return opacityScale(d['Elevation per Mile']); })
+      .attr("y", function(d,i) { return y(d['Distance']); })
+      .style("stroke-opacity", 1);
+
+    d3.selectAll("."  + d['Month'] + "text") 
+      .style("fill-opacity", 1)
+      .style("font-size", 13);
+
+    }
+
+function hoverOut(d, i) {
+
+    d3.selectAll(".square")
+      .transition()
+      .duration(500)
+      .style("fill-opacity", function(d) { return opacityScale(d['Elevation per Mile']); })
+      .style("stroke-opacity", .3)
+      .attr("height", function(d,i) { return height - y(d['Distance']); })
+      .attr("y", function(d,i) { return y(d['Distance']); });
+
+   d3.selectAll(".title") 
+      .style("font-size", 10);
+
+    }
+
+  d3.selectAll(".square")
+      .on("mouseover", hover)
+      .on("mouseout", hoverOut);
+
+  d3.selectAll(".title")
+      .on("mouseover", hover)
+      .on("mouseout", hoverOut);
+      
+}); // Ends Data Function
+
+</script>
+</body>
+</html>

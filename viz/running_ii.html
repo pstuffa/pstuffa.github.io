@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+  margin: 0;
+  background-color: #fff;
+}
+
+
+.axis line, 
+.axis path { 
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.circles {
+  stroke: #000;
+  stroke-opacity: .4;
+}
+
+#button {
+  position: absolute;
+  top: 10px;
+  left: 250px;
+}
+
+
+</style>
+<body>
+
+<div id="button">
+ <button>Click Until It Seems To Support Whatever Point You're Trying To Make</button>
+</div>
+
+<br />
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+function randomData(datalist) {
+
+  for (var i = 0; i < 50; i++) {          
+      var newNumber = Math.random() * 30;  
+      datalist.push(newNumber);            
+  }
+
+}
+
+var dataset = [];                            
+randomData(dataset);
+
+var margin = {top: 40, right: 40, bottom: 40, left: 40},
+    width = 1000 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width])
+    .domain([-1, d3.max(dataset) + 1 ]).nice();
+
+var y = d3.scale.linear()
+    .range([height, 0])
+    .domain([-5, 55]).nice();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(10)
+    .tickFormat('');
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10)
+    .tickFormat('');
+
+var opacityScale = d3.scale.linear()
+    .domain([0.0,30.0])
+    .range([0.10, .80]);
+
+var sizeScale = d3.scale.linear()
+    .domain([0.0,30.0])
+    .range([5, 30]);
+
+// var colorScale = d3.scale.category10();
+
+var circles = d3.select("body")
+               .select("svg")
+              .selectAll(".circles");
+
+var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.append("g")
+       .attr("class", "x axis")
+       .style("stroke-dasharray","1, 1")
+       .attr("transform", "translate(0," + height + ")")
+       .call(xAxis);
+              
+    svg.append("g")
+       .attr("class", "y axis")
+       .style("stroke-dasharray", "1, 1" )
+       .attr("transform", "translate(0," + height + ")")
+       .attr("transform", "translate(0,0)")
+       .call(yAxis);
+
+
+var AxisSelect =  d3.selectAll("svg")
+                    .select(".axis");
+
+  AxisSelect.append("text")
+        .attr("y", 6)
+        .attr("x", width/2)
+        .attr("dy", ".71em")
+        .style("text-anchor", "top")
+        .style("font","12px sans-serif")
+        .text("x");
+
+  AxisSelect.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("y", -20)
+       .attr("x", height/2)
+       .attr("dy", ".71em")
+       .style("text-anchor", "end")
+       .style("font","12px sans-serif")
+       .text("y");
+
+  svg.selectAll("circle")
+        .data(dataset)
+      .enter().append("circle")
+      .attr("class","circles")
+      .attr("r", function(d, i) { return sizeScale((Math.random() * 30)); })
+      .style("fill-opacity", function(d, i) { return opacityScale(i); })
+      // .style("fill", function(d, i) { return colorScale(i); })
+      .attr("cx", function(d, i) { return x(d); })
+      .attr("cy", function(d, i) { return y(i); });
+
+
+function hover(d) {
+    d3.select(this)
+    .transition()
+    .ease("elastic")
+    .delay(0)
+    .duration(2000)
+    .attr("r", 40);
+
+      }
+
+function hoverOut(d) {
+    d3.select(this)
+    .transition()
+    .ease("elastic")
+    .delay(300)
+    .duration(2000)
+    // .style("fill", function(d, i) { return colorScale((Math.random() * 30)); })
+    .style("fill-opacity", function(d, i) { return opacityScale((Math.random() * 30)); })
+    .attr("r", function(d, i) { return sizeScale((Math.random() * 30)); });
+
+      }
+
+  d3.selectAll(".circles")
+      .on("mouseover", hover)
+      .on("mouseout", hoverOut);
+
+
+// ** Update data section (Called from the onclick)
+function updateData() {
+
+    // Get the data again   
+    var newdata = [];          
+    randomData(newdata);
+
+      // Scale the range of the data again 
+      x.domain([-1, d3.max(dataset) + 1 ]).nice();
+
+    d3.select("body").select("svg")
+      .selectAll("circle")
+        .data(newdata)
+      .transition()
+      .duration(1500)
+      .delay(100)
+      .ease("elastic")
+      .attr("class","circles")
+      .attr("r", 10)
+      .attr("r", function(d, i) { return sizeScale((Math.random() * 30)); })
+      .style("fill-opacity", function(d, i) { return opacityScale(d); })
+      // .style("fill", function(d, i) { return colorScale(i); })
+      .attr("cx", function(d, i) { return x(d); })
+      .attr("cy", function(d, i) { return y(i); });
+
+    d3.select("body").select("svg")
+      .select(".x.axis")
+      .transition() 
+      .duration(750)
+      .call(xAxis);
+
+}
+
+ d3.selectAll("button").on("click",updateData)
+
+</script>
+
+
+</body>
+</html>
