@@ -1,0 +1,66 @@
+
+.navbar-inverse .navbar-brand {
+    color: #18b13e;
+}
+
+#SparklineMetricSelected {
+  color: #fff;
+}
+
+
+svg {
+  display: inline-block;
+}
+.country {
+  fill: none;
+}
+
+.countryArea {
+  stroke-opacity: .1;
+  stroke: #000;
+}
+
+.domain {
+  fill: none;
+  stroke: none;
+}
+
+.axis line {
+  stroke-opacity: .2;
+}
+
+#rankSlopeGraph {
+  width: 600px;
+}
+
+#sparkLines {
+  width: 600px;
+}
+
+.countryDiv {
+  padding: 10px;
+  display: inline-block;
+}
+
+.domain {
+  fill: none;
+  stroke: none;
+}
+
+.text-left {
+  font: 8px sans-serif;
+}
+
+.text-right {
+  font: 8px sans-serif;
+}
+
+.textDiv {
+  height: 5px;
+  vertical-align: top;
+  text-align: center;
+  font: 10px sans-serif;
+  display: inline-block;
+  padding: 1px;
+  width: 60px;
+}

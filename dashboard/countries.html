@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Spotify Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+
+    <link href="./public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./public/css/dashboard.css" rel="stylesheet">
+
+    <script src="./public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./public/js/drawSparklines.js"></script>
+    <script src="./public/js/drawSlopegraph.js"></script>
+    <script src="./public/js/drawAreaChart.js"></script>
+    <script src="./public/js/drawMultiLine.js"></script>
+
+  <body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#">Spotify Dashboard</a>
+      <div class="nav navbar-nav navbar-right buttons" style="padding-top: 15px; padding-right: 30px">
+        <span id="SparklineMetricSelected" >Monthly Active Users - free</span>
+         
+      </div>
+    </nav>
+  
+    <div class="container" style="padding-top: 50px; padding-left: 10px">
+
+
+
+      <div class="col-md-12">
+        <div class="col-md-8" id="SparklineChart">
+         <h3> Country Sparklines </h3>
+          <p> Hover over the lines and numbers to highlight a country. You can clik</p>
+        </div>
+        <div class="col-md-4" id="SlopegraphChart">
+         <h3> Percentile Rank by Country</h3>
+        `</div>
+      </div>
+        <div class="col-md-12" id="AreaChart">
+         <h3> Country Timelines</h3>
+          <p> Area charts aim to highlight any group trends</p>
+          <div id="yScaleButtons">
+          </div>
+        </div>
+    </div>
+    <script>
+
+      window.SpotifyMetric = "Monthly Active Users";
+      window.SpotifyProduct = "free";
+      window.yScaleOption = "Local y-Axis";
+      window.DashboardVersion = "Country";
+
+      d3.csv("./data/KPIsdata-Simulated.csv", function(error, data) {
+        
+        var parseDate = d3.timeParse("%Y-%m-%d"),
+        formatDate = d3.timeFormat("%B");
+
+           data.forEach(function(d) {
+            d["Monthly Active Users"]= +d["Monthly Active Users"];
+            d["Daily Active Users"] = +d["Daily Active Users"];
+            d["Subscribers"] = +d["Subscribers"];
+            d["Total Content Hours"] = +d["Total Content Hours"];
+            d["Date"] = parseDate(d["Date"]);
+            d["FormatteDate"] = formatDate(d["Date"]);
+           });
+
+            drawSparklines(data);
+            drawSlopegraph(data);
+            drawAreaChart(data);
+            drawMultiLineChart(data);
+
+          var buttonOptions = ["Monthly Active Users", "Daily Active Users", "Subscribers", "Total Content Hours"]
+
+          d3.select(".buttons")
+            .selectAll(".valueButtons") 
+            .data(buttonOptions)
+            .enter().append("button")
+            .attr("class","valueButtons btn btn-primary btn-xs")
+            .text(function(d) { return d})
+            .on("click", function(e) {
+              window.SpotifyMetric = e;
+              updateSparklineChart(data);
+              updateRankSlopeGraph(data);
+              updateAreaChart(data);
+           });
+
+        var productOptions = ["free", "paid"];
+
+          d3.select(".buttons")
+            .selectAll(".productButtons") 
+            .data(productOptions)
+            .enter().append("button")
+            .attr("class","productButtons btn btn-primary btn-xs")
+            .text(function(d) { return d})
+            .on("click", function(e) {
+              window.SpotifyProduct = e;
+              updateSparklineChart(data);
+              updateRankSlopeGraph(data);
+              updateAreaChart(data);
+           });
+
+        var buttonOptions = ["Universal y-Axis", "Local y-axis"]
+
+          d3.select("#yScaleButtons")
+            .selectAll(".scaleButtons") 
+            .data(buttonOptions)
+            .enter().append("button")
+            .attr("class","scaleButtons btn btn-primary btn-xs")
+            .text(function(d) { return d})
+            .on("click", function(e) {
+              window.yScaleOption = e;
+              updateAreaChart(data);
+           });
+
+
+      });  
+
+    </script>
+
+  </div>
+
+  </body>
+
+</html>
