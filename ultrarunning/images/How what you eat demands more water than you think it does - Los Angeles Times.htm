@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://graphics.latimes.com/food-water-footprint/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script async="" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/analytics.js"></script><script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+    <!-- METADATA -->
+    <title>How what you eat demands more water than you think it does - Los Angeles Times</title>
+
+        
+        <meta name="description" content="California&#39;s crippling drought has prompted conservation efforts, such as replacing grass lawns and minding how long you leave the tap water running. But what about the food on your plate? Agriculture uses 80% of California&#39;s water supply, and producing what you eat can require a surprising amount of water.  The number next to the plate below represents the &lt;a href=&quot;http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html&quot;&gt;direct and indirect amount of water&lt;/a&gt; required to produce your food plate, based on U.S. data from the Water Footprint Network. Food items are assumed as fresh (unfrozen) and do not include the footprint for cooking (when applicable).">
+        <meta name="keywords" content="data desk, los angeles times, latimes, l.a. times">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="http://d1qqc1e9kvmdh8.cloudfront.net/img/favicon.ico">
+        <link rel="publisher" href="https://plus.google.com/u/0/112727226361732924638">
+        <meta name="google-site-verification" content="a9pAUAoFTyj7Nut3H5OiQ-fUyyqdwdVT7VcFGICrpTo">
+
+    <meta property="og:title" content="Eating the drought: How much water goes into your meal?">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://graphics.latimes.com/food-water-footprint/">
+    <meta property="og:image" content="http://graphics.latimes.com/static/img/food-water-footprint/waterfootprint_tease.jpg">
+    <meta property="og:site_name" content="graphics.latimes.com">
+    <meta property="og:description" content="California&#39;s crippling drought has prompted conservation efforts, such as replacing grass lawns and minding how long you leave the tap water running. But what about the food on your plate? Agriculture uses 80% of California&#39;s water supply, and producing what you eat can require a surprising amount of water.  The number next to the plate below represents the &lt;a href=&quot;http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html&quot;&gt;direct and indirect amount of water&lt;/a&gt; required to produce your food plate, based on U.S. data from the Water Footprint Network. Food items are assumed as fresh (unfrozen) and do not include the footprint for cooking (when applicable).">
+    <meta property="fb:admins" content="1257725335">
+    <meta property="fb:app_id" content="171740782909828">
+
+    <meta property="twitter:site" content="@latimes">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://graphics.latimes.com/food-water-footprint/">
+    <meta property="twitter:title" content="How what you eat demands more water than you think it does">
+    <meta property="twitter:description" content="California&#39;s crippling drought has prompted conservation efforts, such as replacing grass lawns and minding how long you leave the tap water running. But what about the food on your plate? Agriculture uses 80% of California&#39;s water supply, and producing what you eat can require a surprising amount of water.  The number next to the plate below represents the &lt;a href=&quot;http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html&quot;&gt;direct and indirect amount of water&lt;/a&gt; required to ...">
+    <meta property="twitter:image" content="http://graphics.latimes.com/static/img/food-water-footprint/waterfootprint_tease.jpg">
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" type="text/css" href="./How what you eat demands more water than you think it does - Los Angeles Times_files/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-tophat-0.3.8.min.css">
+    <link rel="stylesheet" type="text/css" href="./How what you eat demands more water than you think it does - Los Angeles Times_files/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-tophat-responsive-0.2.15.min.css">
+
+
+
+<link rel="stylesheet" href="./How what you eat demands more water than you think it does - Los Angeles Times_files/font-awesome.min.css">
+<style>
+/*Overall project title*/
+
+#wftitle{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/*overall project into*/
+#wfintro{
+    font-size: 20px;
+    color: #666;
+    line-height: 35px;
+    text-align: left;
+    width: 70%;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+#plateresult{
+    font-size: 30px;
+    margin-top: 22px;
+    font-family: 'LA Web Display Kis Bold',Georgia,serif;
+}
+ul.related-links {
+    padding: 0;
+    margin: 18px 0;
+    margin-top: 36px;
+    margin-left: 10px;
+}
+
+/*the one line sentence you get after you calculate that pulls in WF #*/
+#wfresult{
+    display: none;
+}
+
+/*div the plate + food*/
+.plate{
+    text-align: center;
+    width:100%;
+    position:relative;
+    padding-top:60px;
+    margin-bottom: -50px;
+}
+/*style for just the place*/
+#plate_overlay {
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.starch {
+    position: absolute;
+    width: 25%;
+    top: 47%;
+    left: 24%;
+}
+
+/*photo properties for protein*/
+.protein {
+    position: absolute;
+    width: 31%;
+    top: -6%;
+    left: 33%;
+}
+
+/*photo properties for starch*/
+.fruveg {
+    position: absolute;
+    width: 26%;
+    top: 46%;
+    left: 49%;
+}
+
+/*photo properties for drink*/
+.drink {
+    position: absolute;
+    width: 14%;
+    top: -15%;
+    left: 69%;
+}
+p.result{
+    margin: 3px;
+    line-height: 15px;
+}
+/*div for number results that looks like a math equation*/
+#wfbreakdown, #b-breakdown {
+    text-align: center;
+    width: 70%;
+    clear: both;
+    margin: 20px auto 25px auto;
+}
+
+
+#wfbreakdown p, #b-breakdown p{
+    display: inline;
+    font-family: 'Arial',sans-serif;
+    font-size: 16px;
+}
+#wfbreakdown div, #b-breakdown div {
+    width: 12px;
+    height: 12px;
+    float: none;
+    margin: 0px 6px 0px 5px;
+    display: inline-block;
+}
+/*div for waffle chart*/
+#wafflechart {
+    max-width: 70%;
+    margin: 20px auto 60px auto;
+}
+
+/*grid styling for wafflechart*/
+.psquare, .sgsquare, .fvsquare, .dsquare {
+    margin-bottom: 2px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    float: left;
+    margin-left: 2px;
+}
+/* color for protein squares*/
+#bpsquare, #wfpsquare, .psquare, span#protein, .protein-block {
+    background-color: #E5B0A3;
+}
+/* color for starch/grain squares*/
+#bsgsquare, #wfsgsquare, .sgsquare, span#starch, .starch-block {
+    background-color: #B0C7D6;
+}
+/* color for friut/veg squares*/
+#bfvsquare, #wffvsquare, .fvsquare, span#fruit, span#vegetable, .fruveg-block {
+    background-color: #E2DAED;
+}
+/* color for drink squares*/
+#bdsquare, #wfdsquare, .dsquare, span#drink, .drink-block {
+    background-color: #F2D291;
+}
+/*div for results page that holds number breakdown and wafflechart*/
+#secondpage {
+    width: 100%;
+    padding-top: 40px;
+    margin-top: 35px;
+}
+/*div for third page that holds bar charts*/
+#thirdpage{
+    width: 100%;
+    padding-top:5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+/*text style for main bar categories*/
+#barcategories {
+    color:gray;
+    clear:both;
+    margin-top: 60px;
+}
+/*styling for individual bar texts*/
+.allbartext {
+    text-align:left;
+}
+/*bar height*/
+.allbar{
+    height:20px;
+}
+
+#thirdpage table {
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#thirdpage form{
+    margin-left: auto;
+    margin-right: auto;
+}
+.ouncenumber{
+    text-align: right;
+}
+.allbartext span{
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    margin-top: 2px;
+}
+
+
+#thirdpage tr{
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+}
+/*font for form text */
+form {
+    font-family: 'LA Web Display Kis Bold',Georgia,serif;
+    font-size: 40px;
+}
+/*styling for form*/
+.foodform{
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    padding-top: 50px;
+    margin-right: auto;
+}
+
+/*styling if user does nto fill out all form options*/
+.error {
+    border-color: red !important;
+    color: red !important;
+}
+/*color for drink bars*/
+.foodform select {
+    font-family: 'LA Web Display Kis Bold',Georgia,serif;
+    color:gray;
+    border-top:none;
+    border-left:none;
+    border-bottom:2px dotted gray;
+    border-right:none;
+    text-align:center;
+}
+/*width property for form ounce field*/
+select[name="protein_ounces"], select[name="starch_ounces"], select[name="fruitvegetable_ounces"], select[name="drink_ounces"] {
+    width: 58px;
+}
+select[name="fruveg_ounces"] {
+    width: 58px;
+}
+
+/*width property for form food option field*/
+select[name="protein"], select[name="starch"], select[name="fruitvegetable"], select[name="drink"] {
+    width: 116px;
+}
+
+/*styling for input fields*/
+.foodform input {
+    font-family: 'LA Web Display Kis Bold',Georgia,serif;
+    color:gray;
+    width:50px;
+    margin-top:10px;
+}
+/*styling foodform text*/
+.foodform button {
+    font-family: 'LA Web Display Kis Bold',Georgia,serif;
+    font-size:40px;
+    color:gray;
+    width:300px;
+    height:75px;
+    border-radius:10px;
+}
+/*styling for form calculator*/
+.foodform #calculator {
+    font-family: 'LA Web Display Kis Bold',Georgia,serif;
+    font-size:36px;
+    color:black;
+    width:100%;
+    height:100%;
+    line-height: 44px;
+}
+
+.info-box{
+    position: absolute;
+    padding: 10px 10px 20px 20px;
+    border-radius: 3px;
+    z-index: 1000;
+    font-size: 18px;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    text-align: center;
+    -webkit-box-shadow: -2px -1px 10px 0px rgba(212,212,212,1);
+    -moz-box-shadow: -2px -1px 10px 0px rgba(212,212,212,1);
+    box-shadow: -2px -1px 10px 0px rgba(212,212,212,1);
+}
+#fruveg-info{
+    top: 85%;
+    left: 54%;
+    width: 21%;
+    background: rgba(255,255,255,0.7);
+}
+#protein-info{
+    left: 38%;
+    top: 6%;
+    width: 18%;
+    background: rgba(255,255,255,0.7);
+}
+
+#starch-info{
+    top: 83%;
+    width: 19%;
+    left: 24%;
+    background: rgba(255,255,255,0.7);
+}
+
+#drink-info{
+    width: 21%;
+    left: 75%;
+    top: 30%;
+    background: rgba(255,255,255,0.7);
+}
+
+.plate select{
+      color: rgb(108, 108, 108);
+      border-top: none;
+      border-left: none;
+      border-bottom: 2px dotted gray;
+      border-right: none;
+      text-align: center;
+      background-color: transparent;
+      border-radius: 0px;
+      font-family: 'Georgia';
+      font-weight: bold;
+      font-size: 18px;
+}
+/*styling for drink cell */
+.carousel-btns{
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    clear: both;
+}
+#shuffle{
+    color: #666;
+    background-color: #eee;
+    padding: 9px;
+    border-radius: 2px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#shuffle i{
+    font-size: 14px;
+    margin-left: 5px;
+}
+.carousel-btns a{
+    color: #404040;
+    text-decoration: none;
+    background-color: #fff;
+    margin: 1px;
+    font-size: 15px;
+    padding: 11px;
+    border-radius: 2px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+#protein-btn:hover{background-color: #E5B0A3;} #starch-btn:hover{background-color: #B0C7D6;} #fruveg-btn:hover {background-color:#E2DAED; } #drink-btn:hover{background-color: #F2D291}
+
+/*BUBBLE CHART*/
+#bubblechart{
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
+}
+#bubble-legend-container {
+    width: 38%;
+    height: 0;
+    overflow: visible;
+    margin-left: -32%;
+}
+#food_bubbles {
+    min-width: 400px;
+    min-height: 400px;
+    width: 100%;
+    position: relative;
+}
+#tooltipdiv {
+    position: absolute;
+    z-index: 10;
+    opacity:0;
+    background: white;
+    padding: 10px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#D4D4D4;
+    box-shadow: 2px 2px 2px rgba(64,64,64,0.3);
+    -moz-box-shadow: 2px 2px 2px rgba(64,64,64,0.3);
+    -webkit-box-shadow: 2px 2px 2px rgba(64,64,64,0.3);
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#tooltipdiv p {
+    font-size: 16px;
+    line-height: 120%;
+    color: #333;
+    margin: 0 0 10px;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#tooltipdiv #food_name {
+    margin: 5px 0;
+    clear:both;
+}
+
+.relateds{
+    text-align: center;
+}
+
+.relateds img{
+    margin-bottom: 15px;
+}
+/* carousels */
+#scroll_left, #scroll_right {
+    color: #999;
+    font-size: 40px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 0;
+    width: 0;
+    overflow: visible;
+    top: 36px;
+}
+#scroll_left {
+    margin: 0 0 0 -40px;
+}
+#scroll_right {
+    float: right;
+}
+.carousel-holder {
+    width: 100%;
+    overflow-x: scroll;
+    height: 135px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+
+}
+#big-carousel-container{
+     width: 100%;
+      height: 106px;
+      overflow: hidden;
+      margin-top: 20px;
+      margin-bottom: 20px;
+}
+.food-carousel {
+    height: 105px;
+    overflow-y:hidden;
+    display: inline;
+    padding-bottom: 45px;
+}
+.food-carousel img {
+    display: inline-block;
+    height: 85px;
+    width: 85px;
+    margin: 0 6px 0 0;
+    cursor: pointer;
+}
+.food-carousel img.not-selected:hover {
+    opacity: 1;
+}
+.food-carousel img.not-selected {
+    opacity: 0.3;
+}
+.projectnotesheader {
+    font-size:18px;
+}
+.projectnotesbody {
+    font-size:14px;
+    margin:0px;
+}
+
+@media(max-width: 1200px){
+    .drink {
+      position: absolute;
+      width: 17%;
+      top: -18%;
+      left: 74%;
+    }
+    .protein {
+      width: 34%;
+      top: -4%;
+      left: 33%;
+    }
+    .starch{
+      width: 31%;
+      top: 45%;
+      left: 18%;
+    }
+    .fruveg {
+      width: 30%;
+      top: 48%;
+      left: 49%;
+    }
+}
+
+@media(max-width: 980px){
+    #bubble-legend-container {
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .protein {
+      width: 40%;
+      top: -3%;
+      left: 28%;
+    }
+    .starch {
+      width: 33%;
+      top: 45%;
+      left: 15%;
+    }
+    .fruveg {
+      width: 34%;
+      top: 43%;
+      left: 49%;
+    }
+}
+@media(max-width: 720px){
+
+    #wfintro{
+        width: 100%;
+    }
+    .plate{
+        padding-top: 30px;
+    }
+    #protein-info {
+          float: left;
+          width: 44%;
+          left: 0; top: 0;
+          margin-right: 2%;
+    }
+    #starch-info{
+          left: 0; top: 0;
+          float: left;
+          width: 45%;
+    }
+    #fruveg-info {
+          float: left;
+          width: 44%;
+          left: 0; top: 0;
+          margin-right: 2%;
+          margin-top: 2%;
+    }
+    #drink-info{
+          left: 0; top: 0;
+          float: left;
+          width: 45%;
+          margin-top: 2%;
+    }
+    .info-box {
+      position: relative;
+      padding: 5px 5px 10px 5px;
+      border-radius: 3px;
+      z-index: 1000;
+      font-size: 16px;
+      line-height: 22px;
+      border: 1px solid #ddd;
+      text-align: center;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    .drink{
+      width: 19%;
+      top: 13%;
+      left: 77%;
+    }
+    .protein {
+      width: 38%;
+      top: 22%;
+      left: 30%;
+    }
+    .fruveg {
+      width: 34%;
+      top: 58%;
+      left: 49%;
+    }
+    .starch {
+      width: 33%;
+      top: 61%;
+      left: 15%;
+    }
+}
+
+/*mobile,desktop*/
+@media (max-width: 480px) {
+    #scroll_left, #scroll_right {
+        display: none;
+    }
+    .carousel-btns a {
+          display: inline-block;
+          width: 42%;
+          float: left;
+    }
+    .relateds img{
+        display: block;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #big-carousel-container{
+        padding-top: 20px;
+    }
+    .psquare, .sgsquare, .fvsquare, .dsquare {
+      margin-bottom: 1px;
+      width: 11px;
+      height: 11px;
+      display: inline-block;
+      float: left;
+      margin-left: 1px;
+    }
+    .drink{
+       width: 19%;
+      top: 29%;
+      left: 77%;
+    }
+    .starch {
+      top: 68%;
+    }
+    .protein {
+      top: 40%;
+    }
+    .fruveg {
+      width: 32%;
+      top: 68%;
+      left: 49%;
+    }
+    .info-box {
+      position: relative;
+      padding: 2px 5px 5px 2px;
+      font-size: 14px;
+      line-height: 22px;
+      border-bottom: 1px solid #ddd;
+    }
+    .plate select{
+        font-size: 16px;
+    }
+    #drink-info, #starch-info, #fruveg-info, #protein-info{
+          width: 46%;
+          height: 88px;
+    }
+    #thirdpage{
+        display: block;
+    }
+    #bubblechart{
+        display: none;
+    }
+
+    .foodform {
+        width: 100%;
+    }
+    .foodform #calculator {
+        font-size:28px;
+        line-height:30px;
+    }
+
+    .plate {
+        width: 100%;
+    }
+    #wfbreakdown, #wfbreakdown table {
+        width: 100%;
+        margin-bottom:20px;
+    }
+    #wfintro {
+        font-size: 18px;
+    }
+    #wafflechart {
+        max-width: 90%;
+    }
+
+    select[name="protein_ounces"], select[name="starch_ounces"], select[name="fruitvegetable_ounces"], select[name="drink_ounces"] {
+        width: 46px;
+    }
+}
+
+</style>
+
+
+    <!-- JAVASCRIPT -->
+
+
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="http://d1qqc1e9kvmdh8.cloudfront.net/js/html5shiv.js"></script>
+     <![endif]-->
+
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/bootstrap.min.js"></script>
+    <script src="./How what you eat demands more water than you think it does - Los Angeles Times_files/underscore-1.8.3-min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/socialize.js"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-tophat-0.2.15.min.js"></script>
+    <!--[if lte IE 7]><script type="text/javascript" src="http://d1qqc1e9kvmdh8.cloudfront.net/js/icons-ie7.js"></script><![endif]-->
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-ads-2.4.1.min.js"></script>
+
+
+
+ <!--[if lt IE 9]>
+          <script type="text/javascript" src="http://d1qqc1e9kvmdh8.cloudfront.net/js/html5shiv.js"></script>
+     <![endif]-->
+
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/d3.v3.min.js"></script>
+    <script src="./How what you eat demands more water than you think it does - Los Angeles Times_files/underscore-1.5.2-min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/socialize(1).js"></script>
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-tophat-0.2.2.min.js"></script>
+    <!--[if lte IE 7]><script type="text/javascript" src="http://d1qqc1e9kvmdh8.cloudfront.net/js/icons-ie7.js"></script><![endif]-->
+    <script type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-ads-2.4.1.min.js"></script>
+
+    <script src="./How what you eat demands more water than you think it does - Los Angeles Times_files/jquery-1.10.2.js"></script>
+
+
+
+
+</head>
+<body data-ad-path="4011/trb.latimes/news/datadesk" data-ad-ptype="s" data-ad-iframe-url="/static/ngux-tophat-ad-iframe.html">
+    <!-- NAV -->
+
+    <nav title="Navigation">
+        <div id="tophat-container">
+    <div id="tophat">
+
+        <span id="tophat-dropdown">
+            <hr>
+            <hr>
+            <hr>
+        </span>
+        <a id="tophat-logo" href="http://www.latimes.com/"></a>
+
+            <div class="tophat-links">
+                <ul style="display: none;">
+    <li>
+        <a href="http://www.latimes.com/local">Local</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/california">California</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/sports">Sports</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/entertainment">Entertainment</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/nation">Nation</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/world">World</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/business">Business</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/opinion">Opinion</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/style">Lifestyle</a>
+    </li>
+    <li>
+        <a href="http://www.latimes.com/travel">Travel</a>
+    </li>
+</ul>
+
+            </div>
+
+
+    </div>
+</div>
+
+    </nav>
+
+
+
+    <!-- CONTENT GOES HERE -->
+    <div class="container" id="container">
+
+            <aside title="Advertisement" class="banner-ad">
+    <div class="tophat-banner-container">
+        <div class="tophat-banner">
+            <div class="advert"><iframe width="728" height="90" scrolling="no" seamless="true" frameborder="0" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/ngux-tophat-ad-iframe.html"></iframe></div>
+            <span class="tophat-ad-label">ADVERTISEMENT</span>
+        </div>
+    </div>
+</aside>
+
+
+
+
+<!-- biggest div that houses all project content -->
+    <div class="row">
+  <!--       second largest div that houses all project content -->
+        <div class="span12">
+
+           <div class="sharebuttons">
+    <div class="sharebuttons_submenu">
+        <i class="LATPinterest" data-socialshare-type="pinterest"></i>
+        <i class="LATGooglePlus" data-socialshare-type="googleplus"></i>
+        <i class="LATLinkedIn" data-socialshare-type="linkedin"></i>
+        <i class="LATStumbleUpon" data-socialshare-type="stumbleupon"></i>
+        <i class="LATDigg" data-socialshare-type="digg"></i>
+    </div>
+    <i class="LATFacebook" data-socialshare-type="facebook"></i>
+    <i class="LATTwitter" data-socialshare-type="twitter"></i>
+    <i data-triggered="false" class="LATShare" data-socialshare-type="shareParent"></i>
+    <i class="LATEmail" data-socialshare-type="email"></i>
+    <i class="LATPrinter" data-socialshare-type="print"></i>
+    <div class="clear"></div>
+</div>
+
+            <!--  div container for project title  -->
+            <div><h1 id="wftitle">154 gallons of water <span style="color:#777;">were used to make this plate</span></h1></div>
+             <p class="byline">
+                By <span class="author"><a href="https://twitter.com/kyleykim">Kyle Kim</a>, <a href="https://twitter.com/gaufre">Jon Schleuss</a> and <a href="https://twitter.com/priyakkumar">Priya Krishnakumar</a>
+            </span></p>
+
+            <p class="dateline">
+                <time datetime="2015-04-07" pubdate="">April 7, 2015</time>
+            </p>
+
+
+            <!--  div container for project intro  -->
+            <p id="wfintro">California's crippling drought has prompted conservation efforts, such as replacing grass lawns and minding how long you leave the tap water running. But what about the food on your plate? Agriculture uses 80% of California's water supply, and producing what you eat can require a surprising amount of water.  The number next to the plate below represents the <a href="http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html">direct and indirect amount of water</a> required to produce your food plate, based on U.S. data from the Water Footprint Network. Food items are assumed as fresh (unfrozen) and do not include the footprint for cooking (when applicable).</p>
+            <!-- related items-->
+            <ul class="related-links">
+                    <h5><i class="LATLink"></i> Related</h5>
+                    <li>
+                        <a href="http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html">
+                          Understanding how food water footprints work
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.latimes.com/local/drought/">
+                            Full drought coverage
+                        </a>
+                    </li>
+
+                </ul>
+
+            <div class="carousel-btns">
+                <h5 style="margin-bottom: 20px;">Select items from the menu to create your plate:</h5>
+                <a id="protein-btn">Protein</a>
+                <a id="starch-btn">Starch</a>
+                <a id="fruveg-btn">Fruits/vegetables</a>
+                <a id="drink-btn">Drink</a>
+            </div>
+
+            <i class="LATArrowLeft03" id="scroll_left"></i>
+            <i class="LATArrowRight03" id="scroll_right"></i>
+            <div id="big-carousel-container">
+                <div class="carousel-holder">
+                    <div id="protein-car" class="food-carousel" style="border-bottom: 4px solid #E5B0A3"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/beef.jpg" alt="Beef" title="Beef" id="beef" class="protein-thumb beef-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/chicken.jpg" alt="Chicken" title="Chicken" id="chicken" class="protein-thumb chicken-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/chickpeas.jpg" alt="Chickpeas" title="Chickpeas" id="chickpeas" class="protein-thumb chickpeas-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/eggs.jpg" alt="Eggs" title="Eggs" id="eggs" class="protein-thumb eggs-thumb food-item"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/goat.jpg" alt="Goat" title="Goat" id="goat" class="protein-thumb goat-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/lamb.jpg" alt="Lamb" title="Lamb" id="lamb" class="protein-thumb lamb-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/lentils.jpg" alt="Lentils" title="Lentils" id="lentils" class="protein-thumb lentils-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/peas.jpg" alt="Peas" title="Peas" id="peas" class="protein-thumb peas-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/pork.jpg" alt="Pork" title="Pork" id="pork" class="protein-thumb pork-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/soyburger.jpg" alt="Soy burger" title="Soy burger" id="soyburger" class="protein-thumb soyburger-thumb food-item not-selected"></div>
+                    <div id="starch-car" class="food-carousel" style="border-bottom: 4px solid #B0C7D6"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/pasta.jpg" alt="Pasta" title="Pasta" id="pasta" class="starch-thumb pasta-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/potatoes.jpg" alt="Potatoes" title="Potatoes" id="potatoes" class="starch-thumb potatoes-thumb food-item"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/rice.jpg" alt="Rice" title="Rice" id="rice" class="starch-thumb rice-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/wheatbread.jpg" alt="Wheat bread" title="Wheat bread" id="wheatbread" class="starch-thumb wheatbread-thumb food-item not-selected"></div>
+                    <div id="fruveg-car" class="food-carousel" style="border-bottom: 4px solid #E2CDAED"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/apples.jpg" alt="Apples" title="Apples" id="apples" class="fruveg-thumb apples-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/artichokes.jpg" alt="Artichokes" title="Artichokes" id="artichokes" class="fruveg-thumb artichokes-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/asparagus.jpg" alt="Asparagus" title="Asparagus" id="asparagus" class="fruveg-thumb asparagus-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/avocados.jpg" alt="Avocados" title="Avocados" id="avocados" class="fruveg-thumb avocados-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/bananas.jpg" alt="Bananas" title="Bananas" id="bananas" class="fruveg-thumb bananas-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/blackberries.jpg" alt="Blackberries" title="Blackberries" id="blackberries" class="fruveg-thumb blackberries-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/blueberries.jpg" alt="Blueberries" title="Blueberries" id="blueberries" class="fruveg-thumb blueberries-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/broccoli.jpg" alt="Broccoli" title="Broccoli" id="broccoli" class="fruveg-thumb broccoli-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/brusselssprouts.jpg" alt="Brussels sprouts" title="Brussels sprouts" id="brusselssprouts" class="fruveg-thumb brusselssprouts-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/cabbage.jpg" alt="Cabbage" title="Cabbage" id="cabbage" class="fruveg-thumb cabbage-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/carrots.jpg" alt="Carrots" title="Carrots" id="carrots" class="fruveg-thumb carrots-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/cauliflower.jpg" alt="Cauliflower" title="Cauliflower" id="cauliflower" class="fruveg-thumb cauliflower-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/cherries.jpg" alt="Cherries" title="Cherries" id="cherries" class="fruveg-thumb cherries-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/cranberries.jpg" alt="Cranberries" title="Cranberries" id="cranberries" class="fruveg-thumb cranberries-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/cucumber.jpg" alt="Cucumber" title="Cucumber" id="cucumber" class="fruveg-thumb cucumber-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/eggplant.jpg" alt="Eggplant" title="Eggplant" id="eggplant" class="fruveg-thumb eggplant-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/grapefruit.jpg" alt="Grapefruit" title="Grapefruit" id="grapefruit" class="fruveg-thumb grapefruit-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/grapes.jpg" alt="Grapes" title="Grapes" id="grapes" class="fruveg-thumb grapes-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/kale.jpg" alt="Kale" title="Kale" id="kale" class="fruveg-thumb kale-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/lettuce.jpg" alt="Lettuce" title="Lettuce" id="lettuce" class="fruveg-thumb lettuce-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/mangoes.jpg" alt="Mangoes" title="Mangoes" id="mangoes" class="fruveg-thumb mangoes-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/okra.jpg" alt="Okra" title="Okra" id="okra" class="fruveg-thumb okra-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/onions.jpg" alt="Onions" title="Onions" id="onions" class="fruveg-thumb onions-thumb food-item"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/oranges.jpg" alt="Oranges" title="Oranges" id="oranges" class="fruveg-thumb oranges-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/peaches.jpg" alt="Peaches" title="Peaches" id="peaches" class="fruveg-thumb peaches-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/pear.jpg" alt="Pear" title="Pear" id="pear" class="fruveg-thumb pear-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/pineapples.jpg" alt="Pineapples" title="Pineapples" id="pineapples" class="fruveg-thumb pineapples-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/raspberries.jpg" alt="Raspberries" title="Raspberries" id="raspberries" class="fruveg-thumb raspberries-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/spinach.jpg" alt="Spinach" title="Spinach" id="spinach" class="fruveg-thumb spinach-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/squash.jpg" alt="Squash" title="Squash" id="squash" class="fruveg-thumb squash-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/strawberries.jpg" alt="Strawberries" title="Strawberries" id="strawberries" class="fruveg-thumb strawberries-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/tomatoes.jpg" alt="Tomatoes" title="Tomatoes" id="tomatoes" class="fruveg-thumb tomatoes-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/watermelon.jpg" alt="Watermelon" title="Watermelon" id="watermelon" class="fruveg-thumb watermelon-thumb food-item not-selected"></div>
+                    <div id="drink-car" class="food-carousel" style="border-bottom: 4px solid #F2D291"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/applejuice.jpg" alt="Apple juice" title="Apple juice" id="applejuice" class="drink-thumb applejuice-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/beer.jpg" alt="Beer" title="Beer" id="beer" class="drink-thumb beer-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/grapejuice.jpg" alt="Grape juice" title="Grape juice" id="grapejuice" class="drink-thumb grapejuice-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/grapefruitjuice.jpg" alt="Grapefruit juice" title="Grapefruit juice" id="grapefruitjuice" class="drink-thumb grapefruitjuice-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/milk.jpg" alt="Milk" title="Milk" id="milk" class="drink-thumb milk-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/orangejuice.jpg" alt="Orange juice" title="Orange juice" id="orangejuice" class="drink-thumb orangejuice-thumb food-item"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/pineapplejuice.jpg" alt="Pineapple juice" title="Pineapple juice" id="pineapplejuice" class="drink-thumb pineapplejuice-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/soymilk.jpg" alt="Soy milk" title="Soy milk" id="soymilk" class="drink-thumb soymilk-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/sparklingwine.jpg" alt="Sparkling wine" title="Sparkling wine" id="sparklingwine" class="drink-thumb sparklingwine-thumb food-item not-selected"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/wine.jpg" alt="Wine" title="Wine" id="wine" class="drink-thumb wine-thumb food-item not-selected"></div>
+                </div>
+            </div>
+
+
+            <!--  div container for form  -->
+            <a id="shuffle">Give me a random plate <i class="fa fa-refresh"></i></a>
+            <p id="plateresult"><strong>154</strong> gallons</p>
+            <p style="font-family: &#39;Arial&#39;;color: #8F8F8F;font-size: 16px; line-height: 9px;">(<a href="http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html">Commercial U.S. average</a>)</p>
+            <div class="plate">
+                <!--  div container for plate and foot elements  -->
+                <div id="protein-info" class="info-box">Eggs: <select name="protein_ounces" id="protein_ounces" class="eggs-dropdown">                                     <option value="1">1</option>                                     <option value="2">2</option>                                     <option value="3">3</option>                                     <option value="4">4</option>                                     <option value="5">5</option>                                     <option value="6">6</option>                                     <option value="7">7</option>                                     <option value="8" selected="">8</option>                                     <option value="9">9</option>                                     <option value="10">10</option>                                 </select> ounces <p class="result"><span class="gal_amt" id="protein-val">93.8</span> gallons</p></div>
+                <div id="starch-info" class="info-box">Potatoes: <select name="starch_ounces" id="starch_ounces" class="potatoes-dropdown">                                         <option value="1">1</option>                                         <option value="2">2</option>                                         <option value="3">3</option>                                         <option value="4">4</option>                                         <option value="5">5</option>                                         <option value="6" selected="">6</option>                                         <option value="7">7</option>                                         <option value="8">8</option>                                         <option value="9">9</option>                                         <option value="10">10</option>                                     </select> ounces <p class="result"><span class="gal_amt" id="starch-val">17.9</span> gallons</p></div>
+                <div id="fruveg-info" class="info-box">Onions: <select name="fruveg_ounces" id="fruveg_ounces" class="onions-dropdown">                                     <option value="1">1</option>                                     <option value="2">2</option>                                     <option value="3">3</option>                                     <option value="4">4</option>                                     <option value="5">5</option>                                     <option value="6">6</option>                                     <option value="7">7</option>                                     <option value="8" selected="">8</option>                                     <option value="9">9</option>                                     <option value="10">10</option>                                 </select> ounces <p class="result"><span class="gal_amt" id="fruveg-val">9.5</span> gallons</p></div>
+                <div id="drink-info" class="info-box">Orange juice: <select name="drink_ounces" id="drink_ounces" class="orangejuice-dropdown">                                     <option value="1">1</option>                                     <option value="2">2</option>                                     <option value="3">3</option>                                     <option value="4">4</option>                                     <option value="5">5</option>                                     <option value="6">6</option>                                     <option value="7">7</option>                                     <option value="8" selected="">8</option>                                     <option value="9">9</option>                                     <option value="10">10</option>                                 </select> ounces <p class="result"><span class="gal_amt" id="drink-val">32.9</span> gallons</p></div>
+
+
+                <div id="plate_overlay">
+
+                <img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/eggs.png" alt="Eggs" id="protein-plate" class="protein plate-item protein-plate"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/potatoes.png" alt="Potatoes" id="starch-plate" class="starch plate-item starch-plate"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/onions.png" alt="Onions" id="fruveg-plate" class="fruveg plate-item fruveg-plate"><img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/orangejuice.png" alt="Orange juice" id="drink-plate" class="drink plate-item drink-plate"></div>
+                 <!--  plate image  -->
+                <img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/plate-new.png">
+            </div>
+                   <!--  result in sentence form gets written in this div  -->
+            <div id="secondpage">
+                <div id="secondh2" style="text-align: center;"></div>
+                    <div id="wfresult" style="display: block;">
+                        <div id="wfbreakdown">
+                            <div id="wffvsquare"></div><p>Fruits and vegetables: <span id="fvcell">9.5 gallons</span></p>
+                            <div id="wfdsquare"></div><p>Drink: <span id="dcell">32.9 gallons</span></p>
+                            <div id="wfsgsquare"></div><p>Starch: <span id="sgcell">17.9 gallons</span></p>
+                            <div id="wfpsquare"></div><p>Protein: <span id="pcell">93.8 gallons</span></p>
+
+                        </div>
+                    </div>
+                <div id="wafflechart">
+                    <div id="fholder"><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div><div class="fvsquare"></div></div>
+                    <div id="dholder"><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div><div class="dsquare"></div></div>
+                    <div id="sholder"><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div><div class="sgsquare"></div></div>
+                    <div id="pholder"><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div><div class="psquare"></div></div>
+
+                </div>
+        </div><!--#secondpage-->
+        </div><!--#span12-->
+
+   <!--  after calculate button, second page loads -->
+
+    </div><!--#row-->
+           <!--  Third page that contains the table and bubble chart -->
+           <h2 id="barcategories" style="text-align: center; margin-bottom: 3%;">How much water is used to produce your food?</h2>
+             <p>Cutting animal products from our diet can significantly help water conservation efforts, but water policies focus on sustainable production rather than sustainable consumption, water management expert Arjen Y. Hoekstra <a href="http://www.waterfootprint.org/Reports/Hoekstra-2014-Water-for-animal-products.pdf">says in a recent report</a>.
+            </p><p>According to data of U.S. averages for production from the Water Footprint Network, a Dutch nonprofit research group Hoekstra co-founded, <a href="http://www.waterfootprint.org/?page=files/Animal-products">animal products demand</a> considerably higher amounts of water than do most other food types. The selected foods below provide a representative example based on common diets. (<a href="http://www.latimes.com/local/lanow/la-me-g-how-water-hungry-are-californias-nuts-20150408-htmlstory.html">Looking for nuts?</a>)</p>
+
+        <div id="bubblechart">
+
+            <div style="text-align: center;">
+                <div id="b-breakdown">
+                            <div id="bfvsquare"></div><p>Fruits and vegetables</p>
+                            <div id="bdsquare"></div><p>Drink</p>
+                            <div id="bsgsquare"></div><p>Starch</p>
+                            <div id="bpsquare"></div><p>Protein</p>
+                </div>
+            <select id="desktop-ounce-menu">
+                <option value="all">Select a category</option>
+                <option value="all">All</option>
+                <option value="protein">Protein</option>
+                <option value="starch">Starch</option>
+                <option value="fruveg">Fruit/Vegetables</option>
+                <option value="drink">Drink</option>
+            </select>
+            </div>
+            <div id="bubble-legend-container">
+                <img id="bubble-legend" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/legend.jpg">
+            </div>
+        <div id="food_b_container">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 600 600" enable-background="new 0 0 600 600" xml:space="preserve" id="food_bubbles" style="height: 630px;">
+            <g id="cucumber-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="488.3" cy="439.6" r="15.5" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="grapes-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="367.6" cy="404.5" r="15.3" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="pear-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="534.8" cy="444.1" r="14.3" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="oranges-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="477.4" cy="407.9" r="13.8" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="broccoli-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="435.7" cy="484.6" r="13.6" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="brusselssprouts-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="288.9" cy="582.4" r="13.6" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="cauliflower-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="537.4" cy="383.8" r="13.6" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="grapefruit-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="311.1" cy="509.6" r="13.1" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="cabbage-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="397.1" cy="538.3" r="13.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="kale-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="222.7" cy="569.5" r="13.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="cranberries-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="505.5" cy="388.1" r="12.6" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="squash-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="419.4" cy="411.1" r="12.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="watermelon-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="465.9" cy="488" r="11.5" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="eggplant-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="458.6" cy="448.9" r="11.3" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="pineapples-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="443.6" cy="388" r="10.4" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="spinach-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="522.5" cy="416.8" r="10.4" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="strawberries-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="374.2" cy="563.3" r="9.8" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="onions-circle">
+
+                    <circle fill="#E2DAED" stroke="#333333" cx="473.5" cy="513.7" r="9.4" stroke-width="2" fill-opacity="0.6"></circle>
+            </g>
+            <g id="tomatoes-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="395.6" cy="428.5" r="8.4" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="carrots-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="551.7" cy="408.6" r="8.4" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="lettuce-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="447.3" cy="418.4" r="8" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="apples-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="428.2" cy="449" r="15.9" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="raspberries-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="397.6" cy="494.6" r="18" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="blackberries-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="499.1" cy="474.9" r="18" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="peaches-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="434.6" cy="527" r="18.9" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="blueberries-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="324.2" cy="563.3" r="20.8" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="bananas-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="332.3" cy="474.9" r="20.9" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="artichokes-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="374.2" cy="457.9" r="21.2" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="okra-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="353.6" cy="522.7" r="24.3" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="avocados-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="325.5" cy="422.7" r="26.3" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="cherries-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="266.2" cy="538.5" r="30.5" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="asparagus-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="191.6" cy="520.1" r="39.4" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="mangoes-circle">
+
+                    <circle fill="#E2DAED" stroke="#ffffff" cx="255.8" cy="454.8" r="46.6" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="grapefruitjuice-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="435" cy="308" r="15.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="grapejuice-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="450" cy="342" r="15.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="beer-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="555.2" cy="330" r="12.3" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="wine-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="397.6" cy="302.9" r="16.5" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="milk-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="524.3" cy="299.8" r="21.2" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="pineapplejuice-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="514.1" cy="348.4" r="23.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="soymilk-circle">
+
+                    <circle fill="#F2D291" stroke="#ffffff" cx="451" cy="275" r="12.9" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="potatoes-circle">
+
+                    <circle fill="#B0C7D6" stroke="#333333" cx="288" cy="394.2" r="15.1" stroke-width="2" fill-opacity="0.6"></circle>
+            </g>
+            <g id="wheatbread-circle">
+
+                    <circle fill="#B0C7D6" stroke="#ffffff" cx="400.7" cy="364.4" r="33.1" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="rice-circle">
+
+                    <circle fill="#B0C7D6" stroke="#ffffff" cx="247.3" cy="356.9" r="35.2" stroke-width="0" fill-opacity="0.6"></circle>
+            </g>
+            <g id="pasta-circle">
+
+                    <circle fill="#B0C7D6" stroke="#ffffff" cx="329.7" cy="347.3" r="35.5" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="chicken-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="165.8" cy="278" r="35.6" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="eggs-circle">
+
+                    <circle fill="#E5B0A3" stroke="#333333" cx="362.1" cy="181.8" r="29.9" stroke-width="2" fill-opacity="0.6"></circle>
+            </g>
+            <g id="soyburger-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="403.9" cy="242.5" r="40.8" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="pork-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="72.5" cy="262" r="56.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="goat-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="503.9" cy="219.7" r="56.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="peas-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="435.7" cy="121.4" r="58.2" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="lentils-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="274.6" cy="245.8" r="73.7" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="chickpeas-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="150.6" cy="151.9" r="76.1" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+            </g>
+            <g id="lamb-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="297.7" cy="87.4" r="80.3" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+
+            </g>
+            <g id="beef-circle">
+
+                    <circle fill="#E5B0A3" stroke="#ffffff" cx="126.1" cy="403.2" r="90" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+
+            </g>
+            <g id="orangejuice-circle">
+
+                <circle fill="#F2D291" stroke="#333333" cx="359.1" cy="292.9" r="18" stroke-width="2" fill-opacity="0.6" style="cursor: pointer;"></circle>
+
+            </g>
+            <g id="sparklingwine-circle">
+
+                <circle fill="#F2D291" stroke="#ffffff" cx="475" cy="310" r="18" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+
+            </g>
+            <g id="applejuice-circle">
+
+                <circle fill="#F2D291" stroke="#ffffff" cx="471.1" cy="373.9" r="16.2" stroke-width="0" fill-opacity="0.6" style="cursor: pointer;"></circle>
+
+            </g>
+        
+        </svg>
+        </div>
+
+        </div>
+
+        <p style="font-family:Arial, sans-serif; font-size: 14px;color:#555555;text-align:center;">For the record: The value for soy milk has been corrected. The original value was for the soy bean ingredient, not the actual water footprint of final soy milk product.</p>
+
+        <div class="mobile" id="thirdpage">
+                <h2 id="barcategories" style="text-align: center; margin-bottom: 3%;">How the foods compare:</h2>
+                <div style="text-align: center;">
+                <select class="ounce-menu">
+                    <option value="all">Select a category</option>
+                    <option value="all">All</option>
+                    <option value="protein">Protein</option>
+                    <option value="starch">Starch</option>
+                    <option value="fruveg">Fruit/Vegetables</option>
+                    <option value="drink">Drink</option>
+                </select>
+                </div>
+                <div id="allFood"><table><tr class="drink-bar"><td class="allbartext">Apple juice<span class="drink-block"></span></td><td class="ouncenumber"><span>4.23 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Apples<span class="fruveg-block"></span></td><td class="ouncenumber"><span>3.34 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Artichokes<span class="fruveg-block"></span></td><td class="ouncenumber"><span>5.92 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Asparagus<span class="fruveg-block"></span></td><td class="ouncenumber"><span>20.32 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Avocados<span class="fruveg-block"></span></td><td class="ouncenumber"><span>9.05 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Bananas<span class="fruveg-block"></span></td><td class="ouncenumber"><span>5.71 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Beef<span class="protein-block"></span></td><td class="ouncenumber"><span>106.28 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Beer<span class="drink-block"></span></td><td class="ouncenumber"><span>1.96 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Blackberries<span class="fruveg-block"></span></td><td class="ouncenumber"><span>4.22 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Blueberries<span class="fruveg-block"></span></td><td class="ouncenumber"><span>5.64 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Broccoli<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.44 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Brussels sprouts<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.44 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Cabbage<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.26 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Carrots<span class="fruveg-block"></span></td><td class="ouncenumber"><span>0.93 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Cauliflower<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.44 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Cherries<span class="fruveg-block"></span></td><td class="ouncenumber"><span>12.22 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Chicken<span class="protein-block"></span></td><td class="ouncenumber"><span>16.61 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Chickpeas<span class="protein-block"></span></td><td class="ouncenumber"><span>76.07 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Cranberries<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.12 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Cucumber<span class="fruveg-block"></span></td><td class="ouncenumber"><span>3.17 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Eggplant<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.69 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Eggs<span class="protein-block"></span></td><td class="ouncenumber"><span>11.73 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Goat<span class="protein-block"></span></td><td class="ouncenumber"><span>41.35 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Grape juice<span class="drink-block"></span></td><td class="ouncenumber"><span>2.78 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Grapefruit<span class="fruveg-block"></span></td><td class="ouncenumber"><span>3.74 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Grapefruit juice<span class="drink-block"></span></td><td class="ouncenumber"><span>2.27 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Grapes<span class="fruveg-block"></span></td><td class="ouncenumber"><span>3.12 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Kale<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.26 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Lamb<span class="protein-block"></span></td><td class="ouncenumber"><span>84.68 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Lentils<span class="protein-block"></span></td><td class="ouncenumber"><span>71.28 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Lettuce<span class="fruveg-block"></span></td><td class="ouncenumber"><span>0.85 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Mangoes<span class="fruveg-block"></span></td><td class="ouncenumber"><span>28.5 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Milk<span class="drink-block"></span></td><td class="ouncenumber"><span>5.48 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Okra<span class="fruveg-block"></span></td><td class="ouncenumber"><span>7.76 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Onions<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.19 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Orange juice<span class="drink-block"></span></td><td class="ouncenumber"><span>4.11 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Oranges<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.48 gallons/oz.</span></td></tr><tr class="starch-bar"><td class="allbartext">Pasta<span class="starch-block"></span></td><td class="ouncenumber"><span>16.6 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Peaches<span class="fruveg-block"></span></td><td class="ouncenumber"><span>4.69 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Pear<span class="fruveg-block"></span></td><td class="ouncenumber"><span>2.7 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Peas<span class="protein-block"></span></td><td class="ouncenumber"><span>44.53 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Pineapple juice<span class="drink-block"></span></td><td class="ouncenumber"><span>6.36 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Pineapples<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.4 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Pork<span class="protein-block"></span></td><td class="ouncenumber"><span>41.25 gallons/oz.</span></td></tr><tr class="starch-bar"><td class="allbartext">Potatoes<span class="starch-block"></span></td><td class="ouncenumber"><span>2.98 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Raspberries<span class="fruveg-block"></span></td><td class="ouncenumber"><span>4.22 gallons/oz.</span></td></tr><tr class="starch-bar"><td class="allbartext">Rice<span class="starch-block"></span></td><td class="ouncenumber"><span>16.26 gallons/oz.</span></td></tr><tr class="protein-bar"><td class="allbartext">Soy burger<span class="protein-block"></span></td><td class="ouncenumber"><span>21.84 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Soy milk<span class="drink-block"></span></td><td class="ouncenumber"><span>2.05 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Sparkling wine<span class="drink-block"></span></td><td class="ouncenumber"><span>4.28 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Spinach<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.39 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Squash<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.92 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Strawberries<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.24 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Tomatoes<span class="fruveg-block"></span></td><td class="ouncenumber"><span>0.95 gallons/oz.</span></td></tr><tr class="fruveg-bar"><td class="allbartext">Watermelon<span class="fruveg-block"></span></td><td class="ouncenumber"><span>1.79 gallons/oz.</span></td></tr><tr class="starch-bar"><td class="allbartext">Wheat bread<span class="starch-block"></span></td><td class="ouncenumber"><span>14.44 gallons/oz.</span></td></tr><tr class="drink-bar"><td class="allbartext">Wine<span class="drink-block"></span></td><td class="ouncenumber"><span>3.48 gallons/oz.</span></td></tr></table></div>
+
+            </div>
+
+                 <div id="bylines">
+                     <h3 class="projectnotesheader">Additional Credits</h3>
+                    <p class="projectnotesbody">Lorena Iñiguez Elebee, Len DeGroot, Raoul Ranoa, Anthony Pesce, Thomas Suh Lauder</p>
+                    <p class="projectnotesbody">Photos by Anne Cusack and Kirk McKoy, Los Angeles Times</p>
+                </div>
+                <div id="methodology">
+                     <h3 class="projectnotesheader">Methodology</h3>
+                    <p class="projectnotesbody">Read our introductory guide to <a href="http://www.latimes.com/visuals/graphics/la-g-food-water-footprint-20150410-htmlstory.html">understanding food water footprints</a>.<br>U.S. averages are derived from weighted totals (in cubic meters per metric ton) of multiple farming methods, including grazing and industrial production.<br>
+                    Totals were converted to U.S. gallons per ounce (weight). Beverage values were additionally converted into fluid ounces using the USDA National Nutrient Database for Standard Reference.<br>
+                    All food items are assumed as fresh (unfrozen) and do not include water for cooking. Data for sheep meat in the U.S. are unavailable and global averages were used instead.<br>
+                    Food items were selected if typically eaten as part of a main meal. Some were omitted for simplicity (i.e., squash versus pumpkin). Nuts were not included in this project but data is <a href="http://www.latimes.com/local/lanow/la-me-g-how-water-hungry-are-californias-nuts-20150408-htmlstory.html">available here</a>.
+                    </p>
+
+
+                </div>
+                 <div id="sources">
+                    <h3 class="projectnotesheader">Sources:</h3>
+                    <p class="projectnotesbody">WaterStat, Water Footprint Network, Enschede, the Netherlands.</p>
+                    <p class="projectnotesbody">M.M. Mekonnen and A.Y. Hoekstra (2010), <a href="http://www.waterfootprint.org/Reports/Report47-WaterFootprintCrops-Vol2.pdf">"The Green, Blue and Grey Water Footprint of Crops and Derived Crop Products,"</a> and  <a href="http://www.waterfootprint.org/Reports/Report-48-WaterFootprint-AnimalProducts-Vol2.pdf">"...of Farm Animals and Animal Products,"</a> Value of Water Research Report Series No. 47 and 48, UNESCO-IHE, Delft, the Netherlands.</p>
+                    <p class="projectnotesbody">L.A. Times reporting</p>
+                    <p class="projectnotesbody"><a href="http://graphics.latimes.com/static/misc/US-AVG-ONLY-Report47-Appendix-II.xlsx">Download the data (5.7 MB)</a></p>
+                </div>
+
+<div class="relateds">
+    <h4 style="text-align: left;"><a href="http://www.latimes.com/visuals/graphics/" title="L.A. Times Graphics"><i class="LATLink"></i> More graphics from the Los Angeles Times:</a></h4>
+    <div class="row">
+        <div class="span3 promo">
+            <a href="http://www.latimes.com/science/la-me-g-california-drought-map-htmlstory.html" target="_blank" title="Graphic: California&#39;s worsening drought">
+            <img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/saved_resource" alt="Drought graphic promo">
+           California's worsening drought</a>
+        </div>
+        <div class="span3 promo">
+            <a href="http://www.latimes.com/visuals/graphics/la-me-g-snapshot-storm-drains-20150401-htmlstory.html" target="_blank" title="How your litter ends up in the ocean">
+            <img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/storm-drain-promo.png" alt="How your litter ends up in the ocean">
+            How your litter ends up in the ocean</a>
+        </div>
+        <div class="span3 promo">
+            <a href="http://graphics.latimes.com/la-aging-water-infrastructure/" target="_blank" title="Graphic: L.A.&#39;s aging water pipes">
+            <img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/saved_resource(1)" alt="Aging water pipes promo">
+            L.A.'s aging water pipes</a>
+        </div>
+        <div class="span3 promo">
+            <a href="http://graphics.latimes.com/girl-scout-cookies/" target="_blank" title="Graphic: 6 Girl Scout Cookies you thought you were getting but aren&#39;t">
+            <img src="./How what you eat demands more water than you think it does - Los Angeles Times_files/saved_resource(2)" alt="Girl scout cookies promo">
+            6 Girl Scout Cookies you thought you were getting but aren't</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+    // Set up tooltip
+    var tooltipdiv = d3.select("body")
+        .append("div")
+        .attr("id", "tooltipdiv").style("opacity",0).style("height",0);
+    d3.select("#tooltipdiv").append("h2").attr("id", "food_name"); // name of company
+    d3.select("#tooltipdiv").append("p").attr("id", "water_description"); // descriptions of gallons per ounce
+    d3.select("#tooltipdiv").append("p").attr("id", "food_description"); // descriptions of gallons per ounce
+
+    // Set initial mouse stuffs
+    var mouseFreeze = false;
+    var mouseX;
+    var mouseY;
+
+    // set tip demo to true so it shows the tip for protein on init
+    tipDemo = true;
+
+    var foodItems = [{"name":"applejuice","displayname":"Apple juice","type":"drink","gallonsperounce":4.23,"cx":289,"cy":205,"description":"California grew 3% of the apples produced in the U.S. in 2012."},
+{"name":"beer","displayname":"Beer","type":"drink","gallonsperounce":1.96,"cx":333.4,"cy":291.2,"description":"California produced nearly 3 million barrels of craft beer in 2013, more than any other state."},
+{"name":"grapefruitjuice","displayname":"Grapefruit juice","type":"drink","gallonsperounce":2.27,"cx":324.3,"cy":226,"description":"California grew 15% of the grapefruit produced in the U.S. in 2012."},
+{"name":"grapejuice","displayname":"Grape juice","type":"drink","gallonsperounce":2.78,"cx":219,"cy":251,"description":""},
+{"name":"milk","displayname":"Milk","type":"drink","gallonsperounce":5.48,"cx":359.5,"cy":261.2,"description":"California has been the nation's top producer of dairy products since 1993."},
+{"name":"orangejuice","displayname":"Orange juice","type":"drink","gallonsperounce":4.11,"cx":238.3,"cy":324.2,"description":"California grew 29% of the oranges produced in the U.S. in 2012."},
+{"name":"pineapplejuice","displayname":"Pineapple juice","type":"drink","gallonsperounce":6.36,"cx":320.2,"cy":329.1,"description":"Few, if any, pineapples are grown in California."},
+{"name":"soymilk","displayname":"Soy milk","type":"drink","gallonsperounce":2.05,"cx":278.5,"cy":270.8,"description":"Few, if any, soybeans are grown in California."},
+{"name":"sparklingwine","displayname":"Sparkling wine","type":"drink","gallonsperounce":4.28,"cx":250,"cy":213,"description":""},
+{"name":"wine","displayname":"Wine","type":"drink","gallonsperounce":3.48,"cx":275.8,"cy":339.8,"description":"California crushed nearly 4 million tons of wine grapes in 2014. The state leads the nation in wine grape production."},
+{"name":"apples","displayname":"Apples","type":"fruveg","gallonsperounce":3.34,"cx":400.8,"cy":279.2,"description":"California grew 3% of the apples produced in the U.S. in 2012."},
+{"name":"artichokes","displayname":"Artichokes","type":"fruveg","gallonsperounce":5.92,"cx":359.2,"cy":283.1,"description":"California grew 99% of the artichokes produced in the U.S. in 2012."},
+{"name":"asparagus","displayname":"Asparagus","type":"fruveg","gallonsperounce":20.32,"cx":176.7,"cy":348,"description":"California grew 48% of the asparagus produced in the U.S. in 2012."},
+{"name":"avocados","displayname":"Avocados","type":"fruveg","gallonsperounce":9.05,"cx":310.6,"cy":248.9,"description":"California grew 88% of the avocadoes produced in the U.S. in 2012."},
+{"name":"bananas","displayname":"Bananas","type":"fruveg","gallonsperounce":5.71,"cx":317.4,"cy":300.2,"description":""},
+{"name":"blackberries","displayname":"Blackberries","type":"fruveg","gallonsperounce":4.22,"cx":171.7,"cy":287.2,"description":""},
+{"name":"blueberries","displayname":"Blueberries","type":"fruveg","gallonsperounce":5.64,"cx":306.1,"cy":384.3,"description":"California grew 9% of the blueberries produced in the U.S. in 2012."},
+{"name":"broccoli","displayname":"Broccoli","type":"fruveg","gallonsperounce":2.44,"cx":420.7,"cy":309.8,"description":"California grew 95% of the broccoli produced in the U.S. in 2012."},
+{"name":"brusselssprouts","displayname":"Brussels sprouts","type":"fruveg","gallonsperounce":2.44,"cx":349.3,"cy":207.8,"description":""},
+{"name":"cabbage","displayname":"Cabbage","type":"fruveg","gallonsperounce":2.26,"cx":382.7,"cy":361,"description":"California grew 21% of the fresh cabbage produced in the U.S. in 2012."},
+{"name":"carrots","displayname":"Carrots","type":"fruveg","gallonsperounce":0.93,"cx":413.2,"cy":339,"description":"California grew 81% of the fresh carrots produced in the U.S. in 2012."},
+{"name":"cauliflower","displayname":"Cauliflower","type":"fruveg","gallonsperounce":2.44,"cx":395,"cy":244.3,"description":"89% of cauliflower consumed in the U.S. is from California."},
+{"name":"cherries","displayname":"Cherries","type":"fruveg","gallonsperounce":12.22,"cx":251.2,"cy":365.8,"description":"California grew 22% of the sweet cherries produced in the U.S. in 2012."},
+{"name":"cranberries","displayname":"Cranberries","type":"fruveg","gallonsperounce":2.12,"cx":181.6,"cy":248.9,"description":"Few, if any, cranberries are grown in California."},
+{"name":"cucumber","displayname":"Cucumber","type":"fruveg","gallonsperounce":3.17,"cx":240.8,"cy":414.6,"description":"California grew 7% of the fresh cucumber produced in the U.S. in 2012."},
+{"name":"eggplant","displayname":"Eggplant","type":"fruveg","gallonsperounce":1.69,"cx":439,"cy":276,"description":""},
+{"name":"grapefruit","displayname":"Grapefruit","type":"fruveg","gallonsperounce":3.74,"cx":282.3,"cy":328.6,"description":"California grew 15% of the grapefruit produced in the U.S. in 2012."},
+{"name":"grapes","displayname":"Grapes","type":"fruveg","gallonsperounce":3.12,"cx":244.9,"cy":213.4,"description":"Grapes were California's second-most-valued commodity at $5.6 billion for 2013-2014. California grew 91% of the grapes produced in the U.S. in 2012."},
+{"name":"kale","displayname":"Kale","type":"fruveg","gallonsperounce":2.26,"cx":432.4,"cy":244.3,"description":""},
+{"name":"lettuce","displayname":"Lettuce","type":"fruveg","gallonsperounce":0.85,"cx":322,"cy":213.4,"description":"California grew 74% of the lettuce produced in the U.S. in 2014. "},
+{"name":"mangoes","displayname":"Mangoes","type":"fruveg","gallonsperounce":28.50,"cx":240.8,"cy":280,"description":"Few, if any, mangoes are grown in California."},
+{"name":"okra","displayname":"Okra","type":"fruveg","gallonsperounce":7.76,"cx":338.6,"cy":348,"description":""},
+{"name":"onions","displayname":"Onions","type":"fruveg","gallonsperounce":1.19,"cx":421.5,"cy":367.8,"description":"California grew 27% of the onions produced in the U.S. in 2012."},
+{"name":"oranges","displayname":"Oranges","type":"fruveg","gallonsperounce":2.48,"cx":357,"cy":240.4,"description":"California grew 29% of the oranges produced in the U.S. in 2012."},
+{"name":"peaches","displayname":"Peaches","type":"fruveg","gallonsperounce":4.69,"cx":354.6,"cy":393,"description":"California grew 73% of the peaches produced in the U.S. in 2012."},
+{"name":"pear","displayname":"Pear","type":"fruveg","gallonsperounce":2.70,"cx":278.6,"cy":414.6,"description":"California grew 25% of the pears produced in the U.S. in 2012."},
+{"name":"pineapples","displayname":"Pineapples","type":"fruveg","gallonsperounce":1.40,"cx":318.2,"cy":183,"description":"Few, if any, pineapples are grown in California."},
+{"name":"raspberries","displayname":"Raspberries","type":"fruveg","gallonsperounce":4.22,"cx":382.7,"cy":319.9,"description":"California grew 74% of the raspberries produced in the U.S. in 2012."},
+{"name":"spinach","displayname":"Spinach","type":"fruveg","gallonsperounce":1.39,"cx":380.5,"cy":218.2,"description":""},
+{"name":"squash","displayname":"Squash","type":"fruveg","gallonsperounce":1.92,"cx":294,"cy":206.1,"description":"California grew 16% of the squash produced in the U.S. in 2012. "},
+{"name":"strawberries","displayname":"Strawberries","type":"fruveg","gallonsperounce":1.24,"cx":300.6,"cy":349.9,"description":"California grew 92% of the strawberries produced in the U.S. in 2012. They come mostly from Monterey and Ventura counties."},
+{"name":"tomatoes","displayname":"Tomatoes","type":"fruveg","gallonsperounce":0.95,"cx":272.7,"cy":228.6,"description":"California grew 91% of the tomatoes produced in the U.S. in 2014."},
+{"name":"watermelon","displayname":"Watermelon","type":"fruveg","gallonsperounce":1.79,"cx":439.3,"cy":330.6,"description":"California grew 16% of the watermelon produced in the U.S. in 2012."},
+{"name":"beef","displayname":"Beef","type":"protein","gallonsperounce":106.28,"cx":477.1,"cy":346.6,"description":"Beef is the most water-hungry of the meats. California had about 610,000 beef cows in 2013."},
+{"name":"chicken","displayname":"Chicken","type":"protein","gallonsperounce":16.61,"cx":357.7,"cy":289.5,"description":"Chicken requires the least water of the meats.."},
+{"name":"chickpeas","displayname":"Chickpeas","type":"protein","gallonsperounce":76.07,"cx":127.2,"cy":318.9,"description":"California grew 8% of the chickpeas produced in the U.S. in 2014. The U.S. uses a higher fertilizer application rate for chickpeas, which is why the water footprint is larger than pulses overall."},
+{"name":"eggs","displayname":"Eggs","type":"protein","gallonsperounce":11.73,"cx":314.1,"cy":226,"description":"Six percent of the chicken eggs produced in the U.S. in 2012 came from California."},
+{"name":"goat","displayname":"Goat","type":"protein","gallonsperounce":41.35,"cx":341.2,"cy":412.7,"description":""},
+{"name":"lamb","displayname":"Lamb","type":"protein","gallonsperounce":84.68,"cx":209.7,"cy":180.2,"description":"Fourteen percent of the sheep and lamb meat produced in the U.S. in 2013 came from California. Data for sheep meat in the U.S. are unavailable and global averages were used instead."},
+{"name":"lentils","displayname":"Lentils","type":"protein","gallonsperounce":71.28,"cx":210.2,"cy":447.3,"description":"Hardly any lentils are grown in California. The U.S. uses a higher fertilizer application rate for lentils, which is why the water footprint is larger than pulses overall."},
+{"name":"peas","displayname":"Peas","type":"protein","gallonsperounce":44.53,"cx":348.4,"cy":131.2,"description":"California is not a major producer of green peas. The U.S. uses a higher fertilizer application rate for peas, which is why the water footprint is larger than pulses overall."},
+{"name":"pork","displayname":"Pork","type":"protein","gallonsperounce":41.25,"cx":266.2,"cy":322.7,"description":"Two percent of the pork produced in the U.S. in 2013 came from California."},
+{"name":"soyburger","displayname":"Soy burger","type":"protein","gallonsperounce":21.84,"cx":411.2,"cy":217.6,"description":"Few, if any, soybeans are grown in California. "},
+{"name":"pasta","displayname":"Pasta","type":"starch","gallonsperounce":16.60,"cx":339.9,"cy":250,"description":"California grew 1% of the wheat produced in the U.S. in 2014. "},
+{"name":"potatoes","displayname":"Potatoes","type":"starch","gallonsperounce":2.98,"cx":298.2,"cy":296.9,"description":"California grew 3% of the potatoes produced in the U.S. in 2012."},
+{"name":"rice","displayname":"Rice","type":"starch","gallonsperounce":16.26,"cx":257.5,"cy":259.6,"description":"California grew 99% of the glutinous (white, sticky) rice produced in the U.S. in 2012"},
+{"name":"wheatbread","displayname":"Wheat bread","type":"starch","gallonsperounce":14.44,"cx":346.5,"cy":328,"description":"California grew 1% of the wheat produced in the U.S. in 2014. "}];
+
+
+    // store carousel
+    var itemTypes = [];
+    for (var i = 0; i < foodItems.length; i++) {
+        if (itemTypes.indexOf(foodItems[i].type) === -1) {
+            itemTypes.push(foodItems[i].type);
+        }
+    }
+    var carousels = ["protein-car","starch-car","fruveg-car","drink-car"];
+    // sort array of objects alphabetically by display name
+    foodItems.sort(function(a,b) {
+        if (a.displayname < b.displayname) return -1;
+        if (a.displayname > b.displayname) return 1;
+        return 0;
+    })
+
+    // add items to carousels
+    for (var i = 0; i < foodItems.length; i++) { // loop through items
+        for (var j = 0; j < carousels.length; j++) { // loop through carousel items
+            var thisCar = carousels[j].substring(0,carousels[j].indexOf('-'));
+            if (foodItems[i].type === thisCar) { // check if food item's type matches current carousel
+                var carousel = document.getElementById(carousels[j]); // get carasel's id
+                var img = document.createElement("img");
+                img.src = '/static/img/food-water-footprint/thumbs/' + foodItems[i].name + '.jpg';
+                img.alt = foodItems[i].displayname;
+                img.title = foodItems[i].displayname;
+                img.id = foodItems[i].name;
+                img.className = foodItems[i].type + '-thumb ' + foodItems[i].name + '-thumb' + ' food-item';
+                carousel.appendChild(img); // append it to carousel
+            }
+        }
+    }
+
+    //scroll carousel
+    var windowWidth = document.documentElement.clientWidth;
+
+    // Scrolls list to right and left
+    var scrollAmt = (windowWidth >= 980) ? 950 :
+                    (windowWidth >= 500) ? 570 : 280;
+    var scrollspeed = (windowWidth > 500) ? 1000 : 500;
+
+    $("#scroll_right").click( function () {
+        // Stop all other animations
+        $(".carousel-holder").stop();
+        var leftPos = $(".carousel-holder").scrollLeft();
+        $(".carousel-holder").animate({ scrollLeft: leftPos + scrollAmt}, scrollspeed);
+    });
+
+    $("#scroll_left").click( function () {
+        // Stop all other animations
+        $(".carousel-holder").stop();
+        var leftPos = $(".carousel-holder").scrollLeft();
+        $(".carousel-holder").animate({ scrollLeft: leftPos - scrollAmt}, scrollspeed);
+    });
+    //  PLEASE REFACTOR OH MY GOD
+    $("#drink-btn").click(function(){
+
+        var producePos = $("#drink-car").offset().left - $(".carousel-holder").offset().left;
+        var leftPos = $(".carousel-holder").scrollLeft();
+        $(".carousel-holder").animate({scrollLeft: leftPos+producePos}, scrollspeed);
+    });
+    $("#protein-btn").click(function(){
+
+        var producePos = $("#protein-car").offset().left - $(".carousel-holder").offset().left;
+        var leftPos = $(".carousel-holder").scrollLeft();
+        $(".carousel-holder").animate({scrollLeft: leftPos+producePos}, scrollspeed);
+    });
+    $("#fruveg-btn").click(function(){
+
+        var producePos = $("#fruveg-car").offset().left - $(".carousel-holder").offset().left;
+        var leftPos = $(".carousel-holder").scrollLeft();
+        $(".carousel-holder").animate({scrollLeft: leftPos+producePos}, scrollspeed);
+    });
+    $("#starch-btn").click(function(){
+
+        var producePos = $("#starch-car").offset().left - $(".carousel-holder").offset().left;
+        var leftPos = $(".carousel-holder").scrollLeft();
+        $(".carousel-holder").animate({scrollLeft: leftPos+producePos}, scrollspeed);
+    });
+
+    randomPlate(); // init
+
+    function randomPlate () {
+
+        $('.plate-item').remove();
+
+
+        // pull together a random plate
+        // create four arrays
+        var proteins = [],
+            starches = [],
+            fruvegs = [],
+            drinks = [];
+
+        for (var i = 0; i < foodItems.length; i++) {
+            if (foodItems[i].type === "protein") {
+                proteins.push(foodItems[i].name);
+            } else if (foodItems[i].type === "starch") {
+                starches.push(foodItems[i].name);
+            } else if (foodItems[i].type === "fruveg") {
+                fruvegs.push(foodItems[i].name);
+            } else if (foodItems[i].type === "drink") {
+                drinks.push(foodItems[i].name);
+            }
+        }
+
+        // get random items
+        var rProtein = proteins[Math.floor(Math.random() * proteins.length)];
+        var rStarch = starches[Math.floor(Math.random() * starches.length)];
+        var rFruveg = fruvegs[Math.floor(Math.random() * fruvegs.length)];
+        var rDrink = drinks[Math.floor(Math.random() * drinks.length)];
+        var randos = [rProtein,rStarch,rFruveg,rDrink];
+
+        // reset all selections for bubble chart
+        d3.selectAll("#food_bubbles g circle").attr("stroke","#ffffff").attr("stroke-width",0);
+
+
+        // select items in bubble chart
+        d3.select("#"+rProtein+"-circle circle").attr("stroke","#333333").attr("stroke-width",2);
+        d3.select("#"+rStarch+"-circle circle").attr("stroke","#333333").attr("stroke-width",2);
+        d3.select("#"+rFruveg+"-circle circle").attr("stroke","#333333").attr("stroke-width",2);
+        d3.select("#"+rDrink+"-circle circle").attr("stroke","#333333").attr("stroke-width",2);
+
+
+
+        // add big images to plate
+        var plateOver = document.getElementById('plate_overlay');
+
+        // select right thumbs
+        $('.food-item').addClass('not-selected'); // show all as not selected
+
+        for (var i = 0; i < randos.length; i++) {
+
+            for (var j = 0; j < foodItems.length; j++) {
+                if (foodItems[j].name === randos[i]) {
+
+
+                    $('.' + foodItems[j].name + '-thumb').removeClass('not-selected'); // but remove that class from the current selection
+
+
+                    var img = document.createElement("img");
+                    img.src = '/static/img/food-water-footprint/' + foodItems[j].name + '.png';
+                    img.alt = foodItems[j].displayname;
+                    img.id =  foodItems[j].type + '-plate';
+                    img.className = foodItems[j].type + ' plate-item ' + foodItems[j].type + '-plate';
+                    plateOver.appendChild(img);
+
+
+
+                    var box = document.getElementById(foodItems[j].type + '-info');
+                    var dropdown = (foodItems[j].type == 'starch') ?
+                                '<select name="'+foodItems[j].type+'_ounces" id="'+foodItems[j].type+'_ounces" class="' + foodItems[j].name + '-dropdown"> \
+                                        <option value="1">1</option> \
+                                        <option value="2">2</option> \
+                                        <option value="3">3</option> \
+                                        <option value="4">4</option> \
+                                        <option value="5">5</option> \
+                                        <option value="6" selected>6</option> \
+                                        <option value="7">7</option> \
+                                        <option value="8">8</option> \
+                                        <option value="9">9</option> \
+                                        <option value="10">10</option> \
+                                    </select>' :
+                                '<select name="'+foodItems[j].type+'_ounces" id="'+foodItems[j].type+'_ounces" class="' + foodItems[j].name + '-dropdown"> \
+                                    <option value="1">1</option> \
+                                    <option value="2">2</option> \
+                                    <option value="3">3</option> \
+                                    <option value="4">4</option> \
+                                    <option value="5">5</option> \
+                                    <option value="6">6</option> \
+                                    <option value="7">7</option> \
+                                    <option value="8" selected>8</option> \
+                                    <option value="9">9</option> \
+                                    <option value="10">10</option> \
+                                </select>';
+                    var startVal = (foodItems[j].type == 'starch') ? foodItems[j].gallonsperounce * 6 : foodItems[j].gallonsperounce * 8;
+                    if (startVal.toFixed(1) !== 1){
+                        box.innerHTML = foodItems[j].displayname + ": " + dropdown + ' ounces ' +  '<p class="result"><span class="gal_amt" id="'+foodItems[j].type+'-val">' + startVal.toFixed(1) + '</span> gallons</p>';
+                    } else {
+                        box.innerHTML = foodItems[i].displayname + ": " + dropdown + ' ounces ' +  '<p class="result"><span class="gal_amt" id="'+foodItems[j].type+'-val">' + startVal.toFixed(1) + '</span> gallon</p>';
+                    }
+
+
+                }
+            }
+        }
+
+        dropdownListener(); // fires after things are added
+        rebuildWaffle();
+
+        // show tooltip for protein
+        if (tipDemo) {
+            showProtein(rProtein);
+        }
+
+    } // randomPlate
+
+    $("a#shuffle").click(function () {
+        randomPlate();
+    });
+
+
+
+    // when selecting food item from carousel
+    $(".food-item").click(function () {
+        // get carousel
+        var thisCar = $(this).attr("class").split(' ')[0];
+        // get class
+        var thisType = $(this).attr("class").split(' ')[0].substring(0,$(this).attr("class").split(' ')[0].indexOf('-'));
+        // get name
+        var thisName = $(this).attr("class").split(' ')[1].substring(0,$(this).attr("class").split(' ')[1].indexOf('-'));
+        $('.' + thisCar).addClass('not-selected'); // show all as not selected
+        $(this).removeClass('not-selected'); // but remove that class from the current selection
+        $("#" + thisType + "-info").css("display","block");
+        // remove any of family items from plate
+        $('.' + thisType + '-plate').remove();
+
+        // reset any others that may have been selected in bubble chart
+        for (var i = 0; i < foodItems.length; i++) {
+            if (foodItems[i].type === thisType) {
+                d3.select("#" + foodItems[i].name + "-circle circle").attr("stroke","#ffffff").attr("stroke-width",0);
+            }
+        }
+
+        // select this item in bubble chart
+        d3.select("#"+thisName+"-circle circle").attr("stroke","#333333").attr("stroke-width",2);
+
+        // add big image to plate
+        var plateOver = document.getElementById('plate_overlay');
+        var img = document.createElement("img");
+        img.src = '/static/img/food-water-footprint/' + thisName + '.png';
+        img.alt = thisName;
+        img.id = thisType + '-plate';
+        img.className = thisType + ' plate-item ' + thisType + '-plate';
+        plateOver.appendChild(img);
+
+        // add info to infobox
+        for (var i = 0; i < foodItems.length; i++) {
+            if (thisName === foodItems[i].name) {
+                var box = document.getElementById(foodItems[i].type + '-info');
+                var dropdown = (foodItems[i].type == 'starch') ?
+                            '<select name="'+foodItems[i].type+'_ounces" id="'+foodItems[i].type+'_ounces" class="' + foodItems[i].name + '-dropdown"> \
+                                    <option value="1">1</option> \
+                                    <option value="2">2</option> \
+                                    <option value="3">3</option> \
+                                    <option value="4">4</option> \
+                                    <option value="5">5</option> \
+                                    <option value="6" selected>6</option> \
+                                    <option value="7">7</option> \
+                                    <option value="8">8</option> \
+                                    <option value="9">9</option> \
+                                    <option value="10">10</option> \
+                                </select>' :
+                            '<select name="'+foodItems[i].type+'_ounces" id="'+foodItems[i].type+'_ounces" class="' + foodItems[i].name + '-dropdown"> \
+                                <option value="1">1</option> \
+                                <option value="2">2</option> \
+                                <option value="3">3</option> \
+                                <option value="4">4</option> \
+                                <option value="5">5</option> \
+                                <option value="6">6</option> \
+                                <option value="7">7</option> \
+                                <option value="8" selected>8</option> \
+                                <option value="9">9</option> \
+                                <option value="10">10</option> \
+                            </select>';
+                var startVal = (foodItems[i].type == 'starch') ? foodItems[i].gallonsperounce * 6 : foodItems[i].gallonsperounce * 8;
+                if (startVal.toFixed(1) !== 1){
+                    box.innerHTML = foodItems[i].displayname + ": " + dropdown + ' ounces ' +  '<p class="result"><span class="gal_amt" id="'+foodItems[i].type+'-val">' + startVal.toFixed(1) + '</span> gallons</p>';
+                } else {
+                    box.innerHTML = foodItems[i].displayname + ": " + dropdown + ' ounces ' +  '<p class="result"><span class="gal_amt" id="'+foodItems[i].type+'-val">' + startVal.toFixed(1) + '</span> gallon</p>';
+                }
+
+            }
+        }
+
+        dropdownListener(); // fires after things are added
+
+        rebuildWaffle();
+        $("#secondh2").fadeIn(800);
+    }); // clicking food item from carousel
+
+    function dropdownListener() {
+        // handle dropdowns changing
+        $('.info-box select').change(function() {
+            var foodName = $(this).attr('class').substring(0,$(this).attr('class').indexOf('-'));
+            console.log(foodName);
+            var newOz = this.value;
+            // update gals of water
+            for (var i = 0; i < foodItems.length; i++) {
+                var box = $('p.result');
+                var newVal = (newOz * foodItems[i].gallonsperounce).toFixed(1);
+                if (foodItems[i].name === foodName && newVal <= 1) {
+                    // multiply new ounces with gallonsperounce to one decimal place
+                    // box.innerHTML = '<span class="gal_amt" id="'+foodItems[i].type+'-val">' + (newOz * foodItems[i].gallonsperounce).toFixed(1) + '</span> gallons';
+                    $('#'+foodItems[i].type + '-info p.result').html("<span class='gal_amt' id='"+ foodItems[i].type + "-val'>" + newVal + "</span> gallon");
+                    // $('#' + foodItems[i].type + '-info span').text((newOz * foodItems[i].gallonsperounce).toFixed(1));
+                } else if (foodItems[i].name === foodName && newVal > 1){
+                    $('#'+foodItems[i].type + '-info p.result').html("<span class='gal_amt' id='"+ foodItems[i].type + "-val'>" + newVal + "</span> gallons");
+                }
+
+            }
+
+            rebuildWaffle();
+        }); // dropdown change
+
+    }
+
+    function rebuildWaffle() {
+                $('#wfresult').css("display","block");
+                var infobox = $(".info-box");
+                $('.dsquare').remove();
+                $('.psquare').remove();
+                $('.fvsquare').remove();
+                $('.sgsquare').remove();
+       // $.each(infobox,function(){
+       //      if ($(this).has("span").length === 1) {
+
+               var drinksq = $("#drink-val").html();
+               var drinkval = +drinksq;
+
+               var proteinsq = $("#protein-val").html();
+               var proteinval = +proteinsq;
+
+               var fruvegsq = $("#fruveg-val").html();
+               var fruvegval = +fruvegsq;
+
+               var starchsq = $("#starch-val").html();
+               var starchval = +starchsq;
+
+               //make NaNs into zeroes
+               drinkval = drinkval || 0;
+               proteinval = proteinval || 0;
+               fruvegval = fruvegval || 0;
+               starchval = starchval || 0;
+
+               var allSum = ((drinkval + proteinval + fruvegval + starchval).toFixed(0));
+
+               var id = $(this).children("span").attr("id");
+               // $("#wftitle").find('h1:first').remove();
+
+               $("#wftitle").html(commafy(allSum) + " gallons of water <span style='color:#777;'>were used to make this plate</span>");
+
+               $("#plateresult").html("<strong>" + commafy(allSum) + "</strong> gallons");
+
+               //round the values so they can be drawn as divs, also this is super inefficient so maybe refactor this if you have time
+               var dsq = Math.round(drinkval);
+               var psq = Math.round(proteinval);
+               var fsq = Math.round(fruvegval);
+               var ssq = Math.round(starchsq);
+
+               //loop through all the gallons, turn them into divs and append them to the waffle chart
+               for(i = 0; i<dsq; i++) {
+                    var drinkSquares = document.createElement('div');
+                    drinkSquares.className = "dsquare";
+                    if(drinkval <= 1){
+                        $('#dcell').html(drinkval + " gallon");
+                    } else{
+                        $('#dcell').html(drinkval + " gallons");
+                    }
+
+                    document.getElementById('dholder').appendChild(drinkSquares);
+                }
+
+                for(i = 0; i<psq; i++) {
+                    var proSquares = document.createElement('div');
+                    proSquares.className = "psquare";
+                    $('#pcell').html(proteinval + " gallons");
+                    document.getElementById('pholder').appendChild(proSquares);
+                }
+                for(i = 0; i<fsq; i++) {
+                    var fruSquares = document.createElement('div');
+                    fruSquares.className = "fvsquare";
+                    $('#fvcell').html(fruvegval + " gallons");
+                    document.getElementById('fholder').appendChild(fruSquares);
+                }
+                for(i = 0; i<ssq; i++) {
+                    var starchSquares = document.createElement('div');
+                    starchSquares.className = "sgsquare";
+                    $('#sgcell').html(starchval + " gallons");
+                    document.getElementById('sholder').appendChild(starchSquares);
+                }
+    }
+
+
+    // restyle bubble chart
+    d3.selectAll("#food_bubbles g circle").attr("fill-opacity",0.6);
+
+    // resize buble chart based on it's width
+    $("#food_bubbles").height($("#food_bubbles").width());
+
+    //DRAW TABLE ON MOBILE
+    bar_table(foodItems,"allFood");
+
+        function bar_table(data,area) {
+            // create table and append it to bar_table div
+            var table = document.createElement("table");
+            document.getElementById(area).appendChild(table);
+            for (var i = 0; i < data.length; i++) {
+                // Create table row
+                var row = document.createElement("tr");
+                row.setAttribute("class",data[i].type+"-bar");
+                var block = document.createElement("span");
+                block.setAttribute("class",data[i].type+"-block");
+                // bar name
+                var barname = document.createElement("td");
+                barname.setAttribute("class","allbartext");
+                barname.appendChild(document.createTextNode(data[i].displayname));
+
+                row.appendChild(barname);
+                barname.appendChild(block);
+
+                // calculate bar percent of largest (which is 10%)
+                var percent = (data[i].gallonsperounce / 106.28)*100;
+
+                // cell that holds the bar
+                var bar = document.createElement("TD");
+                bar.setAttribute("class","ouncenumber");
+
+                var rate = document.createElement("SPAN");
+
+                if (data[i].gallonsperounce != null) {
+                    var rateNum = document.createTextNode(data[i].gallonsperounce + " gallons/oz.");
+                    rate.appendChild(rateNum);
+                    row.appendChild(rate);
+                }
+                bar.appendChild(rate);
+                row.appendChild(bar);
+
+                table.appendChild(row);
+
+            }
+        }
+        $('.ounce-menu').on('change', function() {
+            var category = this.value;
+            if (this.value !== "all"){
+                    $('tr').hide();
+                    $('tr.'+category+'-bar').show();
+            } else{
+                $('tr').hide();
+                $('tr').show();
+            }
+        });
+
+    // TEMP loading food item name list
+    var tempFoodnames = [];
+    for (var i = 0; i < foodItems.length; i++) {
+        tempFoodnames.push(foodItems[i].name);
+    }
+
+    // get init positions of circles for later reseting
+    var origCircles = [];
+    d3.selectAll("#food_bubbles g").each(function () {
+        var obj = { id: this.id.substring(0,this.id.indexOf("-")),
+                    cx: d3.select(this.childNodes[1]).attr("cx"),
+                    cy: d3.select(this.childNodes[1]).attr("cy") }
+        origCircles.push(obj);
+    });
+
+    // add data to bubbles
+    d3.selectAll("#food_bubbles g").each(function () {
+        var circle = this.childNodes[1];
+        var id = this.id;
+        var foodName = id.substring(0,id.indexOf('-'));
+        // loop through foods
+        for (var i = 0; i < foodItems.length; i++) {
+            if (foodName == foodItems[i].name) {
+              d3.select(circle).data([foodItems[i]]).enter();
+            }
+        }
+    });
+
+    // on circle hover
+    d3.selectAll("#food_bubbles g circle")
+    .on("mouseover",function(d) {
+        if (!mouseFreeze) {
+            d3.select(this).attr("fill-opacity",1).style("cursor","pointer");
+            tipDemo = false;
+            fillTip(d);
+        }
+    })
+    .on("mouseout", function() {
+        if (!mouseFreeze) {
+            d3.select(this).attr("fill-opacity",0.6);
+            killTip();
+        }
+    })
+    .on("click", function(d) {
+        d3.selectAll("#food_bubbles g circle").attr("fill-opacity",0.6);
+        d3.select(this).attr("fill-opacity",1);
+        mouseFreeze = true; // switch it!
+        fillTip(d);
+        d3.event.stopPropagation(); // keep tooltip from clearing immediately because html is selected
+    });
+
+    // release the tooltip
+    d3.select("body").on("click", function() {
+        if (mouseFreeze) {
+            mouseFreeze = false;
+            d3.selectAll("#food_bubbles g circle").attr("fill-opacity",0.6);
+            // Hide tooltip
+            killTip();
+        }
+    });
+
+    // show tooltip for protein on init
+    function showProtein (name) {
+        if (windowWidth > 480) {
+            var bChart = document.getElementById("food_bubbles");
+
+            // Get #pot_venn location
+            var bubbleChart = {
+                left: parseInt(document.getElementById("food_bubbles").offsetLeft),
+                top: parseInt(document.getElementById("food_bubbles").offsetTop)
+            }
+
+            // Get circle's location
+            var cords = {
+                left: parseInt(d3.select("#" + name + "-circle circle").attr("cx")),
+                top: parseInt(d3.select("#" + name + "-circle circle").attr("cy"))
+            }
+
+            // set tooltip
+            d3.select("#tooltipdiv")
+                .style("top",bubbleChart.top + cords.top + 130 + "px")
+                .style("left",bubbleChart.left + cords.left - 125 + "px");
+
+            // find the right item to fill the tip
+            for (var i = 0; i < foodItems.length; i++) {
+                if (name === foodItems[i].name) {
+                    fillTip(foodItems[i]);
+                }
+
+            }
+
+        }
+
+
+    }
+
+
+
+    function fillTip (d) {
+        // NAME
+        d3.select("#food_name").text(d.displayname);
+        d3.select("#water_description").html("<strong>" + d.gallonsperounce + "</strong>" + " gallons of water needed to produce one ounce");
+        d3.select("#food_description").html(d.description);
+
+        // Show tooltip
+        tooltipdiv.style("opacity", "1").style("height", "auto").style("width","250px");
+    }
+
+
+
+    function killTip () {
+        d3.select("#food_name").text("");
+        d3.select("#water_description").html("");
+        d3.select("#food_description").html("");
+
+        // Hide tooltip
+        tooltipdiv.style("opacity", "0").style("height", 0).style("width",0);
+    }
+
+    // Get window width
+    var windowWidth = document.documentElement.clientWidth;
+
+    // Move the tooltip with the mouse
+    $(window).mousemove( function(e) {
+        mouseY = e.pageY;
+        mouseX = (e.pageX < 125) ? 125 : (e.pageX > windowWidth-150) ? windowWidth-150 : e.pageX;
+        if (!mouseFreeze && !tipDemo) {
+            d3.select("#tooltipdiv").style("top",(mouseY+20)+"px").style("left",(mouseX-125)+"px");
+        }
+    });
+
+    // animate the bubble chart
+    $("#desktop-ounce-menu").change(function() {
+        var value = this.value; // get form value
+
+        // check for all
+        if (value === 'all') {
+            d3.selectAll("#food_bubbles g").transition()
+                .duration(500)
+                .style("display","block")
+                .style("opacity",1);
+
+            // reset all circles
+            d3.selectAll("#food_bubbles g circle").each(function (d) {
+
+                for (var i = 0; i < origCircles.length; i++) {
+                    if (origCircles[i].id == d.name) {
+                        d3.select(this).transition()
+                            .duration(500)
+                            .attr("cx",origCircles[i].cx)
+                            .attr("cy",origCircles[i].cy);
+                    }
+                }
+            });
+
+
+        } else {
+
+            for (var i = 0; i < foodItems.length; i++) {
+                if (foodItems[i].type != value) {
+                    d3.select("#" + foodItems[i].name + "-circle").transition()
+                        .duration(500)
+                        .style("opacity",0)
+                        .each("end",function() {
+                            return d3.select(this).style("display","none");
+                        });
+                } else if (foodItems[i].type === value) {
+                    d3.select("#" + foodItems[i].name + "-circle circle").transition()
+                        .duration(500)
+                        .style("opacity",1)
+                        .style("display","block")
+                        .attr("cx",foodItems[i].cx)
+                        .attr("cy",foodItems[i].cy);
+
+                    d3.select("#" + foodItems[i].name + "-circle").transition()
+                        .duration(500)
+                        .style("display","block")
+                        .style("opacity",1);
+                }
+            }
+        }
+    });
+
+    /* add commas to numbers*/
+    function commafy(num) {
+        var s = String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return s;
+    }
+
+    </script>
+
+
+
+    </div><div id="tooltipdiv" style="opacity: 0; height: 0px; width: 0px; top: 3755px; left: 436px;"><h2 id="food_name"></h2><p id="water_description"></p><p id="food_description"></p></div>
+
+
+
+        <!-- Google Analytics code -->
+        <script type="text/javascript">
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-24686195-1', 'latimes.com');
+              ga('send', 'pageview');
+        </script>
+
+
+            <script type="text/javascript">
+                ((((window.trb || (window.trb = {})).data || (trb.data = {})).metrics || (trb.data.metrics = {})).thirdparty = {
+                    // Page naming convention:
+                    //  <site-slug>:<app-slug>:<path>:<datadesk-slug>-<page-slug>:<content-type>.
+                    // Example:
+                    //  lat:projects.latimes.com:local:data-pat-tillman:graphic.
+                    //  (Don't miss the period at the end.)
+                    pageName: 'lat:graphics:local:data-how-what-you-eat-demands-more-water-than-you-think-it-does:graphic.',
+                    channel: 'local', // Path
+                    server: 'graphics.latimes.com', // Full domain
+                    hier1: 'latimes:local', // Path (with latimes prefix)
+                    hier2: 'local', // Path (again)
+                    prop2: 'local', // Path (again!)
+                    prop38: 'graphic', // Content type
+                    eVar1: window.location.href, // This URL
+                    eVar2: document.referrer, // The referring URL
+                    prop57: 'D=c38',
+                    eVar20: 'latimes',
+                    eVar21: 'D=c38',
+                    eVar34: 'D=ch',
+                    eVar35: 'D=gn'
+                });
+            </script>
+            <script src="./How what you eat demands more water than you think it does - Los Angeles Times_files/thirdpartyservice"></script>
+
+
+
+
+    <footer>
+
+        <div id="footer-container">
+            <div id="footer">
+                <a class="sub-logo" href="http://www.latimes.com/"></a>
+                <div id="tos">
+                    <a href="http://www.latimes.com/lat-terms,0,7374802.story">Terms of Service</a> |
+                    <a href="http://privacy.tribune.com/">Privacy Policy</a> |
+                    <a href="http://www.latimes.com/lat-about-our-ads,0,3875412.htmlstory">About Our Ads</a> |
+                    <a href="http://www.latimes.com/services/site/la-reprint-request-splash,0,6731163.htmlstory">© <script type="text/javascript">document.write(new Date().getFullYear())</script>2016</a> |
+                    <a href="http://www.latimes.com/about/">About This Site</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+<script type="text/javascript">
+var _sf_async_config={};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = 3908;
+    _sf_async_config.domain = 'graphics.latimes.com';
+    _sf_async_config.useCanonical = true;
+    _sf_async_config.sections = '';
+    _sf_async_config.authors = 'Data Desk';
+    /** CONFIGURATION END **/
+    (function(){
+      function loadChartbeat() {
+        window._sf_endpt=(new Date()).getTime();
+        var e = document.createElement('script');
+        e.setAttribute('language', 'javascript');
+        e.setAttribute('type', 'text/javascript');
+        e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+        document.body.appendChild(e);
+      }
+      var oldonload = window.onload;
+      window.onload = (typeof window.onload != 'function') ?
+         loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+</script>
+
+
+    <!--Good with data?-->
+    <!--Tired of grinding on the same old apps?-->
+    <!--Want to use your skills in defense of truth, justice and the American way?-->
+    <!--Email datadesk@latimes.com and let us know you're out there.-->
+
+<script language="javascript" type="text/javascript" src="./How what you eat demands more water than you think it does - Los Angeles Times_files/chartbeat.js"></script></body></html>
