@@ -31,7 +31,7 @@ My version:
 
 <img width="1229" alt="screen shot 2016-12-10 at 4 28 16 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086324/7f3da62e-bfe9-11e6-97c2-9960a6bb35cb.png">
 
-Time in the dataset was just for four months, so I thought I might be able to make the x axis very narrow, as one can read a 4 point trend with relatively little ink. The new real estate made it so I could see all four of the metrics provided (Monthly Active Users, Daily Active Users, Subscribers, Total Content Hours) simulaneously.
+Time in the dataset was just for four months, so I thought I might be able to make the x axis very narrow, as one can read a 4 point trend with relatively little ink. The new real estate made it so I could see all four of the metrics provided (Monthly Active Users, Daily Active Users, Subscribers, Total Content Hours) simulaneously. Also, I added a color to the area chart so you could also tell right away if the trend was negative (red) or positive (green).
 
 <img width="1192" alt="screen shot 2016-12-11 at 5 50 27 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086508/2a611d78-bfeb-11e6-9fb1-d2a3beff4462.png">
 
@@ -49,9 +49,7 @@ I put together a few of the visualizations I created side-by-side to see how the
 
 I like the combination of the slopegraph, sparkline and area charts, so I built that out and made a version for country and region.
 
-<img width="1275" alt="screen shot 2016-12-11 at 5 13 07 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086691/ccdccac4-bfec-11e6-88a0-4d8c3f26ade1.png">
-
-
+<img width="1245" alt="screen shot 2016-12-11 at 10 19 36 pm" src="https://cloud.githubusercontent.com/assets/8422826/21087033/feab4a46-bfef-11e6-9e3b-149ff7748c66.png">
 
 
 ##### Tech Used:
