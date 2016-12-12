@@ -15,9 +15,7 @@ I typically start out new projects by opening up the data and look at it, if I c
 
 <img width="1205" alt="screen shot 2016-12-10 at 4 17 43 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086127/86261054-bfe7-11e6-97a8-adc6ae663659.png">
 
-<img width="922" alt="screen shot 2016-12-11 at 9 29 43 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086345/beb902c6-bfe9-11e6-9c65-efea4cc933dd.png">
-
-<img width="758" alt="screen shot 2016-12-10 at 10 55 59 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086646/71c9f594-bfec-11e6-9788-c58707d5d3ca.png">
+<img width="350" alt="screen shot 2016-12-11 at 10 09 14 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086870/89e99a7e-bfee-11e6-9605-492ce97ed161.png">
 
 I noticed a few things immediately: the United States had by far the largest in any metric. Europe though, was larger than North America. Comparing countries to each other would mean I would need to somehow handle the United States so that it didn't dwarf all the other results. Also, there was only four months worth of data, so I might be able to do small multiples types of visualizations, like sparklines. 
 
