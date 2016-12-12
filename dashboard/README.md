@@ -20,7 +20,7 @@ I typically start out new projects by opening up the data and look at it, if I c
 
 <img width="350" alt="screen shot 2016-12-11 at 10 09 14 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086870/89e99a7e-bfee-11e6-9605-492ce97ed161.png">
 
-I noticed a few things immediately: the United States was by far the largest in any metric. Europe though, was larger than North America. Comparing countries to each other would mean I would need to somehow handle the United States so that it didn't dwarf all the other results. Also, there was only four months worth of data, so I might be able to do small multiples types of visualizations, like sparklines. 
+I noticed a few things immediately: the United States was by far the largest in any metric. Comparing countries to each other would mean I would need to somehow handle the United States so that it didn't dwarf all the other results. Also, there was only four months worth of data, so I might be able to do small multiples types of visualizations, like sparklines. 
 
 The project goals given in the assignment said that the goal was to "help business users understand how different markets
 are performing compared to each other," so I wanted to focus on how to show which countries and regions were changing the most and how they were ranking up. It seemed that line charts and slopegraphs would be good options, as they can trends in time and rank very well.
