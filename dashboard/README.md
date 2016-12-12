@@ -1,8 +1,11 @@
 # Spotify Dashboard Assignment
 
 Paul Buffa
+
 p.buffa@gmail.com
+
 [my blocks](http://bl.ocks.org/pstuffa)
+
 
 Go to [http://pstuffa.github.io/dashboard/](http://pstuffa.github.io/dashboard/) to see the prototype!
 
@@ -59,11 +62,12 @@ I wrote all the visualizations in D3. I used Bootstrap for the design. I didn't 
 For larger projects, I typically would build a Node.js application, connecting to a Postgres or MySQL instance.
 
 ##### Areas I would explore more if I had more time
-	* Allowing a user to sort the visualizations in different ways.
-	* Custom grouping of countries and regions.
-	* Use a framework to better manage the code. I like [this approach](https://bost.ocks.org/mike/chart/) for D3.  
-	* More analysis of the data, such as the ratio between paid and free products.
-	* Layer on additional datasets, like population, so I could show where Spotify was over-indexing in countries.
+
+  * Allowing a user to sort the visualizations in different ways.
+  * Custom grouping of countries and regions.
+  * Use a framework to better manage the code. I like [this approach](https://bost.ocks.org/mike/chart/) for D3.  
+  * More analysis of the data, such as the ratio between paid and free products.
+  * Layer on additional datasets, like population, so I could show where Spotify was over-indexing in countries.
 
 
 
