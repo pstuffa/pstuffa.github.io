@@ -12,7 +12,7 @@ function drawSlopegraph(originalData) {
   }
   else {
       margin = {top: 20, right: 120, bottom: 20, left: 120};
-      width = 400 - margin.left - margin.right;
+      width = 480 - margin.left - margin.right;
       height = 150 - margin.top - margin.bottom;
   }
 
@@ -198,7 +198,7 @@ function updateRankSlopeGraph(originalData) {
   }
   else {
       margin = {top: 20, right: 120, bottom: 20, left: 120};
-      width = 400 - margin.left - margin.right;
+      width = 480 - margin.left - margin.right;
       height = 150 - margin.top - margin.bottom;
   }
 

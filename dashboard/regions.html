@@ -21,7 +21,7 @@
 
   <body>
      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <a class="navbar-brand" href="#">Spotify Dashboard</a>
+        <a class="navbar-brand" href="index.html">Spotify Dashboard</a>
       <div class="nav navbar-nav navbar-right buttons" style="padding-top: 10px; padding-right: 30px">
         <span id="SparklineMetricSelected" >Monthly Active Users - free</span>
          
@@ -30,18 +30,23 @@
     <div class="container" style="padding-top: 50px;">
 
       <div class="col-md-12">
-        <div class="col-md-8" id="SparklineChart">
-         <h3> Country Sparklines </h3>
-          <p> hover over the lines and numbers to highlight a country</p>
+        <h2> Region Comparison  </h2>
+        <p> The goal of this view is to provide the user with ability to compare regions across time for a variety of metrics - Monthly Active Users, Daily Active Users, Subscribers, Total Content Hours - for both free and paid categories. There are three visualizations below, each meant to work in conjunction as to provide a full picture of the regional performance, as compared to others. The buttons at the top allow a user to filter for a particular product or metric.
+        </p>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-6" id="SparklineChart">
+         <h3> Region Sparklines </h3>
+          <p> Snapsot of the performance of a metric over time. The color and thickness of the sparkline represents the degree at which this region shifted.</p>
         </div>
-        <div class="col-md-4" id="SlopegraphChart">
-         <h3> Percentile Rank by Country</h3>
-          <p> click on the buttons above to change the results </p>
+        <div class="col-md-6" id="SlopegraphChart">
+         <h3> Percentile Rank by Region</h3>
+          <p> Regions are ranked over time. Percentile rank is calculated for whichever metric is selected. The color and thickness of the sparkline represent the degree at which this region shifted.</p>
         </div>
       </div>
         <div class="col-md-12">
          <h3> Region Timelines</h3>
-          <p> Area charts aim to highlight any group trends</p>
+          <p> Area timelines for each region for each metric show where performance is up or down across the board. By switching to universal y-axis, you can see how regions compare to each other. Hover over the text or area in a chart to highlight all those for that region. The color of the area represent the degree at which this region shifted from the first to last date.</p>
         <div id="yScaleButtons">
         </div>
         <div class="col-md-12" id="AreaChart">

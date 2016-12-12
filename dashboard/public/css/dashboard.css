@@ -7,6 +7,9 @@
   color: #fff;
 }
 
+#AreaChart {
+  align: center;
+}
 
 svg {
   display: inline-block;
