@@ -178,7 +178,7 @@ function drawSlopegraph(originalData) {
       d3.selectAll(".country")
         .style("stroke-opacity", function(d) {
             var lookupValue = d.key.replace(" ","");
-            return Math.abs(rankDict[maxDate +lookupValue] - rankDict[minDate + lookupValue])*10 + .2 ;
+            return Math.abs(rankDict[maxDate +lookupValue] - rankDict[minDate + lookupValue])*2 + 2 ;
           })
     })
 

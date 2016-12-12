@@ -2,16 +2,19 @@ function drawSparklines(originalData) {
 
   var margin;
   var width,
-      height;
+      height,
+      colorDomain;
 
   if(window.DashboardVersion == "Country") {
+      colorDomain = [-.2,0,.2];
       margin = {top: 5, right: 30, bottom: 5, left: 30};
       width = 90 - margin.left - margin.right;
       height = 15 - margin.top - margin.bottom;
   }
   else {
+      colorDomain = [-.05,0,.15];
       margin = {top: 5, right: 30, bottom: 5, left: 30};
-      width = 120 - margin.left - margin.right;
+      width = 150 - margin.left - margin.right;
       height = 25 - margin.top - margin.bottom;
   }
 
@@ -27,9 +30,10 @@ function drawSparklines(originalData) {
   var yScale = d3.scaleLinear()
       .range([height, 0])
 
+
   var colorScale = d3.scaleLinear()
-      .domain([-.2,0,.2])
-      .range(["#fb584f", "#cfcfcf", "#18b13e"])
+      .domain(colorDomain)
+      .range(["#fb584f", "#000", "#18b13e"])
 
   var countryArea = d3.line()
       .x(function(d) { return monthScale(d["FormatteDate"]); })
@@ -56,10 +60,6 @@ function drawSparklines(originalData) {
   var yScale = d3.scaleLinear()
       .range([height, 0])
 
-  var colorScale = d3.scaleLinear()
-      .domain([-.2,0,.2])
-      .range(["#fb584f", "#000", "#18b13e"])
-
   var countryArea = d3.line()
       .x(function(d) { return monthScale(d["FormatteDate"]); })
       .y(function(d) { return yScale(d[window.SpotifyMetric]) })
@@ -82,7 +82,7 @@ function drawSparklines(originalData) {
     d3.select(this)
       .append("div")
       .attr("class","textDiv")
-      .html("<b>" + regionData.key + "</b> is " + (performance > 0 ? "up by " + formatPerformance : "down by" + formatPerformance))
+      .html("<b>" + regionData.key + "</b> is " + (performance > 0 ? "up by " + formatPerformance : "down by " + formatPerformance))
 
       yScale.domain(d3.extent(regionData.values, function(d) { return d[window.SpotifyMetric]; }));
 
@@ -131,23 +131,24 @@ function updateSparklineChart(originalData) {
 
   var margin;
   var width,
-      height;
+      height,
+      colorDomain;
 
   if(window.DashboardVersion == "Country") {
+      colorDomain = [-.2,0,.2];
       margin = {top: 5, right: 30, bottom: 5, left: 30};
       width = 90 - margin.left - margin.right;
       height = 15 - margin.top - margin.bottom;
   }
   else {
+      colorDomain = [-.05 ,0,.15];
       margin = {top: 5, right: 30, bottom: 5, left: 30};
-      width = 120 - margin.left - margin.right;
+      width = 150 - margin.left - margin.right;
       height = 25 - margin.top - margin.bottom;
   }
 
-
-  var parseDate = d3.timeParse("%Y-%m-%d"),
-      formatDate = d3.timeFormat("%B"),
-      format = d3.format(",d");
+  var format = d3.format(",d"),
+      formatDate = d3.timeFormat("%B");
 
   var regions = d3.set(originalData.map(function(d) { return d["Region Name"]; })).values(),
       countries = d3.set(originalData.map(function(d) { return d["Country Name"]; })).values(),
@@ -158,9 +159,11 @@ function updateSparklineChart(originalData) {
   var yScale = d3.scaleLinear()
       .range([height, 0])
 
+
   var colorScale = d3.scaleLinear()
-      .domain([-.2,0,.2])
+      .domain(colorDomain)
       .range(["#fb584f", "#000", "#18b13e"])
+
 
   var countryArea = d3.line()
       .x(function(d) { return monthScale(d["FormatteDate"]); })
@@ -187,10 +190,6 @@ function updateSparklineChart(originalData) {
   var yScale = d3.scaleLinear()
       .range([height, 0])
 
-  var colorScale = d3.scaleLinear()
-      .domain([-.2,0,.2])
-      .range(["#fb584f", "#cfcfcf", "#18b13e"])
-
   var countryArea = d3.line()
       .x(function(d) { return monthScale(d["FormatteDate"]); })
       .y(function(d) { return yScale(d[window.SpotifyMetric]) })
@@ -213,7 +212,7 @@ function updateSparklineChart(originalData) {
 
       d3.select(this)
         .select(".textDiv")
-        .html("<b>" + regionData.key + "</b> is " + (performance > 0 ? "up by " + formatPerformance : "down by" + formatPerformance))
+        .html("<b>" + regionData.key + "</b> is " + (performance > 0 ? "up by " + formatPerformance : "down by " + formatPerformance))
 
       var svg = d3.select(this).select(".countrySVG");
 

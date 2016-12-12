@@ -10,7 +10,7 @@ function drawAreaChart(originalData) {
       height = 600 - margin.top - margin.bottom;
   }
   else {
-      margin = {top: 60, right: 10, bottom: 40, left: 100};
+      margin = {top: 60, right: 10, bottom: 40, left: 120};
       width = 250 - margin.left - margin.right;
       height = 220 - margin.top - margin.bottom;
   }
@@ -70,10 +70,10 @@ function drawAreaChart(originalData) {
 
   svg.append("text")
       .attr("x", width/2)
-      .attr("dy", -35)
+      .attr("dy", function() { return window.DashboardVersion == "Country" ? -2 : -35 })
       .style("text-anchor","middle")
       .style("font", "12px sans-serif")
-     .text(function(d) { return d});
+     .text(function(d) { console.log(d); return d});
 
   svg.append("g")
       .attr("class", "x axis")
@@ -90,7 +90,6 @@ function drawAreaChart(originalData) {
 
       var svg = d3.select(this);
       var metric = svg.node().parentNode.__data__;
-      console.log(metric)
       var performance = nestedCountryMonths["$"+regionData.key]["$" + maxDate][0][metric]/nestedCountryMonths["$"+regionData.key]["$" + minDate][0][metric] - 1;
 
       mauScale.domain(d3.extent(regionData.values, function(d) { return d[metric]; }))
@@ -144,7 +143,7 @@ function updateAreaChart(originalData) {
       height = 600 - margin.top - margin.bottom;
   }
   else {
-      margin = {top: 60, right: 10, bottom: 40, left: 100};
+      margin = {top: 60, right: 10, bottom: 40, left: 120};
       width = 250 - margin.left - margin.right;
       height = 220 - margin.top - margin.bottom;
   }
