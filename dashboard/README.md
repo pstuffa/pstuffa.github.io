@@ -50,11 +50,11 @@ I tried making a few maps of the dataset, but I didn't see any interesting trend
 
 I put together a few of the visualizations I created side-by-side to see how they might work in conjunction:
 
-<img width="1269" alt="screen shot 2016-12-11 at 5 13 15 pm" src="https://cloud.githubusercontent.com/assets/8422826/21086669/a32e2830-bfec-11e6-9a77-50253619dc01.png">
+<img width="1254" alt="screen shot 2016-12-19 at 8 35 13 pm" src="https://cloud.githubusercontent.com/assets/8422826/21335163/c4686fda-c62a-11e6-8543-48d255213836.png">
 
 I like the combination of the slopegraph, sparkline and area charts, so I built that out and made a version for country and region.
 
-<img width="1245" alt="screen shot 2016-12-11 at 10 19 36 pm" src="https://cloud.githubusercontent.com/assets/8422826/21087033/feab4a46-bfef-11e6-9e3b-149ff7748c66.png">
+<img width="1234" alt="screen shot 2016-12-19 at 8 35 30 pm" src="https://cloud.githubusercontent.com/assets/8422826/21335168/cd9c66a6-c62a-11e6-9bb4-9d7741cab47a.png">
 
 
 ##### Tech Used:
