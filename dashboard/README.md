@@ -1,4 +1,4 @@
-# Spotify Dashboard Assignment
+# Dashboard Assignment
 
 Paul Buffa
 
@@ -6,6 +6,8 @@ p.buffa@gmail.com
 
 [my blocks](http://bl.ocks.org/pstuffa)
 
+# Please Note!
+*All of the data in this dashboard is fake - this is just an example of a possible dashboard for businesses to track their performance*
 
 Go to [http://pstuffa.github.io/dashboard/](http://pstuffa.github.io/dashboard/) to see the prototype!
 
