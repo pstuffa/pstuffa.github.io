@@ -69,7 +69,6 @@ For larger projects, I typically would build a Node.js application, connecting t
   * Custom grouping of countries and regions.
   * Use a framework to better manage the code. I like [this approach](https://bost.ocks.org/mike/chart/) for D3.  
   * More analysis of the data, such as the ratio between paid and free products.
-  * Layer on additional datasets, like population, so I could show where Spotify was over-indexing in countries.
 
 
 
