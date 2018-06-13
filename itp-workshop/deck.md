@@ -19,11 +19,11 @@ Why visualize?
 Great data visualiation can be very effective at commmunicating trends, such as this example from the New York Times on the current NYC Subway situation.
 
 <a href="https://www.nytimes.com/interactive/2017/06/28/nyregion/subway-delays-overcrowding.html">
-	<img height="200" alt="screen shot 2017-07-10 at 6 04 20 pm" src="">
+	<img height="200" alt="" src="">
 </a>
 
 <a href="https://www.nytimes.com/interactive/2017/06/28/nyregion/subway-delays-overcrowding.html">
-	<img height="200" alt="screen shot 2017-07-10 at 6 04 26 pm" src="">
+	<img height="200" alt="" src="">
 </a>
 
 --- 
@@ -32,7 +32,7 @@ Great data visualiation can be very effective at commmunicating trends, such as 
 
 Visualization is effective for even more complicated data, though it has its limits.
 
-<img height="200" alt="screen shot 2017-07-10 at 9 51 44 pm" src="">
+<img height="200" alt="" src="">
 
 <p style="font-size: 18px"> 
 	"We find that viewers accurately estimate trends in many standard visualizations of bivariate data, but that both visual features (e.g., "within-the-bar" bias) and data features (e.g., the presence of outliers) can result in visual estimates that systematically diverge from standard least-squares regression models.""
@@ -236,7 +236,7 @@ Customize for your situation.
 
 ### Heart Rate Training
 
-<img height="400" alt="screen shot 2017-07-10 at 10 52 11 pm" src="">
+<img height="400" alt="" src="">
 
 <p style="font-size: 18px"> 
 	This visualization of average heart rate (BPM) by Garmin Connect is supposed to show you how much you excert during your workouts. It aggregates by either months, weeks or days, depending on the timeframe you select. This would imply that my Heart Rate has been fairly consistent for this 12 month timeframe.
@@ -246,7 +246,7 @@ Customize for your situation.
 
 ### Heart Rate Training
 <a href="http://bl.ocks.org/pstuffa/raw/7bc57cc0dde8ad77ee90effbb03f2b2a/">
-	<img width="840" alt="screen shot 2017-07-10 at 10 48 35 pm" src="">
+	<img width="840" alt="" src="">
 </a>
 
 <p style="font-size: 18px"> 
