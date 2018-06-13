@@ -1,9 +1,8 @@
-# Into to Data Visualization
+## Intro to Data Visualization
 
-<!-- .element: class="fragment" data-fragment-index="1" -->
+
 Why visualize?
-
-<!-- .element: class="fragment" data-fragment-index="3" -->
+<br />
 & how do I make it effective?
 
 ---
@@ -19,11 +18,11 @@ Why visualize?
 Great data visualiation can be very effective at commmunicating trends, such as this example from the New York Times on the current NYC Subway situation.
 
 <a href="https://www.nytimes.com/interactive/2017/06/28/nyregion/subway-delays-overcrowding.html">
-	<img height="200" alt="" src="">
+	<img height="200" alt="" src="https://user-images.githubusercontent.com/8422826/41360685-54e68edc-6efb-11e8-83fe-7f8312d6bce0.png">
 </a>
 
 <a href="https://www.nytimes.com/interactive/2017/06/28/nyregion/subway-delays-overcrowding.html">
-	<img height="200" alt="" src="">
+	<img height="200" alt="" src="https://user-images.githubusercontent.com/8422826/41360698-5c0c1614-6efb-11e8-8168-85f47869e608.png">
 </a>
 
 ---
@@ -32,7 +31,7 @@ Great data visualiation can be very effective at commmunicating trends, such as 
 
 Visualization is effective for even more complicated data, though it has its limits.
 
-<img height="200" alt="" src="">
+<img height="200" alt="" src="https://user-images.githubusercontent.com/8422826/41360596-22223d98-6efb-11e8-9bd6-bab5a02aaf80.png">
 
 <p style="font-size: 18px"> 
 	"We find that viewers accurately estimate trends in many standard visualizations of bivariate data, but that both visual features (e.g., "within-the-bar" bias) and data features (e.g., the presence of outliers) can result in visual estimates that systematically diverge from standard least-squares regression models.""
@@ -59,7 +58,7 @@ To describe geography
 ### Seashell Voting 
 
 <a href="http://www.vigorousnorth.com/2008/11/black-belt-how-soil-types-determined.html">
-	<img height="400" src="">
+	<img height="400" src="https://user-images.githubusercontent.com/8422826/41360555-066f5392-6efb-11e8-9d4b-42482408e6d5.png">
 </a>
 
 <p style="font-size: 16px"> 
@@ -82,7 +81,7 @@ To show patterns
 ### The Pay Gap 
 
 <a href="http://graphics.wsj.com/gender-pay-gap/"> 
-	<img height="400" src="">
+	<img height="400" src="https://user-images.githubusercontent.com/8422826/41360509-f2d0b286-6efa-11e8-8d7d-752c39fc238e.png">
 </a>
 
 <p style="font-size: 16px"> 
@@ -110,7 +109,7 @@ To reveal outliers
 ### Steph Curry
 
 <a href="https://www.nytimes.com/interactive/2016/04/16/upshot/stephen-curry-golden-state-warriors-3-pointers.html" class="subtext">
-	<img height="500" src="">
+	<img height="500" src="https://user-images.githubusercontent.com/8422826/41360473-dc1f91e2-6efa-11e8-9273-22ae496e1cdf.png">
 </a>
 
 <p style="font-size: 16px"> 
@@ -169,7 +168,7 @@ To help explain complicated analysis
 ### The Emotional Arc of Inaguration Speeches 
 
 <a href="http://emotions.periscopic.com/inauguration/">
-	<img height="400" src="">
+	<img height="400" src="https://user-images.githubusercontent.com/8422826/41360440-c9930cfc-6efa-11e8-94d2-0b695f28aaff.png">
 </a>
 
 <p style="font-size: 18px"> 
@@ -181,7 +180,7 @@ To help explain complicated analysis
 ### The Duality Between Maze and Tree
 
 <a href="https://bost.ocks.org/mike/algorithms/">
-	<img height="600" alt="" src="">
+	<img height="600" alt="" src="https://user-images.githubusercontent.com/8422826/41360406-b211307c-6efa-11e8-84f5-cbbe4663bfde.png">
 </a>
 
 ---
@@ -196,7 +195,7 @@ Don't just count things
 
 ### Steps
 
-<img height="400" src="">
+<img height="400" src="http://style.org/images/stdp3/STDP3_095.jpg">
 
 <p style="font-size: 14px"> 
 	It's showing me 31 numbers, it's showing me a random top number that's not my goal. It doesn't show me my goal. And it shows me a random bottom number that is not zero.<br /> <br />
@@ -226,7 +225,7 @@ Customize for your situation.
 
 ### Heart Rate Training
 
-<img height="400" alt="" src="">
+<img height="400" alt="" src="https://user-images.githubusercontent.com/8422826/41360327-8296328e-6efa-11e8-8fad-cf7d8e0f8deb.png">
 
 <p style="font-size: 18px"> 
 	This visualization of average heart rate (BPM) by Garmin Connect is supposed to show you how much you excert during your workouts. It aggregates by either months, weeks or days, depending on the timeframe you select. This would imply that my Heart Rate has been fairly consistent for this 12 month timeframe.
@@ -235,8 +234,8 @@ Customize for your situation.
 --- 
 
 ### Heart Rate Training
-<a href="http://bl.ocks.org/pstuffa/raw/7bc57cc0dde8ad77ee90effbb03f2b2a/">
-	<img width="840" alt="" src="">
+<a href="http://bl.ocks.org/pstuffa/7bc57cc0dde8ad77ee90effbb03f2b2a">
+	<img width="840" alt="" src="https://user-images.githubusercontent.com/8422826/41360264-5d849224-6efa-11e8-8ac2-20130a839670.png">
 </a>
 
 <p style="font-size: 18px"> 
@@ -261,7 +260,7 @@ Annotate!
 
 ### Sleep Quality
 
-<img height="400" src="">
+<img height="400" src="http://style.org/images/stdp3/STDP3_104.jpg">
 
 <p style="font-size: 18px"> 
 	For many timeline visualizations, outliers and trends can be explained through simple annotation. Help guide your reader (when you can) about these situations.<br /><br />
@@ -288,17 +287,60 @@ Annotate!
 
 Thought #4:<br />
 <!-- .element: class="fragment" data-fragment-index="1" -->
-Have a clear goal
+Just Show the Data
 
 ---
 
-### Spending Over Time
+### Data to Ink Ratio
 
-<img height="500" src="">
+<img height="500" src="https://cdn-images-1.medium.com/max/800/1*ZF-3-ih4QwSVTVXZeVV-iA.gif">
 
 <p style="font-size: 16px"> 
-	This visualization here shows spending by item category over time. There was not a clear sense of what to be looking for or what would be of interest to note, and what we ended up with was a visualization that did not explain much and is fairly pointless. Had we worked closer with those that would be using the visualization, we might have been able to craft something more effective.
+	This gif does an excellent job demonstrating the concept of a data to ink ratio. The idea is to make sure your visualizations don't have additional "Chart Junk" that obfuscates the data.
 </p>
 
 ---
 
+## Make It Effective
+
+Thought #1:<br />
+Don't just count things
+
+Thought #2:<br />
+Customize for your situation.
+
+Thought #3:<br />
+Annotate!
+
+Thought #4:<br />
+Just Show the Data
+
+Thought #5:<br />
+<!-- .element: class="fragment" data-fragment-index="1" -->
+Avoid Visual Trumperies
+
+---
+
+### Visual Trumpery
+
+<img height="500" src="https://cdn-images-1.medium.com/max/800/1*A5x-zMrlAwt6mZt_uERQFw.png">
+
+<p style="font-size: 16px"> 
+	An excellent voice in the Data Visualization field, Alberto Cairo has been going on tour talking about his concept of Visual Trumpery. This is a slide from his deck, talking about a few of the ideas. Alberto analyzes the ways that users get the wrong takeaways from visualizations and calls such techniques "Visual Trumpery." These are just a few of his ideas.
+</p>
+
+---
+
+### Visual Trumpery
+
+<img height="500" src="https://pbs.twimg.com/media/C31bQEQWQAAli69.jpg">
+
+<p style="font-size: 16px"> 
+	Alberto redesigns this chart that he says is full of visual trumpery. Where is it?
+</p>
+
+---
+
+## Q & A
+
+---
