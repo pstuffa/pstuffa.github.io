@@ -26,7 +26,7 @@ Great data visualiation can be very effective at commmunicating trends, such as 
 	<img height="200" alt="" src="">
 </a>
 
---- 
+---
 
 ## Why Visualize?
 
@@ -107,16 +107,6 @@ To reveal outliers
 
 --- 
 
-### Fraud 
-
-<img height="450" src="">
-
-<p style="font-size: 16px"> 
-	Here we are looking at Capital One accounts, with blue notes representing applications, orange numbers: phone numbers, green nodes: addressses and red nodes: names. We can easily see outliers where accounts have multiple links to a single phone number. These could be fraudulent accounts.
-</p>
-
----
-
 ### Steph Curry
 
 <a href="https://www.nytimes.com/interactive/2016/04/16/upshot/stephen-curry-golden-state-warriors-3-pointers.html" class="subtext">
@@ -191,7 +181,7 @@ To help explain complicated analysis
 ### The Duality Between Maze and Tree
 
 <a href="https://bost.ocks.org/mike/algorithms/">
-	<img height="600" alt="screen shot 2017-07-10 at 5 56 11 pm" src="">
+	<img height="600" alt="" src="">
 </a>
 
 ---
