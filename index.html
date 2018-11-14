@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>pstuffa</title>
+
+    <script src="./shared/js/vendor/d3/d3.min.js"></script>
+    <link href="./shared/css/welcome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+  <body>
+
+    <div id="welcome">
+    </div>
+
+    <div id="gifs">
+      <img src='./shared/gifs/550.gif' width="25%">
+      <!-- <img src='./shared/gifs/artGen4.gif' width="25%"> -->
+      <!-- <img src='./shared/gifs/dashes.gif' width="25%"> -->
+      <img src='./shared/gifs/map.gif' width="25%">
+      <img src='./shared/gifs/noisey.gif' width="25%">
+      <img src='./shared/gifs/run.gif' width="25%">
+      <!-- <img src='./shared/gifs/run2.gif' width="25%"> -->
+      <!-- <img src='./shared/gifs/run3.gif' width="25%"> -->
+      <!-- <img src='./shared/gifs/yvaral.gif' width="25%"> -->
+      <img src='./shared/gifs/run4.gif' width="25%">
+      <img src='./shared/gifs/run5.gif' width="25%">
+      <img src='./shared/gifs/run6.gif' width="25%">
+      <p> I love to design and build data visualizations on a variety of topics.<p>
+    </div>
+
+
+    <div id="projects">
+      <h1> Projects </h1>
+      <div class='project-list'>
+        <div class='project'>
+          <h3> National Geographic </h3>
+        </div>
+        <div class='project'>
+          <h3> Observable </h3>
+        </div>
+        <div class='project'>
+          <h3> Teaching </h3>
+            <h2> Metis </h2>
+            <h2> ITP </h2>
+        </div>
+        <div class='project'>
+          <h3> Streeteasy </h3>
+        </div>
+        <div class='project'>
+          <h3> Causaly </h3>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+<script>
+
+const margin = ({top: 20, bottom: 20, left: 20, right: 20})
+const height = window.innerHeight 
+const width = window.innerWidth * .9
+const multiplier = 4;
+const svgHeight = height * multiplier;
+
+const generateData = (n) => {
+
+  const points = d3.range(n).map(Object);
+
+  points.forEach((d, i) => {
+    if(Math.floor(i/3) % 2 == 0) {
+      if(i % 3 == 1) {
+        d.x = .0
+      } else if (i % 3 == 2) {
+        d.x = .5
+      } else {
+        d.x = .5
+      }
+      d.y = i;
+    } else {
+      if(i % 3 == 1) {
+        d.y = .0
+      } else if (i % 3 == 2) {
+        d.y = .5
+      } else {
+        d.y = .5
+      }
+      d.x = i;
+    }
+  })
+
+  return points
+}
+
+const drawWelcome = (thickWidth, thinWidth, divID) => {
+
+ const n = 50;
+ const data = generateData(n);
+ data.unshift({x: -.25, y: -10});
+ data.push({x: .5, y: n });
+ data.push({x: .5, y: n * (multiplier + 5)});
+  
+ const heightScale = d3.scaleLinear()
+    .domain([0, n])
+    .range([0, height]);
+  
+ const widthScale = d3.scaleLinear()
+    .domain([0, n])
+    .range([0, width]);
+  
+ const line = d3.line()
+   .curve(d3.curveBasis)
+   .x(d => widthScale(d.x))
+   .y(d => heightScale(d.y));
+ 
+ const svg = d3.select(divID)
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", svgHeight + margin.top + margin.bottom)
+
+  const g = svg.append("g")
+    .attr("transform",`translate(${margin.left}, ${margin.top})`)
+
+  g.append("text")
+    .attr("class", "title")
+    .attr("x", width - width*.05)
+    .attr("y", height - 200)
+    .text("Paul Buffa")
+    .style("fill", '#000')
+    .style("stroke", '#000')
+    .style("stroke-width", 2)
+
+  const subTitle = g.append("text")
+    .attr("class", "sub-title")
+    .attr("x", width - width*.05)
+    .attr("y", height - 140)
+    .text("Data Visualization Developer")
+
+  const pathTwo = g.append("path")
+   .datum(data)
+   .attr("d", line)
+   .style("stroke", '#000')
+   .style("stroke-width", thickWidth)
+   .style("fill", "none")
+  
+ const path = g.append("path")
+   .datum(data)
+   .attr("d", line)
+   .style("stroke", '#33ccff')
+   .style("stroke-width", thinWidth)
+   .style("fill", "none")
+        .attr("stroke-dasharray",  `${width / 2} ${width / 2} 10 10 10 10 10 10 10 10` )
+        .attr("stroke-dashoffset", width)
+ 
+  let strokeOffset = 0;
+  const t = d3.interval(function() {
+    strokeOffset -= 1
+    path.transition()
+      .duration(1)
+      .style("stroke-dashoffset", strokeOffset)
+  }, 10)
+
+
+  // Projects 
+  const gifGroup = d3.select("#gifs")
+    .style("top",`${margin.top + height}px`);
+
+
+  const projectGroup = d3.select("#projects")
+    .style("top",`${(margin.top * 2) + (height * 2)}px`);
+
+  // projectGroup.append("h1")  
+  //   .attr("class", "sub-title")
+  //   .attr("x", width*.05)
+  //   .attr("y", height*.05)
+  //   .style("text-anchor", "start")
+  //   .text("Projects")
+  //   .style("stroke", '#000')
+  //   .style("stroke-width", 1)
+
+  // const projects = [
+  //   {key: 'National Geographic', desc: 'I wrote a piece about intergrating immigrant communities for National Geographic. I designed the visualization, built it in D3, and wrote the copy for the piece', link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/', picture: './shared/images/natgeo-thumbnail.png'}
+  // ];
+
+  // const projectGroupList = g.append("g")
+  //   .attr("transform",`translate(${width * .05}, ${margin.top + height + height * .1})`)
+  //   .selectAll(".project")  
+  //   .data(projects)
+  // .enter().append("g")
+  //   .attr("class", "project")
+  //   .attr("transform",(d,i) => `translate(0, ${i * 100})`)
+  
+  // projectGroupList.append("text")
+  //     .text(d => d.key)
+
+
+
+  
+}
+
+drawWelcome(20, 5, "#welcome");
+
+</script>
