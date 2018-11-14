@@ -1,0 +1,44 @@
+body {
+	/*background-color: #ffff66;*/
+	height: 2000px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.title {
+	font-family: 'Special Elite', cursive;
+	font-size: 100px;
+	text-anchor: end;
+}
+
+.sub-title {
+	font-family: 'Helvetica', sans-serif;
+	font-size: 36px;
+	font-weight: 100;
+	text-anchor: end;
+}
+
+div {
+	/*border: 1px solid #000;*/
+	padding: 0px;
+	margin: 0px;
+}
+
+
+#gifs {
+	position: absolute;
+	display: inline-table;
+	margin: 5%;
+}
+
+#gifs p {
+	margin: 5%;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
+
+#projects {
+	position: absolute;
+	margin: 5%;
+}
