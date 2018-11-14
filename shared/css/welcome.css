@@ -26,12 +26,10 @@ body {
 	font-family: 'Helvetica', sans-serif;
 	font-size: 30px;
 	font-weight: 100;
-	/*text-align: end;*/
 	margin-top: 0px;
 	padding-top: 0px;
 	margin-bottom: 30px;
 	padding-bottom: 0px;
-	/*left: 10%;*/
 }
 
 .contact {
@@ -57,7 +55,7 @@ body {
 
 #titles {
 	position: absolute;
-	top: 60%;
+	/*top: 60%;*/
 	right: 10%;
 }
 

@@ -72,9 +72,13 @@
 const margin = ({top: 20, bottom: 20, left: 20, right: 20})
 const height = window.innerHeight 
 const width = window.innerWidth * .9
-const multiplier = 4;
+const multiplier = 20;
 const svgHeight = height * multiplier;
 const gifHeight = 260;
+const thickWidth = width / 75;
+const thinWidth = thickWidth / 4;
+
+d3.select("#titles").style("top", `${height * (2/4)}px`)
 
 const gifsData = [
   { width: 600, height: 484, src:'./shared/gifs/natgeo.gif', descr: 'A data visualization piece I wrote about tracking immigrant community integration using Twitter data.', title: 'National Geographic', link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/'},
@@ -121,8 +125,6 @@ const generateData = (n) => {
   return points
 }
 
-const drawWelcome = (thickWidth, thinWidth, divID) => {
-
  const n = 50;
  const data = generateData(n);
  data.unshift({x: -.25, y: -10});
@@ -142,7 +144,7 @@ const drawWelcome = (thickWidth, thinWidth, divID) => {
    .x(d => widthScale(d.x))
    .y(d => heightScale(d.y));
  
- const svg = d3.select(divID)
+ const svg = d3.select("#welcome")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", svgHeight + margin.top + margin.bottom)
@@ -177,7 +179,7 @@ const drawWelcome = (thickWidth, thinWidth, divID) => {
 
   // Projects 
   const gifContainer = d3.select("#gifs")
-    .style("top",`${margin.top + height}px`)
+    .style("top",`${margin.top + height + (width > 800 ? 0 : 50)}px`)
     .style("max-width", `${width}px`)
 
   const gifGroup = gifContainer.selectAll(".gif-group")
@@ -212,8 +214,5 @@ gifGroup.append("div")
     .attr("class", "hover-text")
     .html(d => { return `<h5 class='tiny-title'>${d.title}</h5><br /><p>${d.descr}</p><br /><br /><a href='${d.link}'>Click here to see the work </a>`})
 
-}
-
-drawWelcome(20, 5, "#welcome");
 
 </script>
