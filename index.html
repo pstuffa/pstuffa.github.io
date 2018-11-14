@@ -15,25 +15,32 @@
 
     <div id="welcome">
     </div>
-
+    <div id="titles">
+      <h1 class='title'> Paul Buffa </h1>
+      <h3 class='sub-title'> Data Visualization Developer </h3>
+      <p class='contact'> Contact me on <a href='https://www.linkedin.com/in/paul-buffa/'>LinkedIn</a> or <a href='https://twitter.com/pstuffa'>Twitter</a> </p> 
+      <p class='scroll'> Scroll down for examples of my work</p>
+    </div>
     <div id="gifs">
-      <img src='./shared/gifs/550.gif' width="25%">
-      <!-- <img src='./shared/gifs/artGen4.gif' width="25%"> -->
-      <!-- <img src='./shared/gifs/dashes.gif' width="25%"> -->
-      <img src='./shared/gifs/map.gif' width="25%">
-      <img src='./shared/gifs/noisey.gif' width="25%">
-      <img src='./shared/gifs/run.gif' width="25%">
-      <!-- <img src='./shared/gifs/run2.gif' width="25%"> -->
-      <!-- <img src='./shared/gifs/run3.gif' width="25%"> -->
-      <!-- <img src='./shared/gifs/yvaral.gif' width="25%"> -->
-      <img src='./shared/gifs/run4.gif' width="25%">
-      <img src='./shared/gifs/run5.gif' width="25%">
-      <img src='./shared/gifs/run6.gif' width="25%">
-      <p> I love to design and build data visualizations on a variety of topics.<p>
+      <h2 class='project-title'> Hover over for more details </h2>
     </div>
 
 
-    <div id="projects">
+<!--       <img src='./shared/gifs/natgeo.gif' height="250px">
+      <img src='./shared/gifs/streeteasy.gif' height="250px">
+      <img src='./shared/gifs/550.gif' height="250px">
+      <img src='./shared/gifs/prospect.gif' height="250px">
+      <img src='./shared/gifs/jiggle.gif' height="250px">
+      <img src='./shared/gifs/run.gif' height="250px">
+      <img src='./shared/gifs/run4.gif' height="250px">
+      <img src='./shared/gifs/run5.gif' height="250px">
+      <img src='./shared/gifs/run6.gif' height="250px">
+      <img src='./shared/gifs/yvaralswave.gif' height="250px">
+      <img src='./shared/gifs/process.gif' height="250px">
+      <img src='./shared/gifs/zebra.gif' height="250px">
+      <img src='./shared/gifs/morphing.gif' height="250px">
+      <img src='./shared/gifs/noisey.gif' height="250px"> -->
+<!--     <div id="projects">
       <h1> Projects </h1>
       <div class='project-list'>
         <div class='project'>
@@ -54,7 +61,7 @@
           <h3> Causaly </h3>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </body>
 
@@ -67,6 +74,23 @@ const height = window.innerHeight
 const width = window.innerWidth * .9
 const multiplier = 4;
 const svgHeight = height * multiplier;
+const gifHeight = 260;
+
+const gifsData = [
+  { width: 600, height: 484, src:'./shared/gifs/natgeo.gif', descr: 'A data visualization piece I wrote about tracking immigrant community integration using Twitter data.', title: 'National Geographic', link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/'},
+  { width: 600, height: 304, src:'./shared/gifs/streeteasy.gif', descr: 'A tool I made in collaboration with Streeteasy for potentional homeowners to know how long until they will break even in their investment.', title: 'Streeteasy', link: 'https://streeteasy.com/tippingpoint'},
+  { width: 700, height: 538, src:'./shared/gifs/550.gif', descr: 'A project I am working on taking multiple open source datasets and combining them to paint a picture of how condominiums sell their apartments.', title: 'Apartment Analysis', link: 'https://beta.observablehq.com/@pstuffa/550-vanderbilt'},
+  { width: 400, height: 288, src:'./shared/gifs/prospect.gif', descr: 'A visualization of building permits issued in the Brooklyn neighborhood, Prospect Heights.', title: 'Prospect Heights', link: 'https://beta.observablehq.com/@pstuffa/nyc-building-permits-api-prospect-heights/2'},
+  { width: 500, height: 437, src:'./shared/gifs/jiggle.gif', descr: 'I taught a two part workshop at ITP, an NYU program. This is one of the notebooks we went through in the class.', title: 'ITP Workshop', link: 'https://beta.observablehq.com/@pstuffa/making-maps-with-nyc-open-data'},
+  { width: 500, height: 298, src:'./shared/gifs/run.gif', descr: 'Part of a series of visualizations about running metrics. This is the first part of the series.', title: 'Visualizing Running I', link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-i'},
+  { width: 1000, height: 612, src:'./shared/gifs/run4.gif', descr: 'Part of a series of visualizations about running metrics. This is part six of the series.', title: 'Visualizing Running VI', link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-vi'},
+  { width: 1000, height: 859, src:'./shared/gifs/run5.gif', descr: 'Part of a series of visualizations about running metrics. This is part five of the series.', title: 'Visualizing Running V', link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-v'},
+  { width: 500, height: 365, src:'./shared/gifs/run6.gif', descr: 'Part of a series of visualizations about running metrics. This is part seven of the series.', title: 'Visualizing Running VII', link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-vii'},
+  { width: 600, height: 600, src:'./shared/gifs/process.gif', descr: 'A recreation in D3 of Op Art by Jean-Pierre Vasarely, aka Yvaral', title: 'Yvaral', link: 'https://beta.observablehq.com/@pstuffa/yvaral-in-d3'},
+  { width: 400, height: 400, src:'./shared/gifs/yvaralswave.gif', descr: 'Another recreation in D3 of Op Art by Jean-Pierre Vasarely, aka Yvaral', title: 'Yvaral II', link: 'https://beta.observablehq.com/@pstuffa/yvaral-ii'},
+  { width: 500, height: 224, src:'./shared/gifs/morphing.gif', descr: 'An exploration for how to create inkblots using D3', title: 'Rorschach Tests', link: 'https://beta.observablehq.com/@pstuffa/making-inkblots-in-d3'},
+  { width: 500, height: 461, src:'./shared/gifs/noisey.gif', descr: 'An exploration into recreating the famous piece by Bridget Riley, Blaze 1964', title: 'Bridget Riley', link: 'https://beta.observablehq.com/@pstuffa/bridget-riley'}
+]
 
 const generateData = (n) => {
 
@@ -126,21 +150,6 @@ const drawWelcome = (thickWidth, thinWidth, divID) => {
   const g = svg.append("g")
     .attr("transform",`translate(${margin.left}, ${margin.top})`)
 
-  g.append("text")
-    .attr("class", "title")
-    .attr("x", width - width*.05)
-    .attr("y", height - 200)
-    .text("Paul Buffa")
-    .style("fill", '#000')
-    .style("stroke", '#000')
-    .style("stroke-width", 2)
-
-  const subTitle = g.append("text")
-    .attr("class", "sub-title")
-    .attr("x", width - width*.05)
-    .attr("y", height - 140)
-    .text("Data Visualization Developer")
-
   const pathTwo = g.append("path")
    .datum(data)
    .attr("d", line)
@@ -167,40 +176,42 @@ const drawWelcome = (thickWidth, thinWidth, divID) => {
 
 
   // Projects 
-  const gifGroup = d3.select("#gifs")
-    .style("top",`${margin.top + height}px`);
+  const gifContainer = d3.select("#gifs")
+    .style("top",`${margin.top + height}px`)
+    .style("max-width", `${width}px`)
 
+  const gifGroup = gifContainer.selectAll(".gif-group")
+    .data(gifsData)
+  .enter().append("div")
+    .attr("class", "gif-group")
+    .style("width", d => `${d.width / (d.height / gifHeight)}px`)
+    .style("height", `${gifHeight}px`)
+    // .style("border", "1px solid #000")
+    .on("mouseenter", function() {
+      d3.select(this).select(".hover-text")
+        .transition()
+        .style("opacity", .85)
+    })
+    .on("mouseleave", function() {
+      d3.select(this).select(".hover-text")
+        .transition()
+        .style("opacity", 0)
+    })
 
-  const projectGroup = d3.select("#projects")
-    .style("top",`${(margin.top * 2) + (height * 2)}px`);
-
-  // projectGroup.append("h1")  
-  //   .attr("class", "sub-title")
-  //   .attr("x", width*.05)
-  //   .attr("y", height*.05)
-  //   .style("text-anchor", "start")
-  //   .text("Projects")
-  //   .style("stroke", '#000')
-  //   .style("stroke-width", 1)
-
-  // const projects = [
-  //   {key: 'National Geographic', desc: 'I wrote a piece about intergrating immigrant communities for National Geographic. I designed the visualization, built it in D3, and wrote the copy for the piece', link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/', picture: './shared/images/natgeo-thumbnail.png'}
-  // ];
-
-  // const projectGroupList = g.append("g")
-  //   .attr("transform",`translate(${width * .05}, ${margin.top + height + height * .1})`)
-  //   .selectAll(".project")  
-  //   .data(projects)
-  // .enter().append("g")
-  //   .attr("class", "project")
-  //   .attr("transform",(d,i) => `translate(0, ${i * 100})`)
+gifGroup.append("img")
+    .attr("src", d => d.src)
+    .attr("height", `${gifHeight}px`)
+    .attr("width", d => `${d.width / (d.height / gifHeight)}px`)
   
-  // projectGroupList.append("text")
-  //     .text(d => d.key)
+gifGroup.append("div")
+    .style("width", d => `${d.width / (d.height / gifHeight)}px`)
+    .style("max-width", d => `${d.width / (d.height / gifHeight)}px`)
+    .style("height", `${gifHeight}px`)
+    .style("background-color", "#000")
+    .style("opacity", 0)
+    .attr("class", "hover-text")
+    .html(d => { return `<h5 class='tiny-title'>${d.title}</h5><br /><p>${d.descr}</p><br /><br /><a href='${d.link}'>Click here to see the work </a>`})
 
-
-
-  
 }
 
 drawWelcome(20, 5, "#welcome");
