@@ -10,6 +10,8 @@
     <link href="./shared/css/welcome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crete+Round|Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre&display=swap" rel="stylesheet">
+
   <body>
     <div id="welcome">
     </div>
@@ -107,14 +109,14 @@
  const pathTwo = g.append("path")
     .datum(data)
     .attr("d", line)
-    .style("stroke", '#000')
+    .style("stroke", '#000000')
     .style("stroke-width", thickWidth)
     .style("fill", "none")
   
  const path = g.append("path")
     .datum(data)
     .attr("d", line)
-    .style("stroke", '#33ccff')
+    .style("stroke", '#0096aa')
     .style("stroke-width", thinWidth)
     .style("fill", "none")
     .attr("stroke-dasharray",  `${width / 2} ${width / 2} 10 10 10 10 10 10 10 10` )
@@ -157,9 +159,10 @@
       .attr("width", d => `${d.width / (d.height / gifHeight)}px`)
     
   const gifDiv = gifGroup.append("div")
-      .style("width", d => `${d.width / (d.height / gifHeight)}px`)
-      .style("max-width", d => `${d.width / (d.height / gifHeight)}px`)
-      .style("height", `${gifHeight}px`)
+      .style("padding", "10px")
+      .style("width", d => `${(d.width / (d.height / gifHeight)) - 20}px`)
+      .style("max-width", d => `${(d.width / (d.height / gifHeight)) - 20}px`)
+      .style("height", `${gifHeight - 20}px`)
       .style("background-color", "#000")
       .style("opacity", 0)
       .attr("class", "hover-text")
@@ -205,9 +208,11 @@
     gifImg.attr("height", d =>`${d.height / (d.width / width)}px`)
         .attr("width", `${width}px`);
       
-    gifDiv.style("width", `${width}px`)
-        .style("max-width", `${width}px`)
-        .style("height", d =>`${d.height / (d.width / width)}px`)      
+    gifDiv
+      .style("padding", "10px")
+      .style("width", `${width - 20}px`)
+        .style("max-width", `${width - 20}px`)
+        .style("height", d =>`${d.height / (d.width / width) - 20}px`)      
         .html(d => { return `<h5 class='tiny-title'>${d.title}</h5><br /><p>${d.descr} <a href='${d.link}'>Click here to see the work </a></p>`});
 
 
