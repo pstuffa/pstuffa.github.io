@@ -8,7 +8,6 @@ body {
 	/*font-family: 'Special Elite', cursive;*/
 	/*font-family: 'Helvetica', sans-serif;*/
 	font-family: 'Averia Sans Libre', cursive;
-
 	font-weight: 100;
 	font-size: 100px;
 	text-align: end;
@@ -33,7 +32,7 @@ body {
 	font-weight: 100;
 	margin-top: 0px;
 	padding-top: 0px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	padding-bottom: 0px;
 }
 
@@ -46,7 +45,6 @@ body {
 	padding-top: 0px;
 	margin-bottom: 5px;
 	padding-bottom: 0px;
-
 }
 
 .scroll {
@@ -62,6 +60,10 @@ body {
 	position: absolute;
 	/*top: 60%;*/
 	right: 10%;
+	bottom: 20%;
+	/* border: 1px solid #000; */
+	width: 500px;
+	height: 300px
 }
 
 
