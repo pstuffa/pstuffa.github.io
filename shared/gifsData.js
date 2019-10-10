@@ -27,7 +27,8 @@ const gifsData = [
     width: 800, 
     height: 796, 
     src:'./shared/gifs/newgrads.gif', 
-    descr: `A map visualization tool for new college graduates to see where the most affordable apartments are in New York City. Uses Uber's H3 hexbins to show the results.', title: 'StreetEasy Homes for New Graduates`, 
+    descr: `A map visualization tool for new college graduates to see where the most affordable apartments are in New York City. Uses Uber's H3 hexbins to show the results.`, 
+    title: 'StreetEasy Homes for New Graduates', 
     link: 'https://streeteasy.com/blog/nyc-apartments-for-new-grads/'
   },
   { 
