@@ -16,6 +16,14 @@ const gifsData = [
     link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/'
   },
   { 
+    width: 1270, 
+    height: 1512, 
+    src:'./shared/images/example.png', 
+    descr: 'An Observable notebook on how to build ImageQuilts, a Edward Tufte concept for visualization with images. I use HSL decomposition to extract primary colors from artworks and use that to order images into a quilt.', 
+    title: 'ImageQuilts', 
+    link: 'https://observablehq.com/@pstuffa/imagequilts'
+  },
+  { 
     width: 1000, 
     height: 904, 
     src:'./shared/gifs/demand3.gif', 
