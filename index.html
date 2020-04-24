@@ -1,211 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>pstuffa</title>
-
     <script src="./shared/js/vendor/d3/d3.min.js"></script>
     <script src="./shared/gifsData.js"></script>
-    <script src="./shared/js/module/helpers.js"></script>
     <link href="./shared/css/welcome.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre&display=swap" rel="stylesheet">
-    </head>
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   </head>
   <body>
-    <div id="welcome">
-    </div>
-    <div id="titles">
+    <div id="top">
+    <div id="title">
       <h1 class='title'> Paul Buffa </h1>
       <h3 class='sub-title'> Data Visualization Developer </h3>
       <p class='contact'> Contact me on <a href='https://www.linkedin.com/in/paul-buffa/'>LinkedIn</a> or <a href='https://twitter.com/pstuffa'>Twitter</a> </p> 
-      <p class='scroll'> Scroll down for examples of my work</p>
     </div>
-    <div id="gifs">
-      <h4 class='project-title'> Projects</h2>
+    <div id="welcome"></div>
     </div>
+    <div id="work"></div>
   </body>
 </html>
 
 <script>
 
-const margin = ({top: 20, bottom: 20, left: 20, right: 20})
-    , height = window.innerHeight 
-    , width = window.innerWidth * .9
+const div = d3.select("#work")
 
-const multiplier = isMobile(width) ? 11 : 6
-    , svgHeight = height * multiplier
-    , gifHeight = width / (multiplier - 1)
-    , thickWidth = isMobile(width) ? 1000 : 30
-    , thinWidth = thickWidth / 4;
+const tiles = div.selectAll(".tile")
+  .data(gifsData)
+  .join("div")
+  .attr("class", "tile")
+  .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+  .style("background-size", d => `${d.size}%`)
+  .on("mouseenter", function() {
+    d3.select(this).classed("hover", true)
+      .style("background-image", d => `url("${d.src}")`)
+  })
+  .on("mouseleave", function() {
+    d3.select(this).classed("hover", false)
+      .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+  }).on("click", function(d) {
+    var win = window.open(d.link, '_blank');
+    win.focus();
+  })
 
-// Set the main title by the height of the page
-d3.select("#titles").style("top", `${height * (1/2)}px`)
+  if(window.innerWidth < 600) {
+    tiles.classed("hover", true)
+      .style("background-image", d => `url("${d.src}")`)
+  }
 
-const n = isMobile(width) ? 10 : 50;
-const data = lineData(n);
+  const size = 10;
+  const n = 20;
+  let strokeWidth = 11;
+  const modulus = 3;
+  const delay = 10;
+  const colorOne = "#000"
+  const colorTwo = "#fff"
+  const easeType = 'Cubic'
 
-data.unshift({x: -.25, y: -10});
-data.push({x: .5, y: n });
-data.push({x: .5, y: n * (multiplier )});
-  
-const heightScale = d3.scaleLinear()
-    .domain([0, n])
-    .range([0, height]);
-  
-const widthScale = d3.scaleLinear()
-    .domain([0, n])
-    .range([0, width]);
-  
-const line = d3.line()
-    .curve(d3.curveBasis)
-    .x(d => widthScale(d.x))
-    .y(d => heightScale(d.y));
- 
-const svg = d3.select("#welcome")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", svgHeight + margin.top + margin.bottom)
+  const welcomeDiv = d3.select("#welcome");
+  const width = welcomeDiv.node().offsetWidth;
+  const height = welcomeDiv.node().offsetHeight;
 
-const g = svg.append("g")
-    .attr("transform",`translate(${margin.left}, ${margin.top})`)
+  if(window.innerWidth >= 600) {
+    const svg = d3.select("#welcome")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
 
-const pathTwo = g.append("path")
-    .datum(data)
-    .attr("d", line)
-    .style("stroke", '#000000')
-    .style("stroke-width", thickWidth)
-    .style("fill", "none")
-  
-const path = g.append("path")
-    .datum(data)
-    .attr("d", line)
-    .style("stroke", '#0096aa')
-    .style("stroke-width", thinWidth)
-    .style("fill", "none")
-    .attr("stroke-dasharray",  `${width / 2} ${width / 2} 10 10 10 10 10 10 10 10` )
-    .attr("stroke-dashoffset", width);
-
-let strokeOffset = 0;
-const t = d3.interval(function() {
-  strokeOffset -= 1
-  path.transition()
-    .duration(1)
-    .style("stroke-dashoffset", strokeOffset)
-}, 10)
-
-// Projects 
-const gifContainer = d3.select("#gifs")
-    .style("top",`${margin.top + height + (isMobile(width) ? -50 : 0)}px`)
-    .style("max-width", `${width}px`)
-
-const gifGroup = gifContainer.selectAll(".gif-group")
-    .data(gifsData)
-  .enter().append("div")
-    .attr("class", "gif-group")
-    .style("width", d => `${d.width / (d.height / gifHeight)}px`)
-    .style("height", `${gifHeight}px`)
-    .on("mouseenter", function() {
-      d3.select(this).select(".hover-text")
-        .transition()
-        .style("opacity", .75)
-    })
-    .on("mouseleave", function() {
-      d3.select(this).select(".hover-text")
-        .transition()
-        .style("opacity", 0)
-    })
-
-const gifImg = gifGroup.append("img")
-    .attr("src", d => d.src)
-    .attr("height", `${gifHeight}px`)
-    .attr("width", d => `${d.width / (d.height / gifHeight)}px`)
-  
-const gifDiv = gifGroup.append("div")
-    .style("padding", "10px")
-    .style("width", d => `${(d.width / (d.height / gifHeight)) - 20}px`)
-    .style("max-width", d => `${(d.width / (d.height / gifHeight)) - 20}px`)
-    .style("height", `${gifHeight - 20}px`)
-    .style("background-color", "#000")
-    .style("opacity", 0)
-    .attr("class", "hover-text")
-    .html(d => { 
-      return `
-        <a href='${d.link}'>
-        <h5 class='tiny-title'>${d.title}</h5>
-        </a>
-        <br />
-        <p>${d.descr}
-          <br />
-          <br />
-          <a href='${d.link}'>Click here to see the work </a>
-        </p>
-        <br /><br />`
-    })
-
-  // Slight Changes if its Mobile
-if(isMobile(width)) {
-
-
-  d3.select("body")
-      .style("color", "#fff")
-      
-  d3.select("#titles")
-    .style("top", "50%")
-    .style("right", "1%");
-
-  d3.select(".title")
-    .style("font-size", "60px");
-
-  d3.select(".sub-title")
-    .style("margin-bottom", "5px")
-    .style("font-size", "18px");
-
-  d3.select(".contact")
-    .style("font-size", "14px");
-
-  d3.select(".scroll").remove();
-
-  d3.select(".project-title")
-    .style("text-align", "center")
-    .style("font-size", "20px")
-    .style("margin-bottom", "5px")
-    .style("margin-top", "20px");
-
-  gifGroup
-    .style("height", d =>`${d.height / (d.width / width)}px`)
-    .style("width", `${width}px`)
-    .on("touchstart", function() {
-      d3.select(this).select(".hover-text")
-        .transition()
-        .style("opacity", .85);
-    })
-    .on("touchmove", function() {
-      d3.select(this).select(".hover-text")
-        .transition()
-        .style("opacity", 0);
-    })
-    .on("mouseenter", null)
-    .on("mouseleave", null);
-
-  gifImg
-    .attr("height", d =>`${d.height / (d.width / width)}px`)
-    .attr("width", `${width}px`);
+    const clipPath = svg.append("clipPath")
+        .attr("id", 'clip')
+        .append("rect")
+        .attr("x", -width)
+        .attr("y", -height)
+        .attr("width", width * 2)
+        .attr("height", height);
     
-  gifDiv
-    .style("padding", "10px")
-    .style("width", `${width - 20}px`)
-    .style("max-width", `${width - 20}px`)
-    .style("height", d =>`${d.height / (d.width / width) - 20}px`)      
-    .style("font-size", "12px")
-    .html(d => { 
-      return `<h5 class='tiny-title'>${d.title}</h5><br /><p>${d.descr} <a href='${d.link}'>Click here to see the work </a></p>`
-    });
-} 
+    const circleGroup = svg.selectAll("g")
+      .data(d3.range(n).map(Object))
+      .join("g")
+      .attr("transform", `translate(${width / 2}, ${height / 2})`)
 
+    circleGroup.append("circle")
+      .attr("r", (d,i) => i * size)
+      .style("fill", "none")
+      .style("stroke-width", strokeWidth)
+      .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
+    
+    circleGroup.append("circle")
+      .attr("r", (d,i) => i * size)
+      .style("fill", "none")
+      .style("clip-path", `url(#clip)`)
+      .style("stroke-width", strokeWidth)
+      .style("stroke", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
+      
+    let rotate = 15;
+    d3.interval(() => {
+      circleGroup
+          .transition()
+          .ease(d3[`ease${easeType}`])
+          .delay((d,i) => i * delay)
+          .duration(900)
+          .attr("transform", (d,i) => `translate(${width / 2}, ${height / 2}) rotate(${rotate * (i % modulus == 0 ? 1 : -1)})`)
+        
+        rotate += 15
+    }, 1000)
+  };
+  
 </script>
