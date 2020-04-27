@@ -32,18 +32,42 @@ const tiles = div.selectAll(".tile")
   .join("div")
   .attr("class", "tile")
   .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
-  .style("background-size", d => `${d.size}%`)
-  .on("mouseenter", function() {
-    d3.select(this).classed("hover", true)
-      .style("background-image", d => `url("${d.src}")`)
-  })
-  .on("mouseleave", function() {
-    d3.select(this).classed("hover", false)
-      .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
-  }).on("click", function(d) {
-    var win = window.open(d.link, '_blank');
-    win.focus();
-  })
+  .style("background-size", d => `${d.size}%`);
+
+tiles.append("h3")
+  .attr("class", "title")
+  .text(d => d.title)
+
+  if(window.innerWidth >= 400) {
+    tiles.on("mouseenter", function() {
+      d3.select(this).classed("hover", true)
+        .style("background-image", d => `url("${d.src}")`)
+        d3.select(this).select(".title").style("opacity", 1);
+    })
+    .on("mouseleave", function() {
+      d3.select(this).select(".title").style("opacity", 0);
+      d3.select(this).classed("hover", false)
+        .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+    }).on("click", function(d) {
+      var win = window.open(d.link, '_blank');
+      win.focus();
+    })
+  } else {
+
+    tiles.on("touchstart", function() {
+        d3.select(this).classed("hover", true)
+          .style("background-image", d => `url("${d.src}")`)
+          d3.select(this).select(".title").style("opacity", 1);
+      })
+      .on("touchend", function() {
+        d3.select(this).select(".title").style("opacity", 0);
+        d3.select(this).classed("hover", false)
+          .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+      }).on("click", function(d) {
+        var win = window.open(d.link, '_blank');
+        win.focus();
+      })
+  }
 
   if(window.innerWidth < 600) {
     tiles.classed("hover", true)
@@ -52,9 +76,9 @@ const tiles = div.selectAll(".tile")
 
   const size = 10;
   const n = 20;
-  let strokeWidth = 11;
+  let strokeWidth = 10;
   const modulus = 3;
-  const delay = 10;
+  const delay = 15;
   const colorOne = "#000"
   const colorTwo = "#fff"
   const easeType = 'Cubic'
@@ -83,17 +107,19 @@ const tiles = div.selectAll(".tile")
       .attr("transform", `translate(${width / 2}, ${height / 2})`)
 
     circleGroup.append("circle")
-      .attr("r", (d,i) => i * size)
-      .style("fill", "none")
+      .attr("r", (d,i) => (n - i) * size)
+      // .style("fill", "none")
       .style("stroke-width", strokeWidth)
-      .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
+      .style("fill", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
+      .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : 'none')
     
     circleGroup.append("circle")
-      .attr("r", (d,i) => i * size)
-      .style("fill", "none")
+      .attr("r", (d,i) => (n - i) * size)
+      // .style("fill", "none")
       .style("clip-path", `url(#clip)`)
       .style("stroke-width", strokeWidth)
-      .style("stroke", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
+      .style("stroke", (d,i) => i % modulus == 0 ? 'none' : colorTwo)
+      .style("fill", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
       
     let rotate = 15;
     d3.interval(() => {

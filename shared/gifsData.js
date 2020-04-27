@@ -2,10 +2,19 @@ const gifsData = [
   { 
     width: 600, 
     height: 484, 
+    size: 200, 
+    src:'./shared/images/covid19.png', 
+    descr: '', 
+    title: 'COVID-19 Tracking', 
+    link: 'https://www.nationalgeographic.com/science/2020/03/mapping-coronavirus-infections-across-the-globe/'
+  },
+  { 
+    width: 600, 
+    height: 484, 
     size: 95, 
     src:'./shared/gifs/natgeo.gif', 
     descr: 'A data visualization piece I wrote for National Geographic on research about tracking immigrant community integration using Twitter data. I designed and developed the visualization and wrote the copy.', 
-    title: 'National Geographic', 
+    title: 'Integrating Immigrants', 
     link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/'
   },
   { 
@@ -14,7 +23,7 @@ const gifsData = [
     size: 300, 
     src:'./shared/gifs/ddp-demo.gif', 
     descr: `The Data Dashboard is a tool that I developed and designed for the StreetEasy Research team to showcase their NYC market research data. The dashboard provides interactive charts that are custom built to each metric, allowing users to quickly gauge trends in the market.`, 
-    title: 'StreetEasy Data Dashboard', 
+    title: 'NYC Data Dashboard', 
     link: 'https://streeteasy.com/blog/data-dashboard/'
   },
   { 
@@ -23,7 +32,7 @@ const gifsData = [
     size: 95, 
     src:'./shared/gifs/demand3.gif', 
     descr: 'An article on how StreetEasy can predict rental demand throughout the year, featuring interactive visualizations highlighting seasonality by neighborhoods.', 
-    title: 'StreetEasy Rental Demand', 
+    title: 'NYC Rental Demand', 
     link: 'https://streeteasy.com/blog/when-renter-demand-is-highest/'
   },
   { 
@@ -32,7 +41,7 @@ const gifsData = [
     size: 300, 
     src:'./shared/gifs/newgrads.gif', 
     descr: `A map visualization tool for new college graduates to see where the most affordable apartments are in New York City. Uses Uber's H3 hexbins to show the results.`, 
-    title: 'StreetEasy Homes for New Graduates', 
+    title: 'Homes for New Graduates', 
     link: 'https://streeteasy.com/blog/nyc-apartments-for-new-grads/'
   },
   { 
@@ -41,7 +50,7 @@ const gifsData = [
     size: 75, 
     src:'./shared/images/taxes.png', 
     descr: 'A report on the changes in property taxes for New York City Condos over time. We found that many building in New York City have tax abatments that are beginning to run out, dramatically raising housing costs. Visualization done with D3.js.', 
-    title: 'StreetEasy Tax Abatements', 
+    title: 'NYC Tax Abatements', 
     link: 'https://streeteasy.com/blog/nyc-tax-abatements-expiring/'
   },
   { 
@@ -50,7 +59,7 @@ const gifsData = [
     size: 90, 
     src:'./shared/gifs/550.gif', 
     descr: 'A project I am working on that takes multiple open source datasets and combines them to paint a picture of how condominiums sell their apartments. The visualization plays an animation showing the progress of sales for a particular building.', 
-    title: 'Apartment Analysis', 
+    title: '550 Vanderbilt', 
     link: 'https://beta.observablehq.com/@pstuffa/550-vanderbilt'
   },
   { 
@@ -59,7 +68,7 @@ const gifsData = [
     size: 95, 
     src:'./shared/gifs/streeteasy.gif', 
     descr: 'A tool I made in collaboration with Streeteasy for potentional homeowners to see how long they buy a home until they will break even with their investment. We visualize the cost of homeownership agaisnt property vale appreciation. Users can select different neighborhoods to see specific results.', 
-    title: 'Streeteasy', 
+    title: 'The Tipping Point', 
     link: 'https://streeteasy.com/tippingpoint'
   },
   { 
@@ -77,7 +86,7 @@ const gifsData = [
     size: 100, 
     src:'./shared/images/example.png', 
     descr: 'An Observable notebook on how to build ImageQuilts, a Edward Tufte concept for visualization with images. I use HSL decomposition to extract primary colors from artworks and use that to order images into a quilt.', 
-    title: 'ImageQuilts', 
+    title: 'Image Quilts', 
     link: 'https://observablehq.com/@pstuffa/imagequilts'
   },
   { 
@@ -86,14 +95,14 @@ const gifsData = [
     size: 75,
     src:'./shared/gifs/run.gif', 
     descr: "I am an avid runner, and I've done several visaulization on running data. This is the first part of a series that explores how to best visualize a run.", 
-    title: 'Visualizing Running - Part I', 
+    title: 'Visualizing Running I', 
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-i'},
   { 
     width: 1000, 
     height: 612, 
     src:'./shared/gifs/run4.gif', 
     descr: 'Part six of my series on visaulizing running, this piece explores ways of comparing heart rate data across several training runs to better see how one improves consistency in heart rate.', 
-    title: 'Visualizing Running - Part VI', 
+    title: 'Visualizing Running VI', 
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-vi'
   },
   { 
@@ -102,7 +111,7 @@ const gifsData = [
     size: 100,
     src:'./shared/gifs/run6.gif', 
     descr: 'Part five of my series on visualizing running, I take an attempt at improving the map visualizations that are so often used in running aps.',
-    title: 'Visualizing Running - Part V', 
+    title: 'Visualizing Running V', 
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-v'
   },
   { 
@@ -111,7 +120,7 @@ const gifsData = [
     size: 100,
     src:'./shared/gifs/run5.gif', 
     descr: 'Part seven of my series on visualizing running, this piece tries to tackle comparing both heart rate and pace for training runs over time. Each run is visualized as an area chart that on the top represents heart rate and the bottom pace.', 
-    title: 'Visualizing Running - Part VII', 
+    title: 'Visualizing Running VII', 
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-vii'
   },
   { 

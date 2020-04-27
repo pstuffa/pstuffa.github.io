@@ -70,3 +70,8 @@ svg {
 .tile.hover {
 	filter: none !important;
 }
+
+.tile .title {
+	text-shadow: 1px 1px 2px #fff, 0 0 25px #ccc, 0 0 5px #fff;
+	opacity: 0;
+}
