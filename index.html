@@ -69,11 +69,6 @@ tiles.append("h3")
       })
   }
 
-  if(window.innerWidth < 600) {
-    tiles.classed("hover", true)
-      .style("background-image", d => `url("${d.src}")`)
-  }
-
   const size = 10;
   const n = 20;
   let strokeWidth = 10;
