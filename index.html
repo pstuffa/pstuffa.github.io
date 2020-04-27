@@ -54,7 +54,7 @@ tiles.append("h3")
     })
   } else {
 
-    tiles.on("touchmove", function() {
+    tiles.on("touchstart", function() {
         d3.select(this).classed("hover", true)
           .style("background-image", d => `url("${d.src}")`)
           d3.select(this).select(".title").style("opacity", 1);
