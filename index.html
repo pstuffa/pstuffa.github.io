@@ -37,8 +37,7 @@ const tiles = div.selectAll(".tile")
 tiles.append("h3")
   .attr("class", "title")
   .text(d => d.title)
-
-  if(window.innerWidth >= 400) {
+  if(window.innerWidth >= 500) {
     tiles.on("mouseenter", function() {
       d3.select(this).classed("hover", true)
         .style("background-image", d => `url("${d.src}")`)
@@ -53,11 +52,11 @@ tiles.append("h3")
       win.focus();
     })
   } else {
-
-    tiles.on("touchstart", function() {
+    tiles.on("touchstart touchmove", function() {
+      console.log("blargh")
         d3.select(this).classed("hover", true)
           .style("background-image", d => `url("${d.src}")`)
-          d3.select(this).select(".title").style("opacity", 1);
+        d3.select(this).select(".title").style("opacity", 1);
       })
       .on("touchend", function() {
         d3.select(this).select(".title").style("opacity", 0);
