@@ -36,7 +36,8 @@ const tiles = div.selectAll(".tile")
 
 tiles.append("h3")
   .attr("class", "title")
-  .text(d => d.title)
+  .text(d => d.title);
+
   if(window.innerWidth >= 500) {
     tiles.on("mouseenter", function() {
       d3.select(this).classed("hover", true)
@@ -115,7 +116,7 @@ tiles.append("h3")
       .style("stroke", (d,i) => i % modulus == 0 ? 'none' : colorTwo)
       .style("fill", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
       
-    let rotate = 15;
+    let rotate = 30;
     d3.interval(() => {
       circleGroup
           .transition()
@@ -124,7 +125,7 @@ tiles.append("h3")
           .duration(900)
           .attr("transform", (d,i) => `translate(${width / 2}, ${height / 2}) rotate(${rotate * (i % modulus == 0 ? 1 : -1)})`)
         
-        rotate += 15
+        rotate += 30
     }, 1000)
   };
   
