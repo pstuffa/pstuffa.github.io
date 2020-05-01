@@ -65,6 +65,7 @@ svg {
 	background-repeat: no-repeat; 
 	background-position: center;
 	filter: grayscale(1);
+	cursor: pointer;
 }
 
 .tile.hover {
