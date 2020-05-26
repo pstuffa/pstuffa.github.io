@@ -3,9 +3,18 @@ const gifsData = [
     width: 600, 
     height: 484, 
     size: 200, 
+    src:'./shared/images/us.png', 
+    descr: '', 
+    title: 'US COVID-19 Tracking', 
+    link: 'https://www.nationalgeographic.com/science/2020/05/graphic-tracking-coronavirus-infections-us/',
+  },
+  { 
+    width: 600, 
+    height: 484, 
+    size: 200, 
     src:'./shared/images/covid19.png', 
     descr: '', 
-    title: 'COVID-19 Tracking', 
+    title: 'Global COVID-19 Tracking', 
     link: 'https://www.nationalgeographic.com/science/2020/03/mapping-coronavirus-infections-across-the-globe/'
   },
   { 

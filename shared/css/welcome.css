@@ -1,6 +1,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	text-align: center;
+	background-color: #ffff66;
 }
 
 #top {
@@ -24,7 +25,8 @@ svg {
 	flex-grow: 1;
 	padding: 5%;
 	z-index: 1000;
-	text-shadow: 1px 1px 2px #fff, 0 0 25px #ccc, 0 0 5px #fff;
+	color: #ff6666;
+	text-shadow: 1px 1px 2px #000, 0 0 25px  #000, 0 0 5px #000;
 }
 
 #title h1 {
@@ -58,18 +60,19 @@ svg {
 	width: 300px;
 	height: 400px;
 	border-radius: 13px;
-	background: #ffffff;
-	box-shadow:  -8px 8px 34px #f5f5f5, 
-				8px -8px 34px #cccccc;
+	background: #fff;
+	box-shadow:  -8px 8px 34px #dddd8c, 
+				8px -8px 34px #b7b717;
 	margin: 10px;
 	background-repeat: no-repeat; 
 	background-position: center;
-	filter: grayscale(1);
+	/* filter: grayscale(1); */
 	cursor: pointer;
 }
 
 .tile.hover {
-	filter: none !important;
+	box-shadow:  -8px 8px 34px pink, 
+				8px -8px 34px hotpink;
 }
 
 .tile .title {
