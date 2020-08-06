@@ -74,59 +74,59 @@ tiles.append("h3")
   let strokeWidth = 10;
   const modulus = 3;
   const delay = 15;
-  const colorOne = "#ff6666"
-  const colorTwo = "#ffff66"
+  const colorOne = "#fff"
+  const colorTwo = "#000"
   const easeType = 'Cubic'
 
   const welcomeDiv = d3.select("#welcome");
   const width = welcomeDiv.node().offsetWidth;
   const height = welcomeDiv.node().offsetHeight;
 
-  if(window.innerWidth >= 600) {
-    const svg = d3.select("#welcome")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height)
+  // if(window.innerWidth >= 600) {
+  //   const svg = d3.select("#welcome")
+  //     .append("svg")
+  //     .attr("width", width)
+  //     .attr("height", height)
 
-    const clipPath = svg.append("clipPath")
-        .attr("id", 'clip')
-        .append("rect")
-        .attr("x", -width)
-        .attr("y", -height)
-        .attr("width", width * 2)
-        .attr("height", height);
+  //   const clipPath = svg.append("clipPath")
+  //       .attr("id", 'clip')
+  //       .append("rect")
+  //       .attr("x", -width)
+  //       .attr("y", -height)
+  //       .attr("width", width * 2)
+  //       .attr("height", height);
     
-    const circleGroup = svg.selectAll("g")
-      .data(d3.range(n).map(Object))
-      .join("g")
-      .attr("transform", `translate(${width / 2}, ${height / 2})`)
+  //   const circleGroup = svg.selectAll("g")
+  //     .data(d3.range(n).map(Object))
+  //     .join("g")
+  //     .attr("transform", `translate(${width / 2}, ${height / 2})`)
 
-    circleGroup.append("circle")
-      .attr("r", (d,i) => (n - i) * size)
-      // .style("fill", "none")
-      .style("stroke-width", strokeWidth)
-      .style("fill", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
-      .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : 'none')
+  //   circleGroup.append("circle")
+  //     .attr("r", (d,i) => (n - i) * size)
+  //     // .style("fill", "none")
+  //     .style("stroke-width", strokeWidth)
+  //     .style("fill", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
+  //     .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : 'none')
     
-    circleGroup.append("circle")
-      .attr("r", (d,i) => (n - i) * size)
-      // .style("fill", "none")
-      .style("clip-path", `url(#clip)`)
-      .style("stroke-width", strokeWidth)
-      .style("stroke", (d,i) => i % modulus == 0 ? 'none' : colorTwo)
-      .style("fill", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
+  //   circleGroup.append("circle")
+  //     .attr("r", (d,i) => (n - i) * size)
+  //     // .style("fill", "none")
+  //     .style("clip-path", `url(#clip)`)
+  //     .style("stroke-width", strokeWidth)
+  //     .style("stroke", (d,i) => i % modulus == 0 ? 'none' : colorTwo)
+  //     .style("fill", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
       
-    let rotate = 30;
-    d3.interval(() => {
-      circleGroup
-          .transition()
-          .ease(d3[`ease${easeType}`])
-          .delay((d,i) => i * delay)
-          .duration(900)
-          .attr("transform", (d,i) => `translate(${width / 2}, ${height / 2}) rotate(${rotate * (i % modulus == 0 ? 1 : -1)})`)
+  //   let rotate = 30;
+  //   d3.interval(() => {
+  //     circleGroup
+  //         .transition()
+  //         .ease(d3[`ease${easeType}`])
+  //         .delay((d,i) => i * delay)
+  //         .duration(900)
+  //         .attr("transform", (d,i) => `translate(${width / 2}, ${height / 2}) rotate(${rotate * (i % modulus == 0 ? 1 : -1)})`)
         
-        rotate += 30
-    }, 1000)
-  };
+  //       rotate += 30
+  //   }, 1000)
+  // };
   
 </script>
