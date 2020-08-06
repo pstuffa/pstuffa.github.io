@@ -3,9 +3,12 @@ const gifsData = [
     width: 600, 
     height: 484, 
     size: 200, 
-    src:'./shared/images/us.png', 
+    src:'./shared/images/us.png',
+    parent: 'National Geographic',
     descr: '', 
     title: 'US COVID-19 Tracking', 
+    id: 'us-covid',
+    value: 100,
     link: 'https://www.nationalgeographic.com/science/2020/05/graphic-tracking-coronavirus-infections-us/',
   },
   { 
@@ -13,8 +16,11 @@ const gifsData = [
     height: 484, 
     size: 200, 
     src:'./shared/images/covid19.png', 
+    parent: 'National Geographic',
     descr: '', 
     title: 'Global COVID-19 Tracking', 
+    id: 'global-covid',
+    value: 80,
     link: 'https://www.nationalgeographic.com/science/2020/03/mapping-coronavirus-infections-across-the-globe/'
   },
   { 
@@ -22,8 +28,11 @@ const gifsData = [
     height: 484, 
     size: 95, 
     src:'./shared/gifs/natgeo.gif', 
+    parent: 'National Geographic',
     descr: 'A data visualization piece I wrote for National Geographic on research about tracking immigrant community integration using Twitter data. I designed and developed the visualization and wrote the copy.', 
     title: 'Integrating Immigrants', 
+    id: 'ng-immigrants',
+    value: 60,
     link: 'https://www.nationalgeographic.com/culture/2018/09/researchers-using-twitter-data-immigration-migration-graphic/'
   },
   { 
@@ -31,8 +40,10 @@ const gifsData = [
     height: 511, 
     size: 300, 
     src:'./shared/gifs/ddp-demo.gif', 
+    parent: 'StreetEasy',
     descr: `The Data Dashboard is a tool that I developed and designed for the StreetEasy Research team to showcase their NYC market research data. The dashboard provides interactive charts that are custom built to each metric, allowing users to quickly gauge trends in the market.`, 
     title: 'NYC Data Dashboard', 
+    id: 'se-dashboard',
     link: 'https://streeteasy.com/blog/data-dashboard/'
   },
   { 
@@ -40,8 +51,11 @@ const gifsData = [
     height: 904, 
     size: 95, 
     src:'./shared/gifs/demand3.gif', 
+    parent: 'StreetEasy',
     descr: 'An article on how StreetEasy can predict rental demand throughout the year, featuring interactive visualizations highlighting seasonality by neighborhoods.', 
     title: 'NYC Rental Demand', 
+    id: 'se-demand',
+    value: 20,
     link: 'https://streeteasy.com/blog/when-renter-demand-is-highest/'
   },
   { 
@@ -49,8 +63,11 @@ const gifsData = [
     height: 796, 
     size: 300, 
     src:'./shared/gifs/newgrads.gif', 
+    parent: 'StreetEasy',
     descr: `A map visualization tool for new college graduates to see where the most affordable apartments are in New York City. Uses Uber's H3 hexbins to show the results.`, 
     title: 'Homes for New Graduates', 
+    id: 'se-grads',
+    value: 20,
     link: 'https://streeteasy.com/blog/nyc-apartments-for-new-grads/'
   },
   { 
@@ -58,8 +75,11 @@ const gifsData = [
     height: 1024, 
     size: 75, 
     src:'./shared/images/taxes.png', 
+    parent: 'StreetEasy',
     descr: 'A report on the changes in property taxes for New York City Condos over time. We found that many building in New York City have tax abatments that are beginning to run out, dramatically raising housing costs. Visualization done with D3.js.', 
     title: 'NYC Tax Abatements', 
+    id: 'se-taxes',
+    value: 30,
     link: 'https://streeteasy.com/blog/nyc-tax-abatements-expiring/'
   },
   { 
@@ -67,8 +87,11 @@ const gifsData = [
     height: 538, 
     size: 90, 
     src:'./shared/gifs/550.gif', 
+    parent: 'StreetEasy',
     descr: 'A project I am working on that takes multiple open source datasets and combines them to paint a picture of how condominiums sell their apartments. The visualization plays an animation showing the progress of sales for a particular building.', 
     title: '550 Vanderbilt', 
+    id: 'se-550',
+    value: 40,
     link: 'https://beta.observablehq.com/@pstuffa/550-vanderbilt'
   },
   { 
@@ -76,8 +99,11 @@ const gifsData = [
     height: 304, 
     size: 95, 
     src:'./shared/gifs/streeteasy.gif', 
+    parent: 'StreetEasy',
     descr: 'A tool I made in collaboration with Streeteasy for potentional homeowners to see how long they buy a home until they will break even with their investment. We visualize the cost of homeownership agaisnt property vale appreciation. Users can select different neighborhoods to see specific results.', 
     title: 'The Tipping Point', 
+    id: 'se-tip',
+    value: 50,
     link: 'https://streeteasy.com/tippingpoint'
   },
   { 
@@ -85,8 +111,11 @@ const gifsData = [
     height: 437, 
     size: 100, 
     src:'./shared/gifs/jiggle.gif', 
+    parent: 'ITP',
     descr: 'I taught a two part workshop at ITP, an NYU program, on how to do data visualization with D3.js. This is one of the notebooks we went through in the class. It goes over how to make contour density maps with D3 and Census data.', 
     title: 'ITP Workshop', 
+    id: 'itp',
+    value: 50,
     link: 'https://beta.observablehq.com/@pstuffa/making-maps-with-nyc-open-data'
   },
   { 
@@ -94,8 +123,11 @@ const gifsData = [
     height: 1512, 
     size: 100, 
     src:'./shared/images/example.png', 
+    parent: 'Art',
     descr: 'An Observable notebook on how to build ImageQuilts, a Edward Tufte concept for visualization with images. I use HSL decomposition to extract primary colors from artworks and use that to order images into a quilt.', 
     title: 'Image Quilts', 
+    id: 'ob-quilts',
+    value: 60,
     link: 'https://observablehq.com/@pstuffa/imagequilts'
   },
   { 
@@ -103,15 +135,21 @@ const gifsData = [
     height: 298,  
     size: 75,
     src:'./shared/gifs/run.gif', 
+    parent: 'Running',
     descr: "I am an avid runner, and I've done several visaulization on running data. This is the first part of a series that explores how to best visualize a run.", 
     title: 'Visualizing Running I', 
+    id: 'ob-run1',
+    value: 20,
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-i'},
   { 
     width: 1000, 
     height: 612, 
     src:'./shared/gifs/run4.gif', 
+    parent: 'Running',
     descr: 'Part six of my series on visaulizing running, this piece explores ways of comparing heart rate data across several training runs to better see how one improves consistency in heart rate.', 
     title: 'Visualizing Running VI', 
+    id: 'ob-run6',
+    value: 60,
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-vi'
   },
   { 
@@ -119,8 +157,11 @@ const gifsData = [
     height: 859,  
     size: 100,
     src:'./shared/gifs/run6.gif', 
+    parent: 'Running',
     descr: 'Part five of my series on visualizing running, I take an attempt at improving the map visualizations that are so often used in running aps.',
-    title: 'Visualizing Running V', 
+    title: 'Visualizing Running V',
+    id: 'ob-run5',
+    value: 50, 
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-v'
   },
   { 
@@ -128,8 +169,11 @@ const gifsData = [
     height: 365,  
     size: 100,
     src:'./shared/gifs/run5.gif', 
+    parent: 'Running',
     descr: 'Part seven of my series on visualizing running, this piece tries to tackle comparing both heart rate and pace for training runs over time. Each run is visualized as an area chart that on the top represents heart rate and the bottom pace.', 
     title: 'Visualizing Running VII', 
+    id: 'ob-run7',
+    value: 40,
     link: 'https://beta.observablehq.com/@pstuffa/visualizing-running-part-vii'
   },
   { 
@@ -137,8 +181,10 @@ const gifsData = [
     height: 512, 
     size: 100, 
     src:'./shared/gifs/obama.gif', 
+    parent: 'Art',
     descr: 'A fork of a Voronoi Stipling notebook that creates faux stained-glass portraits.', 
     title: 'Stained Glass Portraits', 
+    id: 'ob-stained',
     link: 'https://observablehq.com/@pstuffa/voronoi-stained-glass-portraits'
   },
   { 
@@ -146,8 +192,11 @@ const gifsData = [
     height: 600,  
     size: 100,
     src:'./shared/images/yvaral.png', 
+    parent: 'Art',
     descr: 'A recreation in D3 of Op Art by Jean-Pierre Vasarely, aka Yvaral', 
     title: 'Yvaral', 
+    id: 'ob-yvaral',
+    value: 30,
     link: 'https://beta.observablehq.com/@pstuffa/yvaral-in-d3'
   },
   { 
@@ -155,8 +204,11 @@ const gifsData = [
     height: 224,  
     size: 100,
     src:'./shared/gifs/morphing.gif', 
+    parent: 'Art',
     descr: 'An exploration for how to create inkblots using D3', 
     title: 'Rorschach Tests', 
+    id: 'ob-rorschach',
+    value: 30,
     link: 'https://beta.observablehq.com/@pstuffa/making-inkblots-in-d3'
   },
   { 
@@ -164,8 +216,11 @@ const gifsData = [
     height: 461,  
     size: 100,
     src:'./shared/gifs/noisey.gif', 
+    parent: 'Art',
     descr: 'An attempted recreation of the famous piece by Bridget Riley, Blaze 1964', 
     title: 'Bridget Riley', 
+    id: 'ob-rorschach',
+    value: 30,
     link: 'https://beta.observablehq.com/@pstuffa/bridget-riley'
   }
 ]
