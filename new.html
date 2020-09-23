@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pstuffa</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="./shared/gifsData.js"></script>
+    <link href="./shared/css/welcome.css" rel="stylesheet">
+    <script src="https://unpkg.com/flubber@0.3.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://rawcdn.githack.com/Kcnarf/d3-weighted-voronoi/v1.0.1/build/d3-weighted-voronoi.js"></script>
+<script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-map/v1.2.0/build/d3-voronoi-map.js"></script>
+<script src="https://rawcdn.githack.com/Kcnarf/d3-voronoi-treemap/v1.1.0/build/d3-voronoi-treemap.js"></script>
+
+   </head>
+
+  <body>
+    <div id='container'></div>
+  </body>
+  
+</html>
+
+<script>
+
+  const width = window.innerWidth * .95;
+  const height = 1000
+  const margin = {top: 10, bottom: 10, left: 10, right: 10}
+
+d3.selection.prototype.moveToFront = function() {
+  return this.each(function(){
+    this.parentNode.appendChild(this);
+  });}
+
+const voronoiTreeMap = d3.voronoiTreemap()
+  .clip([[0,0], [width, 0], [width, height], [0, height]])
+
+  const nested = d3.nest()
+    .key(d => d.parent)
+    .entries(gifsData);
+
+const formatted = {key: 'portfolio-data', values: nested}
+const structuredRandomData = d3.hierarchy(formatted, d => d.values).sum(d => d.value)
+voronoiTreeMap(structuredRandomData);
+const expandDegree = 20;
+
+const slightlyExpand = (currentPath) => {
+  const points = currentPath.replace("M",'').replace("Z","").split("L")
+  const newPoints = []
+  let minX = width;
+  let minY = height;
+  let maxX = 0;
+  let maxY = 0;
+  for(let i = 0; i < points.length; i++) {
+    const coord = points[i].split(",");
+    const x = +coord[0];
+    const y = +coord[1];
+    if(x > maxX) maxX = x;
+    if(x < minX) minX = x;
+    if(y > maxY) maxY = y;
+    if(y < minY) minY = y;
+  }
+  const w = maxX - minX;
+  const h = maxY - minY;
+  
+  for(let i = 0; i < points.length; i++) {
+    const coord = points[i].split(",");
+    const x = +coord[0];
+    const y = +coord[1];
+    const xPerc = (x - minX) / w ;
+    const yPerc = (y - minY) / h;
+    
+    let xOffset = xPerc > .75 ? expandDegree : xPerc < .25 ? -expandDegree : 0;
+    let yOffset = yPerc > .75 ? expandDegree : yPerc < .25 ? -expandDegree : 0;
+    if(x >= width - 5 || x <= 5) xOffset = 0;
+    if(y >= height - 5 || y <= 5) yOffset = 0;
+    newPoints.push(`${x + xOffset},${y + yOffset}`)
+  }
+  return `M ${newPoints.join("L")} Z`;
+}
+
+
+const root = () => {
+  voronoiTreeMap(structuredRandomData)
+  return structuredRandomData;
+}
+
+const colorScale = d3.scaleOrdinal(d3.schemeDark2)
+  .domain(nested.map(d => d.key))
+
+const nodes = root().descendants()
+    .sort((a, b) => b.depth - a.depth)
+
+    console.log(nodes)
+
+const svg = d3.select("#container").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.left + margin.right);
+
+const g  = svg.append("g")
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+const defs = svg.append("defs");
+
+defs
+  .selectAll('clipPath')
+  .data(nodes.filter(d => d.depth == 1), d => d.data.id)
+  .join("clipPath")
+  .attr("id", d => {
+    return d.data.key.replace(" ","")
+  })
+  .append("path")
+  .attr('d', d => "M" + d.polygon.join("L") + "Z")
+
+const images = defs.selectAll('pattern')
+  .data(nodes.filter(d => d.depth == 2))
+  .join('pattern')
+  .attr("id", d => `${d.data.id}-image`)
+  .attr("width", d => d.data.width)
+  .attr("height", d => d.data.height)
+  .attr("patternUnits", "userSpaceOnUse")
+  .append("image")
+  .attr("xlink:href", (d) => d.data.src)
+  .attr("x", 0)
+  .attr("y", 0)
+  .attr("width", d => d.data.width)
+  .attr("height", d => d.data.height)
+  
+const voronoi = g.append("g")
+  .selectAll('path')
+  .data(nodes.filter(d => d.depth == 2), d => d.data.id)
+  .join('path')
+  .attr('d', d => "M" + d.polygon.join("L") + "Z")
+  .style('stroke', "#fff")
+  .style("stroke-width", 2)
+  .style("fill", "#1c1c1c")
+  .attr("clip-path", d => `url(#${d.data.parent.replace(" ","")})`)
+  .style("cursor", "pointer")
+  .on("mouseenter", function() {
+    
+    const thisPath  = d3.select(this)
+      .classed("selected", true)
+    
+    thisPath.moveToFront()
+      .transition()
+      .style('fill', d => `url(#${d.data.id}-image)`)
+      // .attrTween("d", function(d) {
+      
+      //   const oldPath = thisPath.attr("d")
+      //   const newPath = slightlyExpand(oldPath)
+      //   const interpolator = flubber.interpolate(oldPath, newPath);
+
+      //   return interpolator
+      // });
+
+  })
+  .on("mouseleave", function(d) {
+    
+    const thisPath  = d3.select(this)
+      .classed("selected", false)
+    
+    thisPath
+      .transition()
+      .style("fill", "#1c1c1c")
+    
+    svg.select(".background")
+      .transition()
+      .delay(100)
+      .style("opacity", 1)
+    
+    svg.select(".exit")
+      .transition()
+      .style("opacity", 0)
+  })
+  .on("click", function() {
+    
+    const thisPath  = d3.select(this)
+      .classed("selected", true)
+      .attr("clip-path", false)
+    
+    thisPath.moveToFront()
+      .transition()
+      .attrTween("d", function(d) {
+      
+        const oldPath = thisPath.attr("d")
+        const newPath = `M 0 0 L ${width} 0 L ${width} ${height} L 0 ${height} Z`
+        const interpolator = flubber.interpolate(oldPath, newPath);
+
+        return interpolator
+      });
+    
+    svg.select(".background")
+      .style("opacity", 0)
+
+    svg.select(".exit")
+      .transition()
+      .delay(100)
+      .style("opacity", 1)
+    
+  })
+
+const background = g.append("g")
+  .attr("class", "background")
+  .selectAll('path')
+  .data(nodes.filter(d => d.depth == 1), d => d.data.key)
+  .join('path')
+  .attr('d', d => "M" + d.polygon.join("L") + "Z")
+  .style("fill", "none")
+  .style('stroke', d => colorScale(d.data.key))
+  .style("stroke-width", 4)
+  
+g.append("g")
+  .attr("class", "exit")
+  .style("opacity", 0)
+  .append("text")
+  .attr("transform", `translate(${width - 30}, ${30})`)
+  .text("X")
+  .style("font", "24px sans-serif")
+  
+</script>
