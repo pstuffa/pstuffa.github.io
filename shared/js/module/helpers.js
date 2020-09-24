@@ -40,8 +40,8 @@ const lineData = (n) => {
 
 function getDates(startDate, stopDate) {
   var dateArray = [];
-  var currentDate = moment(startDate);
-  var stopDate = moment(stopDate);
+  var currentDate = moment(startDate, "YYYY-MM-DD");
+  var stopDate = moment(stopDate, "YYYY-MM-DD");
   while (currentDate <= stopDate) {
       dateArray.push( moment(currentDate).format('MM-DD-YYYY') )
       currentDate = moment(currentDate).add(1, 'days');
@@ -96,7 +96,7 @@ byDate.forEach(year => {
   
   const innerArray = [];
   let cum = 0;
-  year.values.sort((a,b) => moment(a.key) - moment(b.key)).forEach(date => {
+  year.values.sort((a,b) => moment(a.key, "MM-DD-YYYY") - moment(b.key, "MM-DD-YYYY")).forEach(date => {
     let yoy = undefined 
     if(year.key == '2019') {
       lyLookup[date.key.replace("-2019", "")] = date.value;
