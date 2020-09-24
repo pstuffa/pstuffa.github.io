@@ -56,7 +56,7 @@
   <body>
     <div id="chart">
       <h1 class='title'>Denver County Evictions Filings</h1>
-      <p class='description'>On April 30th, Govenor Polis implemented an evicition ban for Denver. We can look at eviction data to see how it affected eviction filings. Below is a visualization of the number of eviction filings in Denver County from January to June 2019.</p>
+      <p class='description'>On April 30th, Govenor Polis implemented an evicition ban for Colorado. Data provided by Denver Data Storytellers gives us a look into how the ban has played out in Denver County. Below is a visualization of the number of eviction filings in Denver County from January to June 2019 that will serve as our baseline.</p>
       <div class="buttons">
         <button id="button1">1</button>
         <button id="button2">2</button>
@@ -94,12 +94,12 @@ function hide2020() {
 
 function textOne() {
   const p = d3.select(".description")
-    .text("On April 30th, Govenor Polis implemented an evicition ban for Colorado. We can look at eviction data to see how it affected eviction filings. Below is a visualization of the number of eviction filings in Denver County from January to June 2019.")
+    .text("On April 30th, Govenor Polis implemented an evicition ban for Colorado. Data provided by Denver Data Storytellers gives us a look into how the ban has played out in Denver County. Below is a visualization of the number of eviction filings in Denver County from January to June 2019 that will serve as our baseline.")
 }
 
 function textTwo() {
   const p = d3.select(".description")
-    .html(`When we compare 2019 filings to 2020 filings, we can see a significant dropoff from April to July, from the Eviction Ban. "In April, Polis outlawed evictions except in cases where public safety was at risk. But he chose not to continue the mandate into the summer, much to the dismay of housing advocates,"<a href='https://coloradosun.com/2020/07/12/colorado-eviction-warning-coronavirus/'> as reported by the Colorado Sun.</a>`)
+    .html(`When we compare 2019 filings to 2020 filings, we can see a significant dropoff from April to July, which is from the eviction ban. "In April, Polis outlawed evictions except in cases where public safety was at risk. But he chose not to continue the mandate into the summer, much to the dismay of housing advocates,"<a href='https://coloradosun.com/2020/07/12/colorado-eviction-warning-coronavirus/'> as reported by the Colorado Sun.</a>`)
 }
 
 d3.select("#button1")
@@ -147,7 +147,7 @@ d3.select("#button3")
       i = (direction == 'add' ? i + 1 : i - 1)
       drawChart(i, 1, 1, false, false)
       const p = d3.select(".description")
-        .html(`We can use a moving average to more easily compare 2019 to 2020 eviction filings. Applying a moving average smooths out fluctations by day of week. Note that the y-axis changes as we apply the moving average, as we smooth out the outlier days. You can see in the 7-day moving average, there appears to be a peak in eviction filings in the second and third week of each month. <br />
+        .html(`We can use a moving average to more easily compare 2019 to 2020 eviction filings. Applying a moving average smooths out the daily fluctuations, which allows us to get a better comparison. Interestingly, you can see in the 7-day moving average that there appears to be a peak in eviction filings in the second and third week of each month for both 2019 and 2020. <br />
         <b>${i} Day Moving Average</b>`)
 
       if(i == 7) {
@@ -196,7 +196,7 @@ d3.select("#button5")
     d3.select("#button2").classed("disabled", true)
     drawChart(i, 1, 0, true, true)
     const p = d3.select(".description")
-      .html(`While there is a large dropoff in eviction filings on April 1st, 2020, you'll notice there are some during the ban. That's because since April 30th, technically landlords can file eviction notices, the ban means that they won't be processed. <a href='https://denverite.com/2020/06/12/landlords-across-colorado-have-filed-287-eviction-cases-since-the-governor-banned-them-from-being-processed/'>Denverite reported on June 12th that the Denver District court had six filings.</a> 
+      .html(`While there is a large dropoff in eviction filings on April 1st, 2020, you'll notice there are some during the ban. That's because since April 30th, technically landlords can file eviction notices; the ban means that they won't be processed. <a href='https://denverite.com/2020/06/12/landlords-across-colorado-have-filed-287-eviction-cases-since-the-governor-banned-them-from-being-processed/'>Denverite reported on June 12th that the Denver District court had six filings.</a> 
       <br /><b>${i} Day Moving Average</b>`)
   })
 
