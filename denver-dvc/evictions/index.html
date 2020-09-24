@@ -4,128 +4,382 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>pstuffa</title>
+    <title>Denver Data Viz Challenge</title>
     <script src="../../shared/js/vendor/d3/d3.min.js"></script>
-    <link href="./styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="../../shared/js/module/helpers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;800&display=swap" rel="stylesheet">
    </head>
+   <style>
+     .description {
+       font-family: 'Source Sans Pro';
+       font-size: 18px;
+       max-width: 800px;
+       height: 75px;
+       padding-left: 30px;
+      font-weight: 100;
+     }
+     .title {
+      font-family: 'Source Sans Pro';
+      font-weight: 100;
+       padding-left: 30px;
+     }
+     .buttons {
+       padding-left: 30px;
+     }
+
+     .buttons button {
+      background-color: #e7e7e7; 
+      border: none;
+      padding: 7px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+     }
+     .buttons button.disabled {
+      background-color: #e7e7e7; 
+      border: none;
+      color: rgb(95, 95, 95);
+      padding: 7px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: not-allowed;
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+     }
+   </style>
   <body>
-    <div id="top">
-    <div id="title">
-      <h1 class='title'> Paul Buffa </h1>
-      <h3 class='sub-title'> Data Visualization Developer </h3>
-      <p class='contact'> Contact me on <a href='https://www.linkedin.com/in/paul-buffa/'>LinkedIn</a> or <a href='https://twitter.com/pstuffa'>Twitter</a> </p> 
+    <div id="chart">
+      <h1 class='title'>Denver County Evictions</h1>
+      <p class='description'>On April 30th, Govenor Polis implemented an evicition ban for Denver. We can look at eviction data to see how it affected eviction filings. Below is a visualization of the number of eviction filings in Denver County from January to June 2019.</p>
+      <div class="buttons">
+        <button id="button1">1</button>
+        <button id="button2">2</button>
+        <button id="button3" class='disabled'>3</button>
+        <button id="button4" class='disabled'>4</button>
+        <button id="button5" class='disabled'>5</button>
+      </div>
+      <div id="graph"></div>
     </div>
-    <div id="welcome"></div>
-    </div>
-    <div id="work"></div>
   </body>
 </html>
 
 <script>
 
-const div = d3.select("#work")
+let i = 1;
+let interval = d3.interval(() => {}, 1000)
+drawChart(i, 0, 1, false, false)
 
-const tiles = div.selectAll(".tile")
-  .data(gifsData)
-  .join("div")
-  .attr("class", "tile")
-  .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
-  .style("background-size", d => `${d.size}%`);
+function reveal2020() {
+  const svg = d3.select("svg")
+  svg.select(".tyPath")
+    .transition()
+    .duration(1000)
+    .style("opacity", 1)
+}
 
-tiles.append("h3")
-  .attr("class", "title")
-  .text(d => d.title);
+function hide2020() {
+  const svg = d3.select("svg")
+  svg.select(".tyPath")
+    .transition()
+    .duration(1000)
+    .style("opacity", 0)
+}
 
-  if(window.innerWidth >= 500) {
-    tiles.on("mouseenter", function() {
-      d3.select(this).classed("hover", true)
-        .style("background-image", d => `url("${d.src}")`)
-        d3.select(this).select(".title").style("opacity", 1);
-    })
-    .on("mouseleave", function() {
-      d3.select(this).select(".title").style("opacity", 0);
-      d3.select(this).classed("hover", false)
-        .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
-    }).on("click", function(d) {
-      var win = window.open(d.link, '_blank');
-      win.focus();
-    })
-  } else {
-    tiles.on("touchstart touchmove", function() {
-      console.log("blargh")
-        d3.select(this).classed("hover", true)
-          .style("background-image", d => `url("${d.src}")`)
-        d3.select(this).select(".title").style("opacity", 1);
-      })
-      .on("touchend", function() {
-        d3.select(this).select(".title").style("opacity", 0);
-        d3.select(this).classed("hover", false)
-          .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
-      }).on("click", function(d) {
-        var win = window.open(d.link, '_blank');
-        win.focus();
-      })
-  }
+function textOne() {
+  const p = d3.select(".description")
+    .text("On April 30th, Govenor Polis implemented an evicition ban for Denver. We can look at eviction data to see how it affected eviction filings. Below is a visualization of the number of eviction filings in Denver County from January to June 2019.")
+}
 
-  const size = 10;
-  const n = 20;
-  let strokeWidth = 10;
-  const modulus = 3;
-  const delay = 15;
-  const colorOne = "#fff"
-  const colorTwo = "#000"
-  const easeType = 'Cubic'
+function textTwo() {
+  const p = d3.select(".description")
+    .text("When we compare 2019 filings to 2020 filings, we can see a significant dropoff from April to July.")
+}
 
-  const welcomeDiv = d3.select("#welcome");
-  const width = welcomeDiv.node().offsetWidth;
-  const height = welcomeDiv.node().offsetHeight;
+function textThree() {
+  const p = d3.select(".description")
+    .text("Moving Average")
+}
 
-  // if(window.innerWidth >= 600) {
-  //   const svg = d3.select("#welcome")
-  //     .append("svg")
-  //     .attr("width", width)
-  //     .attr("height", height)
+d3.select("#button1")
+  .on("click", () => {
+    interval.stop();
+    d3.select("#button1").classed("disabled", false)
+    d3.select("#button2").classed("disabled", false)
+    d3.select("#button3").classed("disabled", true)
+    textOne()
+    i = 1;
+    drawChart(i, 0, 1, false, false)
+  })
 
-  //   const clipPath = svg.append("clipPath")
-  //       .attr("id", 'clip')
-  //       .append("rect")
-  //       .attr("x", -width)
-  //       .attr("y", -height)
-  //       .attr("width", width * 2)
-  //       .attr("height", height);
-    
-  //   const circleGroup = svg.selectAll("g")
-  //     .data(d3.range(n).map(Object))
-  //     .join("g")
-  //     .attr("transform", `translate(${width / 2}, ${height / 2})`)
-
-  //   circleGroup.append("circle")
-  //     .attr("r", (d,i) => (n - i) * size)
-  //     // .style("fill", "none")
-  //     .style("stroke-width", strokeWidth)
-  //     .style("fill", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
-  //     .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : 'none')
-    
-  //   circleGroup.append("circle")
-  //     .attr("r", (d,i) => (n - i) * size)
-  //     // .style("fill", "none")
-  //     .style("clip-path", `url(#clip)`)
-  //     .style("stroke-width", strokeWidth)
-  //     .style("stroke", (d,i) => i % modulus == 0 ? 'none' : colorTwo)
-  //     .style("fill", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
-      
-  //   let rotate = 30;
-  //   d3.interval(() => {
-  //     circleGroup
-  //         .transition()
-  //         .ease(d3[`ease${easeType}`])
-  //         .delay((d,i) => i * delay)
-  //         .duration(900)
-  //         .attr("transform", (d,i) => `translate(${width / 2}, ${height / 2}) rotate(${rotate * (i % modulus == 0 ? 1 : -1)})`)
-        
-  //       rotate += 30
-  //   }, 1000)
-  // };
+d3.select("#button2")
+  .on("click", () => {
+    interval.stop();
+    d3.select("#button2").classed("disabled", false)
+    d3.select("#button3").classed("disabled", false)
+    d3.select("#button1").classed("disabled", false)
+    d3.select("#button4").classed("disabled", true)
+    textTwo()
+    drawChart(i, 1, 1, false, false)
+    if(i > 1) {
+      interval = d3.interval(() => {
+        i = i - 1
+        drawChart(i, 1)
+        if(i == 1) {
+          interval.stop();
+        }
+      }, 100)
+    }
+  })
   
+d3.select("#button3")
+  .on("click", () => {
+    interval.stop();
+    d3.select("#button3").classed("disabled", false)
+    d3.select("#button4").classed("disabled", false)
+    d3.select("#button2").classed("disabled", false)
+    d3.select("#button1").classed("disabled", true)
+    d3.select("#button5").classed("disabled", true)
+    let direction = i == 1 ? 'add' : 'less'
+    interval = d3.interval(() => {
+      i = (direction == 'add' ? i + 1 : i - 1)
+      drawChart(i, 1, 1, false, false)
+      const p = d3.select(".description")
+        .text(`Moving Average ${i} Days`)
+
+      if(i == 7) {
+        interval.stop();
+      }
+      if(i == 1) {
+        interval.stop();
+      }
+    }, 100)
+  })
+
+d3.select("#button4")
+  .on("click", () => {
+    interval.stop();
+    d3.select("#button4").classed("disabled", false)
+    d3.select("#button5").classed("disabled", false)
+    d3.select("#button3").classed("disabled", false)
+    d3.select("#button2").classed("disabled", true)
+    let direction = i >= 30 ? 'less' : ((i >= 7 || i >= 1) ? 'add' : 'less')
+    interval = d3.interval(() => {
+      i = (direction == 'add' ? i + 1 : i - 1)
+      drawChart(i, 1, 1, false, false)
+      const p = d3.select(".description")
+        .text(`Moving Average ${i} Days`)
+
+      if(i == 30) {
+        interval.stop();
+      }
+      if(i == 7 & direction == 'less') {
+        interval.stop();
+      }
+    }, 100)
+  })
+
+
+d3.select("#button5")
+  .on("click", () => {
+    interval.stop();
+    i = 30;
+    d3.select("#button4").classed("disabled", false)
+    d3.select("#button5").classed("disabled", false)
+    d3.select("#button3").classed("disabled", false)
+    d3.select("#button2").classed("disabled", true)
+    drawChart(i, 1, 0, true, true)
+  })
+
+
+async function drawChart(N, tyOpacity, lyOpacity, eviction, covid) {
+
+  const mergedDenver = await d3.json("./mergedDenver.json")
+  const byDateDays = d3.nest()
+    .key(d => d.date)
+    .rollup(d => d.length)
+    .map(mergedDenver)
+
+  const byDate = d3.nest()
+    .key(d => d.year)
+    .key(d => d.date)
+    .rollup(d => d.length)
+    .entries(mergedDenver)
+
+  const dateArray = getDates('2018-01-01', '2020-09-01');
+  const mvData = movingAvgData(dateArray, byDateDays, N)
+  const cumulative = generateCumulative(mergedDenver, byDate, mvData)
+  const height = 400;
+  const margin = {top: 30, bottom: 50, left: 50, right: 50}
+  const width = window.innerWidth * .85;
+
+  const div = d3.select("#graph")
+  div.select("svg").remove();
+
+  const svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+
+  const g = svg.append("g")
+    .style("mix-blend-mode", "multiply")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
+  const clipPath = g.append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("width", width)
+    .attr("height", height)
+
+  const yScale = d3.scaleLinear()
+    // .domain([0, 425])
+    .domain([0, d3.max(d3.merge(cumulative.map(d => d.values)), d => d.roll)]).nice()
+    .range([height, 0])
+
+  const xScale = d3.scaleTime()
+    .domain([moment("2019-01-01"), moment("2019-06-21")])
+    .range([0, width]);
+
+  const area = d3.area()
+    .curve(d3.curveStep)
+    .x(d => xScale(moment(d.lookupKey)))
+    .y0(height)
+    .y1(d => yScale(d.roll));
+
+  const colorScale = d3.scaleOrdinal()
+    .domain(['2019', '2020'])
+    .range(["#47a695", "orange"]);
+
+  const xAxis = g.append("g")
+    .attr("class", "x axis")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%B")));
+
+  xAxis.selectAll("line").style("stroke", "#ccc");
+  xAxis.selectAll("path").style("stroke", "#ccc");
+  xAxis.selectAll("text").style("font-size", "14px")
+    .style("font-family", "Source Sans Pro");
+
+  const yAxis = g.append('g')
+    .attr("class", "y axis")
+    .call(d3.axisLeft(yScale).tickSize(-width));
+
+  yAxis.selectAll("line").style("stroke", "#aaa").style("stroke-dasharray", "1").style("stroke-width", .5);
+  yAxis.selectAll("path").remove();
+  yAxis.selectAll("text").style("font-size", "14px")
+    .style("font-family", "Source Sans Pro");
+
+  yAxis.selectAll(".tick").filter((d,i) => i == 0).remove()
+
+  // Legend
+  const legend = g.append("g")
+    .attr("transform", `translate(${width - 52},5)`)
+    .selectAll(".legend")
+    .data([2019, 2020])
+    .join("g")
+    .attr("class", "legend")
+    .attr("transform", (d,i) => `translate(0, ${i * 20})`)
+
+  legend.append("rect")
+    .attr("width", 15) 
+    .attr("height", 15)
+    .style("fill", d => colorScale(d))
+
+  legend.append("text")
+    .attr("x", 20) 
+    .attr("y", 13)
+    .text(d => d)
+    .style("font-family", "Source Sans Pro")
+    .style("fill", d => colorScale(d))
+
+  // Eviction Ban
+  const evictionBanG = g.append("g")
+    .attr("class", "eviction-ban")
+    .style("opacity", eviction ? 1 : 0);
+
+  evictionBanG.append("rect")
+    .attr("width", xScale(moment("2019-07-01")) - xScale(moment("2019-04-01")))
+    .attr("x", xScale(moment("2019-04-01")))
+    .attr("height", height)
+    .attr("y", 0)
+    .style("fill", "#ccc")
+    .attr("rx", 4)
+    .attr("clip-path", "url(#clip)")
+    .style("fill-opacity", .25)
+
+  evictionBanG.append("line")
+    .attr("x1", xScale(moment("2019-04-01")))
+    .attr("x2", xScale(moment("2019-04-01")))
+    .attr("y2", height)
+    .attr("y1", 0)
+    .attr("clip-path", "url(#clip)")
+    .style("stroke", "#ccc")
+
+  evictionBanG.append("line")
+    .attr("x1", xScale(moment("2019-07-01")))
+    .attr("x2", xScale(moment("2019-07-01")))
+    .attr("y2", height)
+    .attr("y1", 0)
+    .attr("clip-path", "url(#clip)")
+    .style("stroke", "#ccc")
+
+  evictionBanG.append("text")
+    .attr("x", xScale(moment("2019-04-01")) + ((xScale(moment("2019-07-01")) - xScale(moment("2019-04-01")))/ 2)).attr("y", 15)
+    .text("Eviction Ban")
+    .style("text-anchor", "middle")
+    .style("font-family", "Source Sans Pro")
+    .style("font-size", "14px")
+    .style("font-weight", 300)
+
+  const stayAtHomeG = g.append("g")
+    .attr("class", "stay-at-home")
+    .style("opacity", covid ? 1 : 0);
+
+  // Stay at home order
+  stayAtHomeG.append("line")
+    .attr("x1", xScale(moment("2019-03-26")))
+    .attr("x2", xScale(moment("2019-03-26")))
+    .attr("y2", height)
+    .attr("y1", 0)
+    .style("stroke", "#aaa")
+
+  stayAtHomeG.append("text")
+    .attr("x", xScale(moment("2019-03-26")) - 2)
+    .attr("y", 12)
+    .text("Statewide Stay At Home Order")
+    .style("text-anchor", "end")
+    .style("font-family", "Source Sans Pro")
+    .style("font-size", "12px")
+    .style("font-weight", 300)
+
+  // 2019 and 2020
+  g.append("path")
+    .attr("class", "lyPath")
+    .style("opacity", lyOpacity)
+    .datum(cumulative.filter(d => d.key == '2019')[0].values)
+    .attr("d", d => area(d))
+    .attr("clip-path", "url(#clip)")
+    .style("mix-blend-mode", "multiply")
+    .style("stroke", "#47a695")
+    .style("fill", "#47a695")
+
+  g.append("path")
+    .attr("class", "tyPath")
+    .style("opacity", tyOpacity)
+    .datum(cumulative.filter(d => d.key == '2020')[0].values)
+    .attr("d", d => area(d))
+    .style("stroke", "orange")
+    .attr("clip-path", "url(#clip)")
+    .style("mix-blend-mode", "multiply")
+    .style("fill", "orange")
+    .style("fill-opacity", .75)
+ 
+}
+
+
+
 </script>
