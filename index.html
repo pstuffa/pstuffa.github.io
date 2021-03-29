@@ -7,7 +7,7 @@
     <title>pstuffa</title>
     <script src="./shared/js/vendor/d3/d3.min.js"></script>
     <script src="./shared/gifsData.js"></script>
-    <link href="./shared/css/welcome.css" rel="stylesheet">
+    <link href="./shared/css/tree.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
    </head>
   <body>
@@ -25,23 +25,27 @@
 
 <script>
 
+const order = ['McKinsey', 'National Geographic', 'StreetEasy']
 const div = d3.select("#work")
-
+const timeParse = d3.timeParse("%m-%Y")
 const tiles = div.selectAll(".tile")
-  .data(gifsData)
+  .data(gifsData.sort((a,b) => order.indexOf(a.parent) < order.indexOf(b.parent) || timeParse(b.date) - timeParse(a.date)))
   .join("div")
   .attr("class", "tile")
+  .style("background-color", d => d.id === 'inclusive-economy' ? '#051C2C' : "#fff")
   .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
   .style("background-size", d => `${d.size}%`);
 
 tiles.append("h3")
   .attr("class", "title")
+  .style("color", d => d.id === 'inclusive-economy' ? '#fff' : "#000")
   .text(d => d.title);
 
   if(window.innerWidth >= 500) {
     tiles.on("mouseenter", function() {
       d3.select(this).classed("hover", true)
         .style("background-image", d => `url("${d.src}")`)
+        .style("background-image", d => `url("${d.src.replace("images", "gifs").replace("png","gif")}")`)
         d3.select(this).select(".title").style("opacity", 1);
     })
     .on("mouseleave", function() {
@@ -54,7 +58,6 @@ tiles.append("h3")
     })
   } else {
     tiles.on("touchstart touchmove", function() {
-      console.log("blargh")
         d3.select(this).classed("hover", true)
           .style("background-image", d => `url("${d.src}")`)
         d3.select(this).select(".title").style("opacity", 1);
@@ -69,64 +72,4 @@ tiles.append("h3")
       })
   }
 
-  const size = 10;
-  const n = 20;
-  let strokeWidth = 10;
-  const modulus = 3;
-  const delay = 15;
-  const colorOne = "#fff"
-  const colorTwo = "#000"
-  const easeType = 'Cubic'
-
-  const welcomeDiv = d3.select("#welcome");
-  const width = welcomeDiv.node().offsetWidth;
-  const height = welcomeDiv.node().offsetHeight;
-
-  // if(window.innerWidth >= 600) {
-  //   const svg = d3.select("#welcome")
-  //     .append("svg")
-  //     .attr("width", width)
-  //     .attr("height", height)
-
-  //   const clipPath = svg.append("clipPath")
-  //       .attr("id", 'clip')
-  //       .append("rect")
-  //       .attr("x", -width)
-  //       .attr("y", -height)
-  //       .attr("width", width * 2)
-  //       .attr("height", height);
-    
-  //   const circleGroup = svg.selectAll("g")
-  //     .data(d3.range(n).map(Object))
-  //     .join("g")
-  //     .attr("transform", `translate(${width / 2}, ${height / 2})`)
-
-  //   circleGroup.append("circle")
-  //     .attr("r", (d,i) => (n - i) * size)
-  //     // .style("fill", "none")
-  //     .style("stroke-width", strokeWidth)
-  //     .style("fill", (d,i) => i % modulus == 0 ? colorTwo : colorOne)
-  //     .style("stroke", (d,i) => i % modulus == 0 ? colorTwo : 'none')
-    
-  //   circleGroup.append("circle")
-  //     .attr("r", (d,i) => (n - i) * size)
-  //     // .style("fill", "none")
-  //     .style("clip-path", `url(#clip)`)
-  //     .style("stroke-width", strokeWidth)
-  //     .style("stroke", (d,i) => i % modulus == 0 ? 'none' : colorTwo)
-  //     .style("fill", (d,i) => i % modulus == 0 ? colorOne : colorTwo)
-      
-  //   let rotate = 30;
-  //   d3.interval(() => {
-  //     circleGroup
-  //         .transition()
-  //         .ease(d3[`ease${easeType}`])
-  //         .delay((d,i) => i * delay)
-  //         .duration(900)
-  //         .attr("transform", (d,i) => `translate(${width / 2}, ${height / 2}) rotate(${rotate * (i % modulus == 0 ? 1 : -1)})`)
-        
-  //       rotate += 30
-  //   }, 1000)
-  // };
-  
 </script>

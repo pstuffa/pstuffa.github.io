@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pstuffa</title>
+    <script src="./shared/js/vendor/d3/d3.min.js"></script>
+    <script src="./shared/gifsData.js"></script>
+    <link href="./shared/css/tree.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   </head>
+  <body>
+    <div id="top">
+    <div id="title">
+      <h1 class='title'> Paul Buffa </h1>
+      <h3 class='sub-title'> Data Visualization Developer </h3>
+      <p class='contact'> Contact me on <a href='https://www.linkedin.com/in/paul-buffa/'>LinkedIn</a> or <a href='https://twitter.com/pstuffa'>Twitter</a> </p> 
+    </div>
+    <div id="welcome"></div>
+    </div>
+    <div id="work"></div>
+  </body>
+</html>
+
+<script>
+
+const order = ['McKinsey', 'National Geographic', 'StreetEasy']
+const div = d3.select("#work")
+const timeParse = d3.timeParse("%m-%Y")
+const tiles = div.selectAll(".tile")
+  .data(gifsData.sort((a,b) => order.indexOf(a.parent) < order.indexOf(b.parent) || timeParse(b.date) - timeParse(a.date)))
+  .join("div")
+  .attr("class", "tile")
+  .style("background-color", d => d.id === 'inclusive-economy' ? '#051C2C' : "#fff")
+  .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+  .style("background-size", d => `${d.size}%`);
+
+tiles.append("h3")
+  .attr("class", "title")
+  .style("color", d => d.id === 'inclusive-economy' ? '#fff' : "#000")
+  .text(d => d.title);
+
+  if(window.innerWidth >= 500) {
+    tiles.on("mouseenter", function() {
+      d3.select(this).classed("hover", true)
+        .style("background-image", d => `url("${d.src}")`)
+        .style("background-image", d => `url("${d.src.replace("images", "gifs").replace("png","gif")}")`)
+        d3.select(this).select(".title").style("opacity", 1);
+    })
+    .on("mouseleave", function() {
+      d3.select(this).select(".title").style("opacity", 0);
+      d3.select(this).classed("hover", false)
+        .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+    }).on("click", function(d) {
+      var win = window.open(d.link, '_blank');
+      win.focus();
+    })
+  } else {
+    tiles.on("touchstart touchmove", function() {
+        d3.select(this).classed("hover", true)
+          .style("background-image", d => `url("${d.src}")`)
+        d3.select(this).select(".title").style("opacity", 1);
+      })
+      .on("touchend", function() {
+        d3.select(this).select(".title").style("opacity", 0);
+        d3.select(this).classed("hover", false)
+          .style("background-image", d => `url("${d.src.replace("gifs", "images").replace("gif","png")}")`)
+      }).on("click", function(d) {
+        var win = window.open(d.link, '_blank');
+        win.focus();
+      })
+  }
+
+</script>
