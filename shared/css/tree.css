@@ -59,6 +59,7 @@ svg {
 	background-position: center;
 	cursor: pointer;
 	text-align: center;
+	user-select: none;
 }
 
 .tile.hover {

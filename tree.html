@@ -15,7 +15,7 @@
     <div id="title">
       <h1 class='title'> Paul Buffa </h1>
       <h3 class='sub-title'> Data Visualization Developer </h3>
-      <p class='contact'> Contact me on <a href='https://www.linkedin.com/in/paul-buffa/'>LinkedIn</a> or <a href='https://twitter.com/pstuffa'>Twitter</a> </p> 
+      <p class='contact'> Contact me on <a href='https://www.linkedin.com/in/paul-buffa/'>LinkedIn</a> or <a href='https://twitter.com/pstuffa'>Twitter</a> </p>
     </div>
     <div id="welcome"></div>
     </div>
@@ -40,6 +40,21 @@ tiles.append("h3")
   .attr("class", "title")
   .style("color", d => d.id === 'inclusive-economy' ? '#fff' : "#000")
   .text(d => d.title);
+
+
+function respondToVisibility(element, callback) {
+  var options = {
+    root: document.documentElement,
+  };
+
+  var observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      callback(entry.intersectionRatio > 0);
+    });
+  }, options);
+
+  observer.observe(element);
+}
 
   if(window.innerWidth >= 500) {
     tiles.on("mouseenter", function() {
