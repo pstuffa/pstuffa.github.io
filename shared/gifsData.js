@@ -1,5 +1,18 @@
 const gifsData = [
   { 
+    width: 1170, 
+    height: 718, 
+    size: 100, 
+    src:'./shared/images/vaxmap.png',
+    parent: 'McKinsey',
+    date: '05-2021',
+    descr: '', 
+    title: 'Vaccination Map', 
+    id: 'vax-map',
+    value: 100,
+    link: 'https://covid-tracker.mckinsey.com/vaccination-map?vaxGroup=series_complete_18plus_pct',
+  },
+  { 
     width: 800, 
     height: 200, 
     size: 100, 
