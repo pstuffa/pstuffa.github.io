@@ -62,7 +62,7 @@ const gifsData = [
     title: 'Global COVID-19 Tracking', 
     id: 'global-covid',
     value: 80,
-    link: 'https://www.nationalgeographic.com/science/2020/03/mapping-coronavirus-infections-across-the-globe/'
+    link: 'https://web.archive.org/web/20210303002125/https://www.nationalgeographic.com/science/graphics/mapping-coronavirus-infections-across-the-globe'
   },
   { 
     width: 600, 
