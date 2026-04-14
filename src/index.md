@@ -1,7 +1,6 @@
 
 
 # Paul Buffa
-## [Portfolio](./index) || [About Me](./about)
 
 ```js
 import {work} from './work.js';
